@@ -1,0 +1,4949 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-14T08:00:36Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 12069181104,
+  "lat": 37.5694045,
+  "lon": 126.9803243,
+  "tags": {
+    "leisure": "park",
+    "name": "청계천이보이는쉼터",
+    "name:ko": "청계천이 보이는 쉼터"
+  }
+},
+{
+  "type": "node",
+  "id": 12750749501,
+  "lat": 37.5811503,
+  "lon": 126.9382648,
+  "tags": {
+    "leisure": "park",
+    "name": "Yeonhul Forest Rest Area"
+  }
+},
+{
+  "type": "node",
+  "id": 13682541638,
+  "lat": 37.5833396,
+  "lon": 126.9607682,
+  "tags": {
+    "leisure": "park",
+    "name": "인왕산공원"
+  }
+},
+{
+  "type": "node",
+  "id": 13682541642,
+  "lat": 37.5912282,
+  "lon": 126.9664001,
+  "tags": {
+    "leisure": "park",
+    "name": "청운공원"
+  }
+},
+{
+  "type": "node",
+  "id": 13949041202,
+  "lat": 37.5547153,
+  "lon": 126.9653013,
+  "tags": {
+    "leisure": "park",
+    "name:en": "The Pink Island"
+  }
+},
+{
+  "type": "node",
+  "id": 13973773001,
+  "lat": 37.5769096,
+  "lon": 126.9610776,
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "node",
+  "id": 13973773002,
+  "lat": 37.5773109,
+  "lon": 126.9609986,
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "node",
+  "id": 13985578601,
+  "lat": 37.5724101,
+  "lon": 126.9745699,
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "node",
+  "id": 14069964387,
+  "lat": 37.5954664,
+  "lon": 126.9743737,
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "node",
+  "id": 14109560046,
+  "lat": 37.5751410,
+  "lon": 126.9639655,
+  "tags": {
+    "leisure": "park",
+    "name": "사직근린공원"
+  }
+},
+{
+  "type": "way",
+  "id": 158653148,
+  "center": {
+    "lat": 37.5518084,
+    "lon": 127.0289334
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "Rose Garden",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 158653405,
+  "center": {
+    "lat": 37.5506060,
+    "lon": 127.0288288
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "독서당공원",
+    "name:en": "Dokseodang Park",
+    "name:ko": "독서당공원"
+  }
+},
+{
+  "type": "way",
+  "id": 173882609,
+  "center": {
+    "lat": 37.5536745,
+    "lon": 126.9424120
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "노고산동체육공원",
+    "name:ja": "老姑山洞体育公園"
+  }
+},
+{
+  "type": "way",
+  "id": 184444070,
+  "center": {
+    "lat": 37.5762261,
+    "lon": 126.9871134
+  },
+  "tags": {
+    "attraction": "historic",
+    "description:en": "Former Korean royal residence of Prince Regent Daewon-gun, ruler of Korea during the Joseon Dynasty in the 19th century. (Source: Wikipedia:en)",
+    "historic": "palace",
+    "leisure": "park",
+    "wikipedia": "ko:운현궁",
+    "wikipedia:en": "Unhyeongung"
+  }
+},
+{
+  "type": "way",
+  "id": 196070397,
+  "center": {
+    "lat": 37.5735391,
+    "lon": 126.9701719
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "내수1 근린공원",
+    "name:ja": "内需1 近隣公園",
+    "name:zh": "内须1邻里公园"
+  }
+},
+{
+  "type": "way",
+  "id": 216906544,
+  "center": {
+    "lat": 37.5509353,
+    "lon": 126.9289689
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "와우근린공원",
+    "name:en": "Wau Neighborhood Park",
+    "name:ja": "臥牛公園",
+    "name:ko": "와우근린공원",
+    "operator": "마포구"
+  }
+},
+{
+  "type": "way",
+  "id": 221980510,
+  "center": {
+    "lat": 37.5446720,
+    "lon": 126.9607358
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "효창공원",
+    "name:en": "Hyochang Park",
+    "name:ja": "孝昌公園",
+    "name:ko": "효창공원",
+    "wikidata": "Q5957035",
+    "wikipedia": "en:Hyochang Park"
+  }
+},
+{
+  "type": "way",
+  "id": 222964179,
+  "center": {
+    "lat": 37.5842160,
+    "lon": 126.9721531
+  },
+  "tags": {
+    "description": "무궁화동산 가운데있는 멋진 돌 조각",
+    "leisure": "park",
+    "name": "무궁화동산",
+    "name:en": "Mugunghwa Hill",
+    "phone": "+82 02-731-0670"
+  }
+},
+{
+  "type": "way",
+  "id": 222969855,
+  "center": {
+    "lat": 37.5833286,
+    "lon": 126.9730716
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 223157536,
+  "center": {
+    "lat": 37.5735497,
+    "lon": 126.9759308
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "지하189",
+    "addr:postcode": "03172",
+    "addr:street": "세종대로",
+    "addr:subdistrict": "세종로",
+    "leisure": "park",
+    "name": "세종로공원",
+    "name:en": "Sejonggno Park",
+    "name:ja": "世宗路公園",
+    "name:ko": "세종로공원",
+    "name:zh": "世宗路公园",
+    "phone": "+82 02-2148-2843",
+    "website": "http://parks.seoul.go.kr/parks/sub/greencity/park_search_result1.jsp?num=1328&pagenum=1&pictogram_num=&keyword=%C1%BE%B7%CE&p_area="
+  }
+},
+{
+  "type": "way",
+  "id": 223296619,
+  "center": {
+    "lat": 37.5560268,
+    "lon": 126.9652069
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "손기정체육공원",
+    "name:ja": "孫基禎体育公園",
+    "wikidata": "Q16220016",
+    "wikipedia": "ko:손기정",
+    "wikipedia:en": "Sohn Kee-chung Park"
+  }
+},
+{
+  "type": "way",
+  "id": 223296629,
+  "center": {
+    "lat": 37.5548208,
+    "lon": 126.9615955
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "만리 배수지 공원",
+    "name:ja": "万里配水池公園",
+    "name:ko": "만리 배수지 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 223298140,
+  "center": {
+    "lat": 37.5596197,
+    "lon": 126.9751326
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "숭례문광장",
+    "name:en": "Sungnyemun Plaza",
+    "name:ja": "崇礼門広場",
+    "name:ko": "숭례문광장",
+    "name:zh": "崇礼门广场",
+    "name:zh-Hans": "崇礼门广场",
+    "name:zh-Hant": "崇禮門廣場"
+  }
+},
+{
+  "type": "way",
+  "id": 223433271,
+  "center": {
+    "lat": 37.5677989,
+    "lon": 126.9716419
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "중구",
+    "addr:housenumber": "21-18",
+    "addr:postcode": "04518",
+    "addr:street": "정동길",
+    "addr:subdistrict": "정동",
+    "leisure": "park",
+    "name": "정동공원",
+    "name:en": "Jeongdong Park",
+    "name:ja": "貞洞公園",
+    "name:ko": "정동공원"
+  }
+},
+{
+  "type": "way",
+  "id": 223433273,
+  "center": {
+    "lat": 37.5758443,
+    "lon": 126.9671398
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "사직공원",
+    "name:en": "Sajik Park",
+    "name:ja": "社稷公園",
+    "name:zh": "社稷公园"
+  }
+},
+{
+  "type": "way",
+  "id": 223434842,
+  "center": {
+    "lat": 37.5825985,
+    "lon": 127.0088977
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "성북구",
+    "addr:housenumber": "145",
+    "addr:postcode": "02877",
+    "addr:street": "삼선교로4길",
+    "addr:subdistrict": "삼선동1가",
+    "leisure": "park",
+    "name": "삼선공원",
+    "name:en": "Samseon Park",
+    "phone": "+82 02-920-3782"
+  }
+},
+{
+  "type": "way",
+  "id": 223434843,
+  "center": {
+    "lat": 37.5802592,
+    "lon": 127.0028420
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "104",
+    "addr:postcode": "03087",
+    "addr:street": "대학로",
+    "addr:subdistrict": "동숭동",
+    "leisure": "park",
+    "name": "마로니에공원",
+    "name:en": "Marronnier Park",
+    "name:ja": "マロニエ公園",
+    "name:ko": "마로니에공원",
+    "phone": "+82 02-2148-4158",
+    "wikidata": "Q623956",
+    "wikipedia": "ko:마로니에공원",
+    "wikipedia:en": "Marronnier Park"
+  }
+},
+{
+  "type": "way",
+  "id": 229027407,
+  "center": {
+    "lat": 37.5754618,
+    "lon": 127.0085424
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "성줄어린이공원",
+    "name:en": "Seongjul Children's Park"
+  }
+},
+{
+  "type": "way",
+  "id": 229027411,
+  "center": {
+    "lat": 37.5805453,
+    "lon": 127.0072143
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "41",
+    "addr:postcode": "03085",
+    "addr:street": "낙산길",
+    "addr:subdistrict": "동숭동",
+    "alt_name:ko": "낙산",
+    "leisure": "park",
+    "name": "낙산공원",
+    "name:en": "Naksan park",
+    "name:ja": "駱山公園",
+    "name:ko": "낙산공원",
+    "phone": "+82 02-743-7985",
+    "website": "https://parks.seoul.go.kr/template/sub/naksan.do"
+  }
+},
+{
+  "type": "way",
+  "id": 229028027,
+  "center": {
+    "lat": 37.5730106,
+    "lon": 127.0182965
+  },
+  "tags": {
+    "alt_name": "서울 동묘",
+    "historic": "yes",
+    "historic:civilization": "korean",
+    "historic:period": "joseon",
+    "leisure": "park",
+    "name": "동묘",
+    "name:en": "Dongmyo Shrine",
+    "name:ja": "東廟",
+    "name:ja-Hira": "とんみょ",
+    "name:ko": "동묘",
+    "name:ko-Latn": "Dongmyo",
+    "name:zh": "东庙公园",
+    "official_name": "서울 동관왕묘",
+    "place_of_worship": "shrine",
+    "religion": "confucian",
+    "wikidata": "Q626043",
+    "wikipedia": "en:Dongmyo"
+  }
+},
+{
+  "type": "way",
+  "id": 229028336,
+  "center": {
+    "lat": 37.5638725,
+    "lon": 127.0187644
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "다산어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 236942967,
+  "center": {
+    "lat": 37.5737831,
+    "lon": 126.9809489
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "수성공원",
+    "name:en": "Suseong Park",
+    "name:ja": "寿松公園",
+    "name:ko": "수성공원"
+  }
+},
+{
+  "type": "way",
+  "id": 298518901,
+  "center": {
+    "lat": 37.6017493,
+    "lon": 126.9807685
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "북악 팔각정"
+  }
+},
+{
+  "type": "way",
+  "id": 313914644,
+  "center": {
+    "lat": 37.5809273,
+    "lon": 126.9810772
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 317903523,
+  "center": {
+    "lat": 37.5438024,
+    "lon": 126.9520081
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 334673360,
+  "center": {
+    "lat": 37.5407270,
+    "lon": 126.9454127
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "삼개공원"
+  }
+},
+{
+  "type": "way",
+  "id": 336020833,
+  "center": {
+    "lat": 37.5455067,
+    "lon": 126.9449345
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "경의선숲길공원",
+    "name:ja": "キョンイ線森の道公園"
+  }
+},
+{
+  "type": "way",
+  "id": 345563010,
+  "center": {
+    "lat": 37.5972431,
+    "lon": 127.0150828
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "아리랑길 테마공원"
+  }
+},
+{
+  "type": "way",
+  "id": 348951019,
+  "center": {
+    "lat": 37.5576778,
+    "lon": 126.9455124
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "대헌문화공원",
+    "name:ja": "大峴文化公園"
+  }
+},
+{
+  "type": "way",
+  "id": 352453975,
+  "center": {
+    "lat": 37.5848788,
+    "lon": 127.0259918
+  },
+  "tags": {
+    "layer": "1",
+    "leisure": "park",
+    "name": "Hana Square 광장"
+  }
+},
+{
+  "type": "way",
+  "id": 358297323,
+  "center": {
+    "lat": 37.5680415,
+    "lon": 126.9851589
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "청계천 한빛광장",
+    "name:ja": "清渓川ハンビッ広場",
+    "name:ko": "청계천 한빛광장"
+  }
+},
+{
+  "type": "way",
+  "id": 367474945,
+  "center": {
+    "lat": 37.5514597,
+    "lon": 126.9384852
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "알바트로스 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 370019676,
+  "center": {
+    "lat": 37.5656223,
+    "lon": 126.9779906
+  },
+  "tags": {
+    "landuse": "recreation_ground",
+    "leisure": "park",
+    "name": "서울광장",
+    "name:en": "Seoul Plaza",
+    "name:ja": "ソウル広場",
+    "name:ko": "서울광장",
+    "name:zh": "首爾廣場",
+    "wikidata": "Q482760",
+    "wikipedia:en": "Seoul Plaza"
+  }
+},
+{
+  "type": "way",
+  "id": 381793811,
+  "center": {
+    "lat": 37.5569294,
+    "lon": 127.0214926
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "대현산 배수지공원"
+  }
+},
+{
+  "type": "way",
+  "id": 392734224,
+  "center": {
+    "lat": 37.5809944,
+    "lon": 127.0321017
+  },
+  "tags": {
+    "leisure": "park",
+    "opening_hours": "Mo-Su 09:30-18:00; PH closed"
+  }
+},
+{
+  "type": "way",
+  "id": 402093778,
+  "center": {
+    "lat": 37.5508198,
+    "lon": 126.9425139
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 402093779,
+  "center": {
+    "lat": 37.5509596,
+    "lon": 126.9432276
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "곤자가프라자",
+    "name:en": "Gonzaga Plaza",
+    "name:ja": "ゴンザガプラザ"
+  }
+},
+{
+  "type": "way",
+  "id": 415689102,
+  "center": {
+    "lat": 37.6059114,
+    "lon": 127.0139292
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "한울어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 416453504,
+  "center": {
+    "lat": 37.5837461,
+    "lon": 127.0170375
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "동망봉 어린이 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 419749491,
+  "center": {
+    "lat": 37.6150905,
+    "lon": 126.9745778
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 420064973,
+  "center": {
+    "lat": 37.5622509,
+    "lon": 127.0260176
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "무학봉근린공원"
+  }
+},
+{
+  "type": "way",
+  "id": 420089389,
+  "center": {
+    "lat": 37.5601471,
+    "lon": 127.0234013
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "미소어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 420097208,
+  "center": {
+    "lat": 37.5575174,
+    "lon": 127.0173119
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 420103661,
+  "center": {
+    "lat": 37.5556024,
+    "lon": 127.0139844
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 420113463,
+  "center": {
+    "lat": 37.5492696,
+    "lon": 127.0217363
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 420113464,
+  "center": {
+    "lat": 37.5495073,
+    "lon": 127.0189055
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "금호근린공원"
+  }
+},
+{
+  "type": "way",
+  "id": 420153380,
+  "center": {
+    "lat": 37.5571829,
+    "lon": 126.9260821
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "마포구",
+    "addr:housenumber": "21",
+    "addr:postcode": "04051",
+    "addr:street": "양화로18안길",
+    "addr:subdistrict": "동교동",
+    "leisure": "park",
+    "name": "윗잔다리어린이공원",
+    "name:ja": "ウィッチャンダリこども公園",
+    "smoking": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 420310507,
+  "center": {
+    "lat": 37.5521309,
+    "lon": 127.0050650
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 420331833,
+  "center": {
+    "lat": 37.5642539,
+    "lon": 127.0051430
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 420348558,
+  "center": {
+    "lat": 37.5637861,
+    "lon": 126.9998034
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "묵정공원"
+  }
+},
+{
+  "type": "way",
+  "id": 424080008,
+  "center": {
+    "lat": 37.5768799,
+    "lon": 126.9814248
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "열린송현 녹지광장",
+    "name:en": "Yeolrin Songhyeon Green Square",
+    "name:ja": "開かれた松峴緑地広場",
+    "operator": "서울특별시"
+  }
+},
+{
+  "type": "way",
+  "id": 430275575,
+  "center": {
+    "lat": 37.5880229,
+    "lon": 126.9930527
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "금잔디광장"
+  }
+},
+{
+  "type": "way",
+  "id": 431428101,
+  "center": {
+    "lat": 37.5679770,
+    "lon": 126.9804680
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 444687993,
+  "center": {
+    "lat": 37.5665581,
+    "lon": 126.9408139
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "청송대",
+    "name:en": "Cheongsongdae Park"
+  }
+},
+{
+  "type": "way",
+  "id": 445322145,
+  "center": {
+    "lat": 37.5711160,
+    "lon": 126.9335643
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "궁말어린이공원",
+    "tourism": "picnic_site"
+  }
+},
+{
+  "type": "way",
+  "id": 445431645,
+  "center": {
+    "lat": 37.5567794,
+    "lon": 126.9354057
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "창천문화공원",
+    "name:ja": "滄川文化公園"
+  }
+},
+{
+  "type": "way",
+  "id": 459473112,
+  "center": {
+    "lat": 37.5783501,
+    "lon": 127.0267461
+  },
+  "tags": {
+    "amenity": "public_building",
+    "leisure": "park",
+    "name": "인라의성지"
+  }
+},
+{
+  "type": "way",
+  "id": 459473116,
+  "center": {
+    "lat": 37.5780441,
+    "lon": 127.0274185
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "공원쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 463338346,
+  "center": {
+    "lat": 37.5945213,
+    "lon": 126.9432063
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "실락어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 463707546,
+  "center": {
+    "lat": 37.5761276,
+    "lon": 126.9326238
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "홍연소공원"
+  }
+},
+{
+  "type": "way",
+  "id": 463766403,
+  "center": {
+    "lat": 37.5690022,
+    "lon": 126.9304106
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "궁뜰어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 463771088,
+  "center": {
+    "lat": 37.5721544,
+    "lon": 126.9232765
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "연서어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 463898742,
+  "center": {
+    "lat": 37.5573031,
+    "lon": 126.9299409
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 463945689,
+  "center": {
+    "lat": 37.5529109,
+    "lon": 126.9500407
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쌍룡산근링공원"
+  }
+},
+{
+  "type": "way",
+  "id": 463945690,
+  "center": {
+    "lat": 37.5521244,
+    "lon": 126.9504004
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쌍룡산어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 463998261,
+  "center": {
+    "lat": 37.5605784,
+    "lon": 126.9608666
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "충정로주민쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 464139178,
+  "center": {
+    "lat": 37.5715649,
+    "lon": 126.9603310
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "독립문문화공원"
+  }
+},
+{
+  "type": "way",
+  "id": 464171591,
+  "center": {
+    "lat": 37.5902645,
+    "lon": 126.9660027
+  },
+  "tags": {
+    "check_date": "2025-06-13",
+    "leisure": "park",
+    "name": "청운공원",
+    "name:en": "Cheongun Park",
+    "name:ja": "清雲公園",
+    "name:ko": "청운공원"
+  }
+},
+{
+  "type": "way",
+  "id": 464224865,
+  "center": {
+    "lat": 37.5354612,
+    "lon": 126.9664016
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "신계역사공원"
+  }
+},
+{
+  "type": "way",
+  "id": 464229635,
+  "center": {
+    "lat": 37.5371703,
+    "lon": 126.9547926
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 464229636,
+  "center": {
+    "lat": 37.5366487,
+    "lon": 126.9540839
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 464377231,
+  "center": {
+    "lat": 37.5429489,
+    "lon": 126.9685748
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "돌모루어린이공원",
+    "name:en": "Dolmoru Children's Park"
+  }
+},
+{
+  "type": "way",
+  "id": 464445693,
+  "center": {
+    "lat": 37.5524444,
+    "lon": 126.9742596
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "새꿈 어린이공원",
+    "name:zh": "新梦儿童公园"
+  }
+},
+{
+  "type": "way",
+  "id": 464458034,
+  "center": {
+    "lat": 37.5481019,
+    "lon": 126.9764897
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "새나라어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 464463790,
+  "center": {
+    "lat": 37.5360050,
+    "lon": 126.9897863
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "이태원부군당역사공원"
+  }
+},
+{
+  "type": "way",
+  "id": 464463791,
+  "center": {
+    "lat": 37.5382360,
+    "lon": 126.9893507
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "이태원어린이공원",
+    "name:ja": "梨泰院こども公園"
+  }
+},
+{
+  "type": "way",
+  "id": 464465578,
+  "center": {
+    "lat": 37.5412527,
+    "lon": 126.9915591
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 468586435,
+  "center": {
+    "lat": 37.5960793,
+    "lon": 127.0175069
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "주차장"
+  }
+},
+{
+  "type": "way",
+  "id": 468586726,
+  "center": {
+    "lat": 37.5965718,
+    "lon": 127.0177407
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "고양이 쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 468618464,
+  "center": {
+    "lat": 37.5403637,
+    "lon": 126.9573536
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "경의선숲길공원",
+    "name:ja": "キョンイ線森の道公園"
+  }
+},
+{
+  "type": "way",
+  "id": 468963332,
+  "center": {
+    "lat": 37.5512511,
+    "lon": 126.9382509
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "서강대정문공원"
+  }
+},
+{
+  "type": "way",
+  "id": 469023455,
+  "center": {
+    "lat": 37.6042824,
+    "lon": 127.0187540
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "래미안 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 469055521,
+  "center": {
+    "lat": 37.5889621,
+    "lon": 127.0330477
+  },
+  "tags": {
+    "layer": "1",
+    "leisure": "park",
+    "name": "중앙광장",
+    "name:en": "Central Square",
+    "name:ja": "中央広場",
+    "name:ko": "중앙광장",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 469153412,
+  "center": {
+    "lat": 37.5615930,
+    "lon": 126.9631591
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "충정로 바람의언덕"
+  }
+},
+{
+  "type": "way",
+  "id": 469167592,
+  "center": {
+    "lat": 37.5675384,
+    "lon": 126.9630244
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 469493037,
+  "center": {
+    "lat": 37.5564697,
+    "lon": 126.9462717
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "이대공원",
+    "name:ja": "梨大公園"
+  }
+},
+{
+  "type": "way",
+  "id": 469606438,
+  "center": {
+    "lat": 37.5632963,
+    "lon": 127.0143429
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "중구",
+    "addr:postcode": "04611",
+    "addr:street": "다산로35길",
+    "addr:subdistrict": "신당동",
+    "description": "fix",
+    "leisure": "park",
+    "name": "신당동 떡볶이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 469717099,
+  "center": {
+    "lat": 37.6093190,
+    "lon": 126.9955643
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "사유공원"
+  }
+},
+{
+  "type": "way",
+  "id": 469887101,
+  "center": {
+    "lat": 37.5463478,
+    "lon": 126.9580447
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "놀이터"
+  }
+},
+{
+  "type": "way",
+  "id": 469895773,
+  "center": {
+    "lat": 37.6089401,
+    "lon": 126.9738503
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 470453970,
+  "center": {
+    "lat": 37.6015428,
+    "lon": 126.9551334
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "로터리"
+  }
+},
+{
+  "type": "way",
+  "id": 470875500,
+  "center": {
+    "lat": 37.5481878,
+    "lon": 126.9522017
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 471321428,
+  "center": {
+    "lat": 37.6041626,
+    "lon": 126.9484056
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "놀이터"
+  }
+},
+{
+  "type": "way",
+  "id": 471321429,
+  "center": {
+    "lat": 37.6037432,
+    "lon": 126.9487494
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "놀이터"
+  }
+},
+{
+  "type": "way",
+  "id": 471329917,
+  "center": {
+    "lat": 37.6037892,
+    "lon": 126.9468443
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 471329919,
+  "center": {
+    "lat": 37.6028037,
+    "lon": 126.9459784
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 471329926,
+  "center": {
+    "lat": 37.6030991,
+    "lon": 126.9470352
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 471331522,
+  "center": {
+    "lat": 37.5475042,
+    "lon": 126.9380193
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "자연보호공원"
+  }
+},
+{
+  "type": "way",
+  "id": 471400228,
+  "center": {
+    "lat": 37.5525284,
+    "lon": 127.0075492
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 471690525,
+  "center": {
+    "lat": 37.5815205,
+    "lon": 127.0104617
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "낙산정원"
+  }
+},
+{
+  "type": "way",
+  "id": 471699519,
+  "center": {
+    "lat": 37.5562220,
+    "lon": 126.9291665
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "경의선 숲길"
+  }
+},
+{
+  "type": "way",
+  "id": 471701656,
+  "center": {
+    "lat": 37.5544357,
+    "lon": 126.9322063
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "경의선 숲길"
+  }
+},
+{
+  "type": "way",
+  "id": 471832444,
+  "center": {
+    "lat": 37.5626186,
+    "lon": 127.0337725
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 472113202,
+  "center": {
+    "lat": 37.5583608,
+    "lon": 126.9579822
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 473364706,
+  "center": {
+    "lat": 37.5401743,
+    "lon": 126.9495975
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "놀이터"
+  }
+},
+{
+  "type": "way",
+  "id": 476468064,
+  "center": {
+    "lat": 37.5390099,
+    "lon": 126.9464487
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "복사꽃 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 477482749,
+  "center": {
+    "lat": 37.5627729,
+    "lon": 126.9219291
+  },
+  "tags": {
+    "alt_name": "연트럴파크",
+    "alt_name:en": "Yeontral Park",
+    "alt_name:ja": "ヨントラルパーク",
+    "alt_name:ko": "연트럴파크",
+    "leisure": "park",
+    "name": "경의선숲길공원"
+  }
+},
+{
+  "type": "way",
+  "id": 479647775,
+  "center": {
+    "lat": 37.5647314,
+    "lon": 126.9870155
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "명동문화공원",
+    "name:en": "Myeongdong Culture Park",
+    "name:ja": "明洞文化公園"
+  }
+},
+{
+  "type": "way",
+  "id": 479649727,
+  "center": {
+    "lat": 37.5658768,
+    "lon": 126.9893227
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "을지로역 시민쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 479750149,
+  "center": {
+    "lat": 37.5652702,
+    "lon": 126.9888795
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "저동 2 소공원"
+  }
+},
+{
+  "type": "way",
+  "id": 482210767,
+  "center": {
+    "lat": 37.5863791,
+    "lon": 126.9717464
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "꾀꼬리 동산"
+  }
+},
+{
+  "type": "way",
+  "id": 523188827,
+  "center": {
+    "lat": 37.5615847,
+    "lon": 126.9653292
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 524607592,
+  "center": {
+    "lat": 37.5483478,
+    "lon": 126.9380765
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 525276081,
+  "center": {
+    "lat": 37.5475696,
+    "lon": 126.9842497
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 533502291,
+  "center": {
+    "lat": 37.5507750,
+    "lon": 126.9390774
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 533502292,
+  "center": {
+    "lat": 37.5506187,
+    "lon": 126.9397345
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 533502293,
+  "center": {
+    "lat": 37.5504900,
+    "lon": 126.9403346
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 533502296,
+  "center": {
+    "lat": 37.5510983,
+    "lon": 126.9403528
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 533502298,
+  "center": {
+    "lat": 37.5513859,
+    "lon": 126.9423685
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 533502299,
+  "center": {
+    "lat": 37.5512446,
+    "lon": 126.9431064
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 537163261,
+  "center": {
+    "lat": 37.5724098,
+    "lon": 126.9715151
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "내수2근린공원",
+    "name:en": "Naesu 2 Neighborhood Park",
+    "name:ja": "内需2 近隣公園"
+  }
+},
+{
+  "type": "way",
+  "id": 539342190,
+  "center": {
+    "lat": 37.5508753,
+    "lon": 126.9397093
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 539677232,
+  "center": {
+    "lat": 37.5513246,
+    "lon": 126.9389954
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 539941295,
+  "center": {
+    "lat": 37.5479099,
+    "lon": 126.9374761
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 539941327,
+  "center": {
+    "lat": 37.5477473,
+    "lon": 126.9375156
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 539941470,
+  "center": {
+    "lat": 37.5480603,
+    "lon": 126.9361196
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 539942123,
+  "center": {
+    "lat": 37.5474756,
+    "lon": 126.9383402
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "자연보호공원"
+  }
+},
+{
+  "type": "way",
+  "id": 547862069,
+  "center": {
+    "lat": 37.5520576,
+    "lon": 126.9355447
+  },
+  "tags": {
+    "leisure": "park",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "way",
+  "id": 552959856,
+  "center": {
+    "lat": 37.5469050,
+    "lon": 126.9381784
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 553145591,
+  "center": {
+    "lat": 37.5635348,
+    "lon": 126.9373514
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 556439299,
+  "center": {
+    "lat": 37.5551333,
+    "lon": 126.9746870
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "근린공원"
+  }
+},
+{
+  "type": "way",
+  "id": 556655584,
+  "center": {
+    "lat": 37.5602647,
+    "lon": 126.9714759
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "순화어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 558534153,
+  "center": {
+    "lat": 37.5429331,
+    "lon": 126.9661045
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "화단"
+  }
+},
+{
+  "type": "way",
+  "id": 559967283,
+  "center": {
+    "lat": 37.5952544,
+    "lon": 127.0116175
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 566347256,
+  "center": {
+    "lat": 37.5552091,
+    "lon": 127.0054181
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "신라호텔 조각공원",
+    "name:en": "Hotel Shilla Sculpture Park",
+    "name:ja": "新羅ホテル 彫刻公園",
+    "name:ko": "신라호텔 조각공원",
+    "name:zh": "新羅旅館 雕塑公園",
+    "natural": "wood"
+  }
+},
+{
+  "type": "way",
+  "id": 576272957,
+  "center": {
+    "lat": 37.5428286,
+    "lon": 126.9657701
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "화단"
+  }
+},
+{
+  "type": "way",
+  "id": 589469226,
+  "center": {
+    "lat": 37.5711143,
+    "lon": 126.9656091
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "월암근린공원",
+    "name:en": "Woram Neighborhood Park",
+    "name:ja": "月岩近隣公園"
+  }
+},
+{
+  "type": "way",
+  "id": 605602647,
+  "center": {
+    "lat": 37.5638932,
+    "lon": 126.9686124
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "경찰기념공원",
+    "name:ja": "警察記念公園"
+  }
+},
+{
+  "type": "way",
+  "id": 607913399,
+  "center": {
+    "lat": 37.5904931,
+    "lon": 126.9900320
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "192",
+    "addr:postcode": "03063",
+    "addr:street": "와룡공원길",
+    "addr:subdistrict": "명륜3가",
+    "leisure": "park",
+    "name": "와룡공원",
+    "name:en": "Waryong Park",
+    "name:ja": "臥龍公園",
+    "phone": "+82 02-2148-4153",
+    "website": "https://korean.visitkorea.or.kr/kor/bz15/where/where_tour.jsp?cid=1019041&listType=rdesc",
+    "wikidata": "Q97293529",
+    "wikipedia:en": "Waryong Park"
+  }
+},
+{
+  "type": "way",
+  "id": 607913402,
+  "center": {
+    "lat": 37.5924794,
+    "lon": 126.9979173
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "성북쉼터",
+    "name:en": "Seongbuk Rest area"
+  }
+},
+{
+  "type": "way",
+  "id": 608835315,
+  "center": {
+    "lat": 37.5721408,
+    "lon": 127.0088010
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "흥인지문공원",
+    "name:en": "Heunginjimun Park",
+    "name:ja": "興仁之門公園",
+    "name:zh-Hans": "兴仁之门公园",
+    "name:zh-Hant": "興仁之門公園"
+  }
+},
+{
+  "type": "way",
+  "id": 612506392,
+  "center": {
+    "lat": 37.5675684,
+    "lon": 127.0283472
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "꽃재공원"
+  }
+},
+{
+  "type": "way",
+  "id": 612900181,
+  "center": {
+    "lat": 37.5365971,
+    "lon": 126.9697813
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "문배어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 616738590,
+  "center": {
+    "lat": 37.5536376,
+    "lon": 126.9683294
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "청파어린이공원",
+    "name:en": "Cheongpa children's park",
+    "name:ja": "青坡こども公園"
+  }
+},
+{
+  "type": "way",
+  "id": 617513712,
+  "center": {
+    "lat": 37.5719056,
+    "lon": 126.9720529
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "17-5",
+    "addr:postcode": "03175",
+    "addr:street": "새문안로3길",
+    "addr:subdistrict": "당주동",
+    "leisure": "park",
+    "name": "당주어린이공원",
+    "name:en": "Dangju Children's Park",
+    "name:ja": "唐珠こども公園"
+  }
+},
+{
+  "type": "way",
+  "id": 618482152,
+  "center": {
+    "lat": 37.5535396,
+    "lon": 126.9799268
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 618482153,
+  "center": {
+    "lat": 37.5529517,
+    "lon": 126.9817937
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 618482154,
+  "center": {
+    "lat": 37.5528634,
+    "lon": 126.9807986
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 624285855,
+  "center": {
+    "lat": 37.5894618,
+    "lon": 126.9843970
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "삼청공원",
+    "name:ja": "三清公園"
+  }
+},
+{
+  "type": "way",
+  "id": 631259823,
+  "center": {
+    "lat": 37.5539236,
+    "lon": 126.9674451
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 631259840,
+  "center": {
+    "lat": 37.5560203,
+    "lon": 126.9681495
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "만리동광장",
+    "name:ja": "万里洞広場",
+    "name:ko": "만리동광장"
+  }
+},
+{
+  "type": "way",
+  "id": 634122055,
+  "center": {
+    "lat": 37.5713598,
+    "lon": 126.9797231
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "청진공원",
+    "name:ja": "清進公園"
+  }
+},
+{
+  "type": "way",
+  "id": 685034673,
+  "center": {
+    "lat": 37.5902835,
+    "lon": 126.9907985
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 697294532,
+  "center": {
+    "lat": 37.5610974,
+    "lon": 126.9310919
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "창천동 골목공원",
+    "operator": "서대문구청 공원녹지과"
+  }
+},
+{
+  "type": "way",
+  "id": 705245458,
+  "center": {
+    "lat": 37.5734037,
+    "lon": 127.0244221
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "우산각어린이공원",
+    "name:ja": "ウサンガクこども公園"
+  }
+},
+{
+  "type": "way",
+  "id": 760130446,
+  "center": {
+    "lat": 37.5696689,
+    "lon": 127.0111969
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 760130447,
+  "center": {
+    "lat": 37.5698392,
+    "lon": 127.0111908
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 767063622,
+  "center": {
+    "lat": 37.5600886,
+    "lon": 126.9890037
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "예장자락 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 767669498,
+  "center": {
+    "lat": 37.5613670,
+    "lon": 126.9807982
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 767869618,
+  "center": {
+    "lat": 37.5650011,
+    "lon": 126.9795845
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "중구",
+    "addr:housenumber": "112",
+    "addr:postcode": "04533",
+    "addr:street": "소공로",
+    "addr:subdistrict": "소공동",
+    "leisure": "park",
+    "name": "환구단",
+    "name:en": "Hwangudan",
+    "name:ja": "圜丘壇",
+    "operator": "문화재청"
+  }
+},
+{
+  "type": "way",
+  "id": 767914937,
+  "center": {
+    "lat": 37.5709052,
+    "lon": 126.9681239
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "경희궁",
+    "name:en": "Gyeonghui Palace"
+  }
+},
+{
+  "type": "way",
+  "id": 768401592,
+  "center": {
+    "lat": 37.5647484,
+    "lon": 126.9882267
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 768471592,
+  "center": {
+    "lat": 37.5709052,
+    "lon": 126.9681239
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 768475227,
+  "center": {
+    "lat": 37.5661342,
+    "lon": 126.9750536
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 769024701,
+  "center": {
+    "lat": 37.5690416,
+    "lon": 126.9726765
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 769110718,
+  "center": {
+    "lat": 37.5655825,
+    "lon": 126.9963254
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 769110720,
+  "center": {
+    "lat": 37.5647617,
+    "lon": 126.9967127
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 769116600,
+  "center": {
+    "lat": 37.5571128,
+    "lon": 126.9924214
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 769628864,
+  "center": {
+    "lat": 37.5578566,
+    "lon": 126.9955276
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 769628865,
+  "center": {
+    "lat": 37.5577928,
+    "lon": 126.9955220
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 770899856,
+  "center": {
+    "lat": 37.5770307,
+    "lon": 126.9937897
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 772996237,
+  "center": {
+    "lat": 37.5622345,
+    "lon": 127.0012908
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 777884211,
+  "center": {
+    "lat": 37.5738541,
+    "lon": 126.9598916
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "의주공원"
+  }
+},
+{
+  "type": "way",
+  "id": 777900307,
+  "center": {
+    "lat": 37.5705971,
+    "lon": 126.9654173
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "달바위공원"
+  }
+},
+{
+  "type": "way",
+  "id": 777900308,
+  "center": {
+    "lat": 37.5713600,
+    "lon": 126.9648122
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "달바위공원"
+  }
+},
+{
+  "type": "way",
+  "id": 780103914,
+  "center": {
+    "lat": 37.5455767,
+    "lon": 126.9463445
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 782309269,
+  "center": {
+    "lat": 37.5675495,
+    "lon": 127.0181305
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "중구",
+    "addr:housenumber": "33",
+    "addr:postcode": "04576",
+    "addr:street": "다산로48길",
+    "addr:subdistrict": "황학동",
+    "leisure": "park",
+    "name": "황학어린이공원",
+    "name:ko": "황학어린이공원",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 786081238,
+  "center": {
+    "lat": 37.5840840,
+    "lon": 127.0268222
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "성북구",
+    "addr:housenumber": "145",
+    "addr:postcode": "02841",
+    "addr:street": "안암로",
+    "addr:subdistrict": "안암동5가",
+    "leisure": "park",
+    "name": "애기능동산",
+    "opening_hours": "24/7",
+    "operator": "고려대학교"
+  }
+},
+{
+  "type": "way",
+  "id": 789139562,
+  "center": {
+    "lat": 37.5843112,
+    "lon": 127.0249076
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "진리마루",
+    "operator": "고려대학교"
+  }
+},
+{
+  "type": "way",
+  "id": 789175761,
+  "center": {
+    "lat": 37.5819329,
+    "lon": 126.9947070
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 791458051,
+  "center": {
+    "lat": 37.5830938,
+    "lon": 127.0280215
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "원숭이길 쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 802862246,
+  "center": {
+    "lat": 37.5892662,
+    "lon": 127.0314404
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "인촌기념관 앞 쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 802862247,
+  "center": {
+    "lat": 37.5890347,
+    "lon": 127.0308127
+  },
+  "tags": {
+    "building:levels": "1",
+    "leisure": "park",
+    "name": "패컬티하우스 앞 쉼터",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 802936056,
+  "center": {
+    "lat": 37.5852747,
+    "lon": 127.0279276
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 803731887,
+  "center": {
+    "lat": 37.5887989,
+    "lon": 127.0313073
+  },
+  "tags": {
+    "leisure": "park",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 803736388,
+  "center": {
+    "lat": 37.5905732,
+    "lon": 127.0311613
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "고려대학교 육생비오톱"
+  }
+},
+{
+  "type": "way",
+  "id": 804525740,
+  "center": {
+    "lat": 37.5847029,
+    "lon": 127.0255953
+  },
+  "tags": {
+    "layer": "0",
+    "leisure": "park",
+    "name": "하나스퀘어 쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 806701043,
+  "center": {
+    "lat": 37.5902987,
+    "lon": 127.0265785
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 806701044,
+  "center": {
+    "lat": 37.5856848,
+    "lon": 127.0260090
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "육생비오톱"
+  }
+},
+{
+  "type": "way",
+  "id": 808268486,
+  "center": {
+    "lat": 37.5847203,
+    "lon": 126.9962150
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "25-13",
+    "addr:postcode": "03073",
+    "addr:street": "성균관로5길",
+    "addr:subdistrict": "명륜3가",
+    "leisure": "park",
+    "name": "경학 어린이공원",
+    "opening_hours": "24/7",
+    "operator": "성균관대학교"
+  }
+},
+{
+  "type": "way",
+  "id": 808268490,
+  "center": {
+    "lat": 37.5854312,
+    "lon": 126.9950566
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 808268491,
+  "center": {
+    "lat": 37.5890755,
+    "lon": 126.9915947
+  },
+  "tags": {
+    "layer": "7",
+    "leisure": "park",
+    "name": "원곡정원",
+    "operator": "성균관대학교"
+  }
+},
+{
+  "type": "way",
+  "id": 808268492,
+  "center": {
+    "lat": 37.5891770,
+    "lon": 126.9919089
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 808268493,
+  "center": {
+    "lat": 37.5887598,
+    "lon": 126.9922078
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 808268494,
+  "center": {
+    "lat": 37.5877427,
+    "lon": 126.9909577
+  },
+  "tags": {
+    "layer": "5",
+    "leisure": "park",
+    "name": "수선관 옥상정원"
+  }
+},
+{
+  "type": "way",
+  "id": 821108005,
+  "center": {
+    "lat": 37.5623544,
+    "lon": 126.9749686
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 823311745,
+  "center": {
+    "lat": 37.5885765,
+    "lon": 127.0305033
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "육생비오톱"
+  }
+},
+{
+  "type": "way",
+  "id": 829964064,
+  "center": {
+    "lat": 37.5693919,
+    "lon": 126.9803201
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 839190767,
+  "center": {
+    "lat": 37.5534824,
+    "lon": 126.9597247
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "놀이터",
+    "playground:theme": "playground"
+  }
+},
+{
+  "type": "way",
+  "id": 847218319,
+  "center": {
+    "lat": 37.5628839,
+    "lon": 126.9753116
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 853679038,
+  "center": {
+    "lat": 37.5721800,
+    "lon": 126.9731848
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "주시경마당"
+  }
+},
+{
+  "type": "way",
+  "id": 857091324,
+  "center": {
+    "lat": 37.5569096,
+    "lon": 127.0250654
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "논골새싹공원"
+  }
+},
+{
+  "type": "way",
+  "id": 868514077,
+  "center": {
+    "lat": 37.5800335,
+    "lon": 127.0263808
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "용두희망어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 878546385,
+  "center": {
+    "lat": 37.5436545,
+    "lon": 126.9893844
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "소원길어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 880323075,
+  "center": {
+    "lat": 37.5654762,
+    "lon": 126.9376613
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "윤동주문학동산"
+  }
+},
+{
+  "type": "way",
+  "id": 880708987,
+  "center": {
+    "lat": 37.5939238,
+    "lon": 126.9521485
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "홍제근린공원",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 880723089,
+  "center": {
+    "lat": 37.5934017,
+    "lon": 126.9499628
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "인화소공원"
+  }
+},
+{
+  "type": "way",
+  "id": 880723090,
+  "center": {
+    "lat": 37.5943049,
+    "lon": 126.9510093
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "조리소공원"
+  }
+},
+{
+  "type": "way",
+  "id": 880723091,
+  "center": {
+    "lat": 37.5945741,
+    "lon": 126.9486263
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "문화공원"
+  }
+},
+{
+  "type": "way",
+  "id": 880851556,
+  "center": {
+    "lat": 37.5892509,
+    "lon": 126.9531187
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "인왕산유아숲체험장"
+  }
+},
+{
+  "type": "way",
+  "id": 881821247,
+  "center": {
+    "lat": 37.5497982,
+    "lon": 127.0256106
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "금동어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 881821248,
+  "center": {
+    "lat": 37.5533893,
+    "lon": 127.0213040
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "금옥공원"
+  }
+},
+{
+  "type": "way",
+  "id": 883116157,
+  "center": {
+    "lat": 37.5538118,
+    "lon": 127.0178648
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 883126487,
+  "center": {
+    "lat": 37.5603040,
+    "lon": 127.0181319
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "동화어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 883210549,
+  "center": {
+    "lat": 37.5606734,
+    "lon": 127.0204449
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 899605023,
+  "center": {
+    "lat": 37.5760803,
+    "lon": 126.9344110
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "다람쥐어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 910451394,
+  "center": {
+    "lat": 37.5654994,
+    "lon": 127.0314709
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "도선어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 910454415,
+  "center": {
+    "lat": 37.5613565,
+    "lon": 127.0190161
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "동화주민공원",
+    "name:ko": "동화주민공원"
+  }
+},
+{
+  "type": "way",
+  "id": 915470883,
+  "center": {
+    "lat": 37.5606916,
+    "lon": 127.0134440
+  },
+  "tags": {
+    "leisure": "park",
+    "smoking": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 923278841,
+  "center": {
+    "lat": 37.5916838,
+    "lon": 127.0279422
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 923322713,
+  "center": {
+    "lat": 37.5503561,
+    "lon": 126.9339243
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "신수 어린이 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 987037925,
+  "center": {
+    "lat": 37.5789939,
+    "lon": 127.0267573
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "레미안 엘리니티 소공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1002205234,
+  "center": {
+    "lat": 37.5696346,
+    "lon": 126.9807988
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010028774,
+  "center": {
+    "lat": 37.5674550,
+    "lon": 126.9952269
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010028775,
+  "center": {
+    "lat": 37.5674988,
+    "lon": 126.9954399
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010028776,
+  "center": {
+    "lat": 37.5694278,
+    "lon": 126.9954280
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010028777,
+  "center": {
+    "lat": 37.5691151,
+    "lon": 126.9951583
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010028778,
+  "center": {
+    "lat": 37.5653499,
+    "lon": 126.9956606
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010028779,
+  "center": {
+    "lat": 37.5630264,
+    "lon": 126.9957215
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010028780,
+  "center": {
+    "lat": 37.5630309,
+    "lon": 126.9961044
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1010042216,
+  "center": {
+    "lat": 37.5645272,
+    "lon": 126.9972997
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "인현근린공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1012921597,
+  "center": {
+    "lat": 37.5653699,
+    "lon": 126.9960504
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1079152801,
+  "center": {
+    "lat": 37.5923750,
+    "lon": 126.9498509
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "102동 놀이터",
+    "opening_hours": "24/7",
+    "operator": "문화촌현대아파트"
+  }
+},
+{
+  "type": "way",
+  "id": 1079152802,
+  "center": {
+    "lat": 37.5931801,
+    "lon": 126.9494311
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "101동 놀이터",
+    "opening_hours": "24/7",
+    "operator": "문화촌현대아파트"
+  }
+},
+{
+  "type": "way",
+  "id": 1079152803,
+  "center": {
+    "lat": 37.5913422,
+    "lon": 126.9495451
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "104동놀이터",
+    "opening_hours": "24/7",
+    "operator": "문화촌현대아파트"
+  }
+},
+{
+  "type": "way",
+  "id": 1079154823,
+  "center": {
+    "lat": 37.5911264,
+    "lon": 126.9505688
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쌈지마당",
+    "opening_hours": "24/7",
+    "operator": "서대문구"
+  }
+},
+{
+  "type": "way",
+  "id": 1082220758,
+  "center": {
+    "lat": 37.5779257,
+    "lon": 126.9566512
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "46",
+    "addr:postcode": "03023",
+    "addr:street": "통일로18가길",
+    "addr:subdistrict": "무악동",
+    "leisure": "park",
+    "name": "무악배드민턴장",
+    "name:en": "Muak Badminton court",
+    "operator": "Jongno District Government"
+  }
+},
+{
+  "type": "way",
+  "id": 1138134488,
+  "center": {
+    "lat": 37.5780559,
+    "lon": 126.9918274
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1145132543,
+  "center": {
+    "lat": 37.5823924,
+    "lon": 126.9242049
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "백련어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1148329233,
+  "center": {
+    "lat": 37.5841664,
+    "lon": 126.9677608
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1148618177,
+  "center": {
+    "lat": 37.5785602,
+    "lon": 126.9736452
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "통의동 마을마당"
+  }
+},
+{
+  "type": "way",
+  "id": 1149697473,
+  "center": {
+    "lat": 37.5823425,
+    "lon": 126.9638661
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1159703032,
+  "center": {
+    "lat": 37.5780304,
+    "lon": 126.9291494
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "흥남어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1178739312,
+  "center": {
+    "lat": 37.5630807,
+    "lon": 126.9411660
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1181170043,
+  "center": {
+    "lat": 37.5634805,
+    "lon": 126.9376146
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1181170044,
+  "center": {
+    "lat": 37.5637413,
+    "lon": 126.9374202
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1181170045,
+  "center": {
+    "lat": 37.5636875,
+    "lon": 126.9376835
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1187066084,
+  "center": {
+    "lat": 37.5997885,
+    "lon": 126.9507075
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "포방터소공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1214935985,
+  "center": {
+    "lat": 37.5753070,
+    "lon": 126.9905238
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1225848274,
+  "center": {
+    "lat": 37.5755497,
+    "lon": 127.0008085
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "연지물놀이터"
+  }
+},
+{
+  "type": "way",
+  "id": 1226961858,
+  "center": {
+    "lat": 37.5708994,
+    "lon": 126.9738057
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1226961859,
+  "center": {
+    "lat": 37.5708638,
+    "lon": 126.9739059
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1254904481,
+  "center": {
+    "lat": 37.5766991,
+    "lon": 126.9301751
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "해달별어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1263157774,
+  "center": {
+    "lat": 37.5345037,
+    "lon": 126.9753608
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1263157794,
+  "center": {
+    "lat": 37.5371121,
+    "lon": 126.9736017
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1354344892,
+  "center": {
+    "lat": 37.5741037,
+    "lon": 126.9370761
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1354349277,
+  "center": {
+    "lat": 37.5767878,
+    "lon": 126.9340916
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1354773816,
+  "center": {
+    "lat": 37.5625507,
+    "lon": 126.9364785
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "한글탑 공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1356113156,
+  "center": {
+    "lat": 37.5293358,
+    "lon": 126.9690897
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356113534,
+  "center": {
+    "lat": 37.5356618,
+    "lon": 126.9745406
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356113535,
+  "center": {
+    "lat": 37.5363972,
+    "lon": 126.9735656
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356624342,
+  "center": {
+    "lat": 37.5625594,
+    "lon": 126.9386867
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356695205,
+  "center": {
+    "lat": 37.5623307,
+    "lon": 126.9421218
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356725508,
+  "center": {
+    "lat": 37.5638297,
+    "lon": 126.9351950
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356725517,
+  "center": {
+    "lat": 37.5637785,
+    "lon": 126.9353751
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356764787,
+  "center": {
+    "lat": 37.5619393,
+    "lon": 126.9399567
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356764788,
+  "center": {
+    "lat": 37.5616585,
+    "lon": 126.9400239
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356777100,
+  "center": {
+    "lat": 37.5593399,
+    "lon": 126.9408773
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356777119,
+  "center": {
+    "lat": 37.5603881,
+    "lon": 126.9386423
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356777120,
+  "center": {
+    "lat": 37.5603912,
+    "lon": 126.9389058
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356777121,
+  "center": {
+    "lat": 37.5605568,
+    "lon": 126.9388401
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1356780454,
+  "center": {
+    "lat": 37.5627187,
+    "lon": 126.9380251
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1358529141,
+  "center": {
+    "lat": 37.5726415,
+    "lon": 126.9351910
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1358894347,
+  "center": {
+    "lat": 37.5644790,
+    "lon": 126.9420193
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1358988782,
+  "center": {
+    "lat": 37.5409145,
+    "lon": 126.9971175
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1366553379,
+  "center": {
+    "lat": 37.5692437,
+    "lon": 127.0247173
+  },
+  "tags": {
+    "dog": "leashed",
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1366553380,
+  "center": {
+    "lat": 37.5686228,
+    "lon": 127.0247271
+  },
+  "tags": {
+    "dog": "leashed",
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1390441666,
+  "center": {
+    "lat": 37.5486674,
+    "lon": 127.0101912
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쌈지공원",
+    "name:ko": "쌈지공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1390955212,
+  "center": {
+    "lat": 37.5460243,
+    "lon": 126.9642582
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1390955213,
+  "center": {
+    "lat": 37.5434323,
+    "lon": 126.9659508
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1408444950,
+  "center": {
+    "lat": 37.5485302,
+    "lon": 126.9546101
+  },
+  "tags": {
+    "leisure": "park",
+    "natural": "wood"
+  }
+},
+{
+  "type": "way",
+  "id": 1418924796,
+  "center": {
+    "lat": 37.6010334,
+    "lon": 127.0114945
+  },
+  "tags": {
+    "fitness_station": "fitness_station",
+    "leisure": "park",
+    "name": "돈암2동 고가아래쉼터",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "way",
+  "id": 1418936224,
+  "center": {
+    "lat": 37.6022688,
+    "lon": 127.0116498
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "꿈빛소공원",
+    "natural": "wood"
+  }
+},
+{
+  "type": "way",
+  "id": 1418953094,
+  "center": {
+    "lat": 37.6044072,
+    "lon": 127.0072485
+  },
+  "tags": {
+    "leisure": "park",
+    "natural": "wood"
+  }
+},
+{
+  "type": "way",
+  "id": 1420691744,
+  "center": {
+    "lat": 37.5625304,
+    "lon": 126.9529288
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1420694235,
+  "center": {
+    "lat": 37.5615803,
+    "lon": 126.9541631
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1420694236,
+  "center": {
+    "lat": 37.5610303,
+    "lon": 126.9521561
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1420694237,
+  "center": {
+    "lat": 37.5600618,
+    "lon": 126.9506956
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1420913683,
+  "center": {
+    "lat": 37.5563968,
+    "lon": 126.9509674
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1422590591,
+  "center": {
+    "lat": 37.5526081,
+    "lon": 126.9600979
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "애오개도담어린이공원",
+    "name:ko": "애오개도담어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1422938522,
+  "center": {
+    "lat": 37.5800518,
+    "lon": 127.0230610
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1429721544,
+  "center": {
+    "lat": 37.5530537,
+    "lon": 126.9568751
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1431432403,
+  "center": {
+    "lat": 37.5487442,
+    "lon": 126.9533359
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1436128874,
+  "center": {
+    "lat": 37.5530349,
+    "lon": 126.9636510
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1436170968,
+  "center": {
+    "lat": 37.5550171,
+    "lon": 126.9349380
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1441610216,
+  "center": {
+    "lat": 37.5454735,
+    "lon": 126.9481613
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "아소정소공원",
+    "name:ko": "아소정소공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1443387959,
+  "center": {
+    "lat": 37.5589305,
+    "lon": 126.9390444
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1443390152,
+  "center": {
+    "lat": 37.5626527,
+    "lon": 126.9371176
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1443390153,
+  "center": {
+    "lat": 37.5625388,
+    "lon": 126.9373406
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1443397014,
+  "center": {
+    "lat": 37.5614560,
+    "lon": 126.9372438
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1443836493,
+  "center": {
+    "lat": 37.5637001,
+    "lon": 126.9361105
+  },
+  "tags": {
+    "layer": "8",
+    "leisure": "park",
+    "name": "8층 옥상정원"
+  }
+},
+{
+  "type": "way",
+  "id": 1450027233,
+  "center": {
+    "lat": 37.5324887,
+    "lon": 126.9899456
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1460572502,
+  "center": {
+    "lat": 37.5866841,
+    "lon": 127.0325421
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1460799307,
+  "center": {
+    "lat": 37.5865809,
+    "lon": 127.0271477
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1460799315,
+  "center": {
+    "lat": 37.5888585,
+    "lon": 127.0314997
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1461310959,
+  "center": {
+    "lat": 37.5895195,
+    "lon": 127.0232935
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1461310962,
+  "center": {
+    "lat": 37.5887275,
+    "lon": 127.0265252
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1462894316,
+  "center": {
+    "lat": 37.5856763,
+    "lon": 127.0238851
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1467515319,
+  "center": {
+    "lat": 37.5784706,
+    "lon": 127.0215875
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1492473780,
+  "center": {
+    "lat": 37.5531713,
+    "lon": 126.9335141
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1492576675,
+  "center": {
+    "lat": 37.5582850,
+    "lon": 126.9401895
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "바람산 어린이공원",
+    "name:ja": "パラム山こども公園",
+    "name:ko": "바람산 어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1492576676,
+  "center": {
+    "lat": 37.5578937,
+    "lon": 126.9403564
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "창천근린공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1493068066,
+  "center": {
+    "lat": 37.5544042,
+    "lon": 126.9532654
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1493087409,
+  "center": {
+    "lat": 37.5766046,
+    "lon": 126.9596679
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "무악공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1493087410,
+  "center": {
+    "lat": 37.5771944,
+    "lon": 126.9604592
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "무악어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1493087411,
+  "center": {
+    "lat": 37.5736977,
+    "lon": 126.9600509
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "의주공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1507596447,
+  "center": {
+    "lat": 37.5551923,
+    "lon": 126.9583232
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "애오개어린이공원",
+    "name:ko": "애오개어린이공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1519460104,
+  "center": {
+    "lat": 37.5581920,
+    "lon": 126.9523765
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1519460105,
+  "center": {
+    "lat": 37.5592500,
+    "lon": 126.9552709
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1519514129,
+  "center": {
+    "lat": 37.5610736,
+    "lon": 126.9555917
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1528991783,
+  "center": {
+    "lat": 37.5491949,
+    "lon": 126.9524099
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1531233612,
+  "center": {
+    "lat": 37.5827037,
+    "lon": 126.9686630
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "상상굴뚝놀이터"
+  }
+},
+{
+  "type": "way",
+  "id": 1531394842,
+  "center": {
+    "lat": 37.5712027,
+    "lon": 126.9854838
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "공평공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1535104002,
+  "center": {
+    "lat": 37.5950819,
+    "lon": 126.9903712
+  },
+  "tags": {
+    "leisure": "park",
+    "name:en": "Seongbuk Friendship Park",
+    "name:ko": "성북우정의공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1545368306,
+  "center": {
+    "lat": 37.5560278,
+    "lon": 127.0164166
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "청구동 마을마당"
+  }
+},
+{
+  "type": "way",
+  "id": 1546680607,
+  "center": {
+    "lat": 37.5497948,
+    "lon": 126.9465336
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1549204147,
+  "center": {
+    "lat": 37.5508722,
+    "lon": 127.0143288
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1549347554,
+  "center": {
+    "lat": 37.5400469,
+    "lon": 127.0095664
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "매봉산유아숲체험원"
+  }
+},
+{
+  "type": "way",
+  "id": 1549830529,
+  "center": {
+    "lat": 37.5523496,
+    "lon": 126.9823979
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "소월정원"
+  }
+},
+{
+  "type": "way",
+  "id": 1550744095,
+  "center": {
+    "lat": 37.5454018,
+    "lon": 127.0066807
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "유아동네숲터",
+    "operator": "서울시 중구"
+  }
+},
+{
+  "type": "way",
+  "id": 1550773963,
+  "center": {
+    "lat": 37.5514460,
+    "lon": 126.9992296
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "2025년 도시바람길숲 조성사업지"
+  }
+},
+{
+  "type": "way",
+  "id": 1550781132,
+  "center": {
+    "lat": 37.5548407,
+    "lon": 126.9981759
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1551261310,
+  "center": {
+    "lat": 37.5760545,
+    "lon": 126.9635786
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쉼터데크"
+  }
+},
+{
+  "type": "way",
+  "id": 1551262133,
+  "center": {
+    "lat": 37.5754033,
+    "lon": 126.9639811
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "심터데크"
+  }
+},
+{
+  "type": "way",
+  "id": 1551262377,
+  "center": {
+    "lat": 37.5737668,
+    "lon": 126.9639725
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "사직근린공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1551426640,
+  "center": {
+    "lat": 37.5781724,
+    "lon": 126.9631854
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "힐링숲 쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1551426642,
+  "center": {
+    "lat": 37.5785724,
+    "lon": 126.9631390
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "숲속쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1551426648,
+  "center": {
+    "lat": 37.5787531,
+    "lon": 126.9628913
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "인왕산 유아숲 체험원"
+  }
+},
+{
+  "type": "way",
+  "id": 1551428327,
+  "center": {
+    "lat": 37.5788570,
+    "lon": 126.9632987
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1551436262,
+  "center": {
+    "lat": 37.5812584,
+    "lon": 126.9630236
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1551441983,
+  "center": {
+    "lat": 37.5832190,
+    "lon": 126.9640919
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1551458747,
+  "center": {
+    "lat": 37.5876563,
+    "lon": 126.9649279
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1551652181,
+  "center": {
+    "lat": 37.5808629,
+    "lon": 126.9630806
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "유아동네숲터"
+  }
+},
+{
+  "type": "way",
+  "id": 1552474990,
+  "center": {
+    "lat": 37.5509898,
+    "lon": 127.0142634
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "팔각정"
+  }
+},
+{
+  "type": "way",
+  "id": 1553381187,
+  "center": {
+    "lat": 37.5923241,
+    "lon": 126.9675287
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "창의문기념공원"
+  }
+},
+{
+  "type": "way",
+  "id": 1553398206,
+  "center": {
+    "lat": 37.5840846,
+    "lon": 126.9636524
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1553528134,
+  "center": {
+    "lat": 37.5821635,
+    "lon": 126.9608885
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "유아동네숲터"
+  }
+},
+{
+  "type": "way",
+  "id": 1553528147,
+  "center": {
+    "lat": 37.5800063,
+    "lon": 126.9621077
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "인왕산 숲속정원"
+  }
+},
+{
+  "type": "way",
+  "id": 1553534006,
+  "center": {
+    "lat": 37.5772847,
+    "lon": 126.9609767
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1553534018,
+  "center": {
+    "lat": 37.5778464,
+    "lon": 126.9564350
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1554015591,
+  "center": {
+    "lat": 37.5531915,
+    "lon": 126.9864559
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1554925926,
+  "center": {
+    "lat": 37.5928578,
+    "lon": 126.9877210
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1554930407,
+  "center": {
+    "lat": 37.5917455,
+    "lon": 126.9930264
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1555070025,
+  "center": {
+    "lat": 37.5880341,
+    "lon": 127.0037681
+  },
+  "tags": {
+    "leisure": "park"
+  }
+},
+{
+  "type": "way",
+  "id": 1555095319,
+  "center": {
+    "lat": 37.5829326,
+    "lon": 127.0073734
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "장수마을 쉼터"
+  }
+},
+{
+  "type": "way",
+  "id": 1555874816,
+  "center": {
+    "lat": 37.5527702,
+    "lon": 127.0126847
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "약수동 마을마당"
+  }
+},
+{
+  "type": "way",
+  "id": 1556487180,
+  "center": {
+    "lat": 37.5955277,
+    "lon": 126.9742688
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "쉼터"
+  }
+},
+{
+  "type": "relation",
+  "id": 4160590,
+  "center": {
+    "lat": 37.5770710,
+    "lon": 127.0176964
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "숭인근린공원",
+    "name:ja": "崇仁近隣公園",
+    "name:ko": "숭인근린공원",
+    "source": "survey;Bing",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 5498014,
+  "center": {
+    "lat": 37.5582978,
+    "lon": 126.9935052
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "중구",
+    "addr:housenumber": "50-8",
+    "addr:postcode": "04626",
+    "addr:street": "퇴계로36가길",
+    "addr:subdistrict": "필동2가",
+    "alt_name": "Namsangol Hanok Village",
+    "fee": "no",
+    "leisure": "park",
+    "name": "남산골공원",
+    "name:en": "Namsangol Park",
+    "name:ko": "남산골공원",
+    "tourism": "attraction",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 5688761,
+  "center": {
+    "lat": 37.5747649,
+    "lon": 126.9940730
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "barrier": "wall",
+    "leisure": "park",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 7794020,
+  "center": {
+    "lat": 37.5965156,
+    "lon": 127.0223021
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "어린이놀이터",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 8616724,
+  "center": {
+    "lat": 37.5532104,
+    "lon": 126.9391433
+  },
+  "tags": {
+    "leisure": "park",
+    "name:en": "Gyeongui Line Forest Park",
+    "name:ja": "キョンイ線森の道",
+    "name:ko": "경의선숲길",
+    "name:zh": "京义线林道",
+    "type": "multipolygon",
+    "wikidata": "Q24861751"
+  }
+},
+{
+  "type": "relation",
+  "id": 10739781,
+  "center": {
+    "lat": 37.5743834,
+    "lon": 126.9825775
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "59",
+    "addr:postcode": "03144",
+    "addr:street": "우정국로",
+    "addr:subdistrict": "견지동",
+    "leisure": "park",
+    "name": "우정총국시민광장",
+    "name:en": "Postal Administration Citizen's Park",
+    "name:ko": "우정총국시민광장",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10754540,
+  "center": {
+    "lat": 37.5826163,
+    "lon": 127.0060522
+  },
+  "tags": {
+    "leisure": "park",
+    "name:en": "Seoul Fortress Naksan Mountain Park",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10754626,
+  "center": {
+    "lat": 37.5665567,
+    "lon": 126.9725404
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "중명전",
+    "name:en": "Jungmyeong-jeon, the Imperial Palace",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10769062,
+  "center": {
+    "lat": 37.5699560,
+    "lon": 126.9654979
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "솔빛공원",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10773547,
+  "center": {
+    "lat": 37.5606253,
+    "lon": 126.9694611
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "서소문근린공원",
+    "name:ja": "西小門近隣公園",
+    "name:ko": "서소문근린공원",
+    "name:zh": "西小门近邻公园",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10776429,
+  "center": {
+    "lat": 37.5740729,
+    "lon": 126.9568498
+  },
+  "tags": {
+    "alt_name:ko": "서대문독립공원",
+    "description:en": "Highly visited educational and cultural park with various monuments and buildings, most notably the Seodaemun Prison Museum. (Source: Wikipedia:en)",
+    "leisure": "park",
+    "name": "서대문독립공원",
+    "name:en": "Seodaemun Independence Park",
+    "name:ja": "西大門独立公園",
+    "name:zh": "西大门独立公园",
+    "type": "multipolygon",
+    "wikidata": "Q623629",
+    "wikipedia": "ko:서대문 독립공원",
+    "wikipedia:en": "Seodaemun Independence Park"
+  }
+},
+{
+  "type": "relation",
+  "id": 10799909,
+  "center": {
+    "lat": 37.5781157,
+    "lon": 126.9931999
+  },
+  "tags": {
+    "leisure": "park",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10804175,
+  "center": {
+    "lat": 37.5546558,
+    "lon": 126.9789014
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "백범공원",
+    "name:en": "Baekbeom Park",
+    "name:ja": "白凡公園",
+    "name:ko": "백범공원",
+    "name:ko-Latn": "Baekbeom Gongwon",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10828950,
+  "center": {
+    "lat": 37.5781125,
+    "lon": 126.9886949
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "현대원서공원",
+    "name:en": "Wonseo Park",
+    "name:ja": "現代苑西公園",
+    "name:ko": "현대원서공원",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10832105,
+  "center": {
+    "lat": 37.5576938,
+    "lon": 127.0041924
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "장충단공원",
+    "name:en": "Jangchungdan Park",
+    "name:ja": "奨忠壇公園",
+    "name:ko": "장충단공원",
+    "type": "multipolygon",
+    "wikidata": "Q11268929"
+  }
+},
+{
+  "type": "relation",
+  "id": 10879855,
+  "center": {
+    "lat": 37.5601269,
+    "lon": 126.9904380
+  },
+  "tags": {
+    "leisure": "park",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 11069145,
+  "center": {
+    "lat": 37.5671005,
+    "lon": 127.0100660
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "중구",
+    "addr:housenumber": "281",
+    "addr:postcode": "04566",
+    "addr:street": "을지로",
+    "addr:subdistrict": "을지로7가",
+    "leisure": "park",
+    "name": "동대문역사문화공원",
+    "name:en": "Dongdaemun History & Culture Park",
+    "name:ja": "東大門歴史文化公園",
+    "name:ko": "동대문역사문화공원",
+    "name:ko-Hani": "東大門歷史文化公園",
+    "name:zh": "东大门历史文化公园",
+    "name:zh-Hans": "东大门历史文化公园",
+    "name:zh-Hant": "東大門歷史文化公園",
+    "phone": "+82 02-2153-0000",
+    "type": "multipolygon",
+    "website": "http://www.ddp.or.kr/main",
+    "wikidata": "Q11235569"
+  }
+},
+{
+  "type": "relation",
+  "id": 11504980,
+  "center": {
+    "lat": 37.5711566,
+    "lon": 126.9882716
+  },
+  "tags": {
+    "addr:city": "서울특별시",
+    "addr:district": "종로구",
+    "addr:housenumber": "99",
+    "addr:postcode": "03140",
+    "addr:street": "종로",
+    "addr:subdistrict": "종로2가",
+    "leisure": "park",
+    "name": "탑골공원",
+    "name:en": "Tapgol Park",
+    "name:ja": "タプコル公園",
+    "name:ko": "탑골공원",
+    "phone": "+82 2 731 0534",
+    "tourism": "attraction",
+    "type": "multipolygon",
+    "website": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=13,03540000,11&pageNo=5_2_1_0",
+    "website:en": "http://english.cha.go.kr/english/search_plaza_new/ECulresult_Db_View.jsp?VdkVgwKey=13,03540000,11",
+    "website:ko": "http://www.cha.go.kr/korea/heritage/search/Culresult_Db_View.jsp?mc=NS_04_03_01&VdkVgwKey=13,03540000,11",
+    "wikidata": "Q483357",
+    "wikipedia": "en:Tapgol Park"
+  }
+},
+{
+  "type": "relation",
+  "id": 11505098,
+  "center": {
+    "lat": 37.5673911,
+    "lon": 127.0038304
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "훈련원공원",
+    "name:en": "Hullyeonwon Park",
+    "name:ja": "訓練院公園",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 16142677,
+  "center": {
+    "lat": 37.5536227,
+    "lon": 127.0292966
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "대현산공원",
+    "name:ko": "대현산공원",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 17862382,
+  "center": {
+    "lat": 37.5268660,
+    "lon": 126.9755677
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "용산어린이정원",
+    "name:en": "Yongsan Children's Garden",
+    "name:ja": "龍山こども庭園",
+    "name:ko": "용산어린이정원",
+    "start_date": "2023-05-04",
+    "type": "multipolygon",
+    "website": "https://yongsanparkstory.kr/"
+  }
+},
+{
+  "type": "relation",
+  "id": 19165747,
+  "center": {
+    "lat": 37.5509519,
+    "lon": 127.0147650
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "응봉산공원",
+    "name:ko": "응봉산공원",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 19175488,
+  "center": {
+    "lat": 37.5689476,
+    "lon": 126.9933765
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "청계천공원",
+    "name:en": "Cheonggyecheon Stream Park",
+    "name:ja": "清渓川公園",
+    "name:ko": "청계천공원",
+    "name:ru": "Чхонгечхон",
+    "tourism": "attraction",
+    "type": "multipolygon",
+    "wheelchair": "yes",
+    "wikidata": "Q495437",
+    "wikipedia": "en:Cheonggyecheon"
+  }
+},
+{
+  "type": "relation",
+  "id": 21210487,
+  "center": {
+    "lat": 37.5451959,
+    "lon": 127.0077319
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "매봉산공원",
+    "name:ko": "매봉산공원",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 21265992,
+  "center": {
+    "lat": 37.5824724,
+    "lon": 126.9630729
+  },
+  "tags": {
+    "leisure": "park",
+    "name": "인왕산수성동계곡",
+    "name:en": "Suseongdong Valley of Inwang Mountain",
+    "name:ko": "인왕산수성동계곡",
+    "source": "survey",
+    "type": "multipolygon",
+    "website": "http://www.cha.go.kr/korea/heritage/search/Culresult_Db_View.jsp?mc=NS_04_03_01&VdkVgwKey=23,00310000,11",
+    "wikipedia": "ko:인왕산 수성동 계곡"
+  }
+}
+
+  ]
+}
