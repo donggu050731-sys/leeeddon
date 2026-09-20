@@ -238,6 +238,8 @@ footer.site ol{margin:8px 0 0;padding-left:1.4em;display:flex;flex-direction:col
       <div><dt>중심</dt><dd>종로구청 37.5735 N · 126.9790 E</dd></div>
       <div><dt>조회</dt><dd id="metaQueried"></dd></div>
       <div><dt>출처</dt><dd>Overpass API(OSM) · Open-Meteo(ERA5)</dd></div>
+      <div><dt>팀 저장소</dt><dd>github.com/moonju0912-arch/-_-</dd></div>
+      <div><dt>배포</dt><dd>smartcity-week2-dashboard.vercel.app</dd></div>
       <div><dt>제출</dt><dd>2026.09.20 23:59</dd></div>
     </dl>
   </div>
@@ -374,6 +376,38 @@ footer.site ol{margin:8px 0 0;padding-left:1.4em;display:flex;flex-direction:col
         <li>data/*_raw.json (조회 응답 원본)</li>
       </ul>
       <p class="note">API 인증키·개인 접근 토큰은 저장소에 올리지 않음. 이번 조회(Overpass·Open-Meteo)는 키가 필요 없음.</p>
+    </div>
+  </section>
+
+  <section class="block" id="submit" aria-labelledby="h-submit">
+    <div class="block-head">
+      <span class="tag">제출 정보</span>
+      <h2 id="h-submit">저장소 주소와 손상·복구 기록</h2>
+      <p class="lede">값이 어느 저장소의 어느 커밋에서 나왔는지와, 복구가 실제로 되는지 손으로 확인한 기록임.</p>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>저장소와 주소</h3>
+        <div class="table-scroll">
+          <table class="cat-table">
+            <tbody>
+              <tr><td>팀 저장소</td><td class="mono">github.com/moonju0912-arch/-_- <span class="partial-mark">(비공개)</span></td></tr>
+              <tr><td>제출 폴더</td><td class="mono">선도/0914_2주차_대시보드/</td></tr>
+              <tr><td>배포 주소</td><td class="mono">smartcity-week2-dashboard.vercel.app</td></tr>
+              <tr><td>작업 저장소</td><td class="mono">github.com/donggu050731-sys/leeeddon</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">팀 저장소 커밋: <span class="mono">daa1780</span>(CSV·PDF 추가) · <span class="mono">147e2ec</span> · <span class="mono">bcb7a4d</span>(대시보드 추가). 배포는 <span class="mono">vercel-dashboard</span> 브랜치를 소스로 함.</p>
+      </div>
+      <div class="panel">
+        <h3>손상 · 복구 기록</h3>
+        <ol class="zones" style="margin-top:12px;padding-top:0;border-top:0">
+          <li><span><b>손상</b><br><span class="z-sub">화면 파일 10행의 <span class="mono">&lt;style&gt;</span> 여는 태그를 지워 CSS가 본문 글자로 노출되고 서식이 무너짐.</span></span></li>
+          <li><span><b>복구</b><br><span class="z-sub">직전 커밋 <span class="mono">9fb2bc8</span>의 파일로 되돌려 서식이 돌아옴. <span class="mono">git status</span>가 비고, 작업본 blob <span class="mono">4d3a42e</span>가 커밋과 일치함을 확인함.</span></span></li>
+        </ol>
+        <p class="note">확인 방법: 복구 직후 <span class="mono">git status</span>에 변경이 남아 보였으나, 이는 <span class="mono">core.autocrlf=true</span>로 줄바꿈이 바뀌어 크기가 달라진 탓이었음 — 커밋의 원본 바이트로 다시 써서 완전히 같은 파일로 맞춤. 손상 직후와 복구 후 화면은 별도 캡처로 남김.</p>
+      </div>
     </div>
   </section>
 </main>
