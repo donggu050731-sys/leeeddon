@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>프로젝트 관리 | 이동규 포트폴리오</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin">
+
+  <!-- ===== 로그인 ===== -->
+  <section class="login-view" id="login-view">
+    <form class="login-box" id="login-form" autocomplete="off">
+      <p class="login-label">ADMIN</p>
+      <h1 class="login-title">프로젝트 관리</h1>
+      <p class="login-desc">
+        관리자 비밀번호를 입력해 주세요.<br>
+        창을 닫으면 로그인이 풀려, 들어올 때마다 다시 입력해야 합니다.
+      </p>
+
+      <label class="field">
+        <span class="field-label">비밀번호</span>
+        <input type="password" id="password" name="password"
+               autocomplete="off" spellcheck="false"
+               placeholder="예: 내가 정한 비밀번호" required>
+      </label>
+
+      <button type="submit" class="button primary" id="login-button">로그인</button>
+      <p class="message" id="login-message" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- ===== 관리 화면 ===== -->
+  <div class="admin-view" id="admin-view" hidden>
+
+    <header class="admin-header">
+      <div>
+        <p class="admin-label">ADMIN</p>
+        <h1 class="admin-title">프로젝트 관리</h1>
+      </div>
+      <div class="admin-actions">
+        <a class="button ghost" href="index.html" target="_blank" rel="noopener">웹사이트 보기 ↗</a>
+        <button type="button" class="button ghost" id="logout-button">로그아웃</button>
+      </div>
+    </header>
+
+    <main class="admin-body">
+
+      <!-- 목록 -->
+      <aside class="panel list-panel">
+        <div class="panel-head">
+          <h2 class="panel-title">프로젝트</h2>
+          <button type="button" class="button small primary" id="new-button">+ 새 프로젝트</button>
+        </div>
+        <ul class="project-list" id="project-list"></ul>
+        <p class="hint">
+          <strong>공개</strong>는 웹사이트에 보이고, <strong>초안</strong>은 이 화면에서만 보입니다.
+        </p>
+      </aside>
+
+      <!-- 입력 양식 -->
+      <section class="panel form-panel">
+        <form id="project-form" novalidate>
+          <div class="panel-head">
+            <h2 class="panel-title" id="form-title">새 프로젝트</h2>
+            <p class="form-state" id="form-state"></p>
+          </div>
+
+          <p class="notice" id="readonly-notice" hidden>
+            이 프로젝트는 표·분석 같은 상세 자료가 들어 있어 내용은 이 화면에서 고칠 수 없습니다.
+            공개 / 초안 전환만 할 수 있습니다.
+          </p>
+
+          <label class="field">
+            <span class="field-label">제목 <em class="required">필수</em></span>
+            <input type="text" name="title" id="title" maxlength="120"
+                   placeholder="예: 일월저수지 수변 공원 설계">
+          </label>
+
+          <label class="field">
+            <span class="field-label">내가 한 역할 <em class="required">필수</em></span>
+            <input type="text" name="role" id="role" maxlength="200"
+                   placeholder="예: 대상지 분석과 도면 작성을 맡았습니다">
+          </label>
+
+          <label class="field">
+            <span class="field-label">설명 <em class="required">필수</em></span>
+            <textarea name="description" id="description" rows="6" maxlength="2000"
+                      placeholder="예: 사람이 찾지 않던 저수지 옆 공터를 걷고 쉬는 공간으로 바꾸는 설계입니다. 현장을 답사해 동선과 수질 문제를 확인하고, 산책로와 관찰 데크를 계획했습니다."></textarea>
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">날짜 <em class="required">필수</em></span>
+              <input type="text" name="date" id="date" maxlength="60"
+                     placeholder="예: 2026년 3월 ~ 6월">
+            </label>
+
+            <label class="field">
+              <span class="field-label">참여인원 수 <em class="required">필수</em></span>
+              <input type="number" name="teamSize" id="teamSize" min="1" max="99"
+                     placeholder="예: 4">
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="field-label">참고사항 <em class="optional">선택</em></span>
+            <textarea name="notes" id="notes" rows="3" maxlength="1000"
+                      placeholder="예: 발표자료 링크, 수상 내역 등 (비워둬도 됩니다)"></textarea>
+          </label>
+
+          <fieldset class="field status-field">
+            <legend class="field-label">공개 여부</legend>
+            <label class="radio">
+              <input type="radio" name="status" value="draft" checked>
+              <span><strong>초안</strong> — 빈칸이 있어도 저장됩니다. 웹사이트에는 보이지 않습니다.</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="status" value="published">
+              <span><strong>공개</strong> — 참고사항을 뺀 모든 칸이 채워져야 합니다. 웹사이트에 바로 보입니다.</span>
+            </label>
+          </fieldset>
+
+          <p class="message" id="form-message" role="alert"></p>
+
+          <!-- 같은 제목의 프로젝트가 이미 있을 때 나타난다 -->
+          <div class="duplicate-panel" id="duplicate-panel" hidden>
+            <h3 class="duplicate-title">같은 제목의 프로젝트가 이미 있어요</h3>
+            <p class="duplicate-text" id="duplicate-text"></p>
+            <div class="duplicate-actions">
+              <button type="button" class="button primary small" id="dup-merge">기존 것에 합치기</button>
+              <button type="button" class="button ghost small" id="dup-replace">기존 것을 지우고 새로 저장</button>
+              <button type="button" class="button ghost small" id="dup-keep">그래도 따로 저장</button>
+              <button type="button" class="button ghost small" id="dup-cancel">취소</button>
+            </div>
+            <p class="duplicate-hint" id="duplicate-hint"></p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="button primary" id="save-button">새로 저장</button>
+            <button type="button" class="button ghost" id="cancel-button">취소</button>
+            <button type="button" class="button danger" id="delete-button" hidden>삭제</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script type="module" src="js/admin/main.js"></script>
+</body>
+</html>

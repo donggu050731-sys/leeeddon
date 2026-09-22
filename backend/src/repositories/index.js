@@ -8,6 +8,7 @@
      getProjectById(id)    → 프로젝트 1건 또는 null
      getHometown()         → 고향(수원) 객체
      getJourney()          → { label, title, items: [...] }
+     saveProjects(projects) → 프로젝트 묶음 전체 저장 (관리자 화면이 쓴다)
 */
 
 import { createJsonRepository } from './json.repository.js';

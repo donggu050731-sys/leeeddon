@@ -24,8 +24,23 @@ function unwrap(body) {
   return body && typeof body === 'object' && 'data' in body ? body.data : body;
 }
 
+// 초안(draft)은 공개 화면에 절대 나오면 안 된다.
+// 서버도 걸러서 보내지만, JSON 파일을 직접 읽는 경우까지 대비해 여기서 한 번 더 거른다.
+function onlyPublished(portfolio) {
+  const projects = portfolio.projects;
+  if (!projects || !Array.isArray(projects.items)) return portfolio;
+
+  return {
+    ...portfolio,
+    projects: {
+      ...projects,
+      items: projects.items.filter(project => (project.status || 'published') === 'published')
+    }
+  };
+}
+
 async function loadFromApi() {
-  return unwrap(await readJson(API_BASE + '/api/portfolio'));
+  return onlyPublished(unwrap(await readJson(API_BASE + '/api/portfolio')));
 }
 
 async function loadFromStaticFiles() {
@@ -34,7 +49,7 @@ async function loadFromStaticFiles() {
   );
   const result = {};
   SECTIONS.forEach((name, index) => { result[name] = parts[index]; });
-  return result;
+  return onlyPublished(result);
 }
 
 /**

@@ -5,7 +5,7 @@
   "items": [
     {
       "id": "music-sound-archive",
-      "number": "PROJECT 01",
+      "status": "published",
       "field": "건축·공간 기획",
       "title": "뮤직 & 사운드 아카이브",
       "summary": "스트레스를 겪는 청년을 위해, 천호지 수변에 음악과 소리로 쉬어갈 수 있는 3층 복합 문화 공간을 기획한 건축 설계 프로젝트",
@@ -169,7 +169,7 @@
     },
     {
       "id": "landfill-habitat-restoration",
-      "number": "PROJECT 02",
+      "status": "published",
       "field": "생태 복원 × 스마트 기술",
       "title": "매립지 서식지 반환형 생태 복원과 IoT·스마트 수문 기술 접목 방안",
       "summary": "매립지를 ‘무엇을 지을 땅’이 아니라 ‘빼앗은 서식지를 되돌려줄 땅’으로 보고, IoT 센서와 스마트 수문으로 생태 복원을 설계한 제안서",
@@ -369,7 +369,7 @@
     },
     {
       "id": "suchae-park",
-      "number": "PROJECT 03",
+      "status": "published",
       "field": "조경·공원 설계",
       "title": "수채공원",
       "summary": "수원 일월저수지 옆, 사람이 찾지 않던 공간을 ‘물(水)과 빛깔(彩)’을 주제로 한 수채화 같은 공원으로 재구성한 조경 설계 프로젝트",
@@ -538,7 +538,7 @@
     },
     {
       "id": "sohn-kee-chung-garden",
-      "number": "PROJECT 04",
+      "status": "published",
       "field": "스마트정원 설계",
       "title": "손기정과 달리는 시간",
       "summary": "단조롭고 컨셉이 흐릿했던 기존 정원을, 손기정 선수의 이야기를 따라 ‘시작 → 달리기 → 승리’의 시간을 걷는 스마트정원으로 재설계한 프로젝트",

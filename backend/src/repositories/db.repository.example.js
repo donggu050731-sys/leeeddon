@@ -42,6 +42,12 @@ export function createDbRepository({ databaseUrl }) {
     async getJourney() {
       // TODO: { label, title, items: [...] } 모양
       throw new Error('아직 구현하지 않았습니다 (getJourney)');
+    },
+
+    async saveProjects(projects) {
+      // TODO: 관리자 화면에서 저장할 때 쓰인다.
+      //       DB라면 통째로 덮어쓰기보다 INSERT / UPDATE / DELETE 로 나눠 구현하는 편이 낫다.
+      throw new Error('아직 구현하지 않았습니다 (saveProjects)');
     }
   };
 }

@@ -10,3 +10,7 @@ Thumbs.db
 # Node / 빌드 결과물
 node_modules/
 dist/
+
+# 비밀번호 해시 등 — 공개 저장소에 올리지 않는다
+.env
+backend/.env

@@ -15,10 +15,13 @@ export function errorHandler(error, req, res, next) { // eslint-disable-line no-
 
   if (status >= 500) console.error('[error]', error);
 
-  res.status(status).json({
-    error: {
-      status,
-      message: status >= 500 ? '서버에서 문제가 생겼습니다.' : error.message
-    }
-  });
+  const payload = {
+    status,
+    message: status >= 500 ? '서버에서 문제가 생겼습니다.' : error.message
+  };
+
+  // 화면이 다음 행동을 고르는 데 쓰는 정보 (예: 중복된 프로젝트 정보)
+  if (error.details && status < 500) payload.details = error.details;
+
+  res.status(status).json({ error: payload });
 }

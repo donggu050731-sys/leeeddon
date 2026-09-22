@@ -1,0 +1,426 @@
+/* ===== 관리자 화면 =====
+   색·글꼴·간격 값은 tokens.css 의 변수만 쓴다 (CLAUDE.md 1장 5번).
+   빈칸의 예시 글씨(placeholder)는 연한 색으로 보이고, 입력을 시작하면 브라우저가 알아서 지운다. */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* hidden 속성이 붙은 요소는 무조건 감춘다.
+   (display 를 지정한 요소는 hidden 만으로는 감춰지지 않기 때문에 꼭 필요하다) */
+[hidden] {
+  display: none !important;
+}
+
+body.admin {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Noto Sans KR', 'Outfit', sans-serif;
+  line-height: 1.7;
+}
+
+/* ===== 공통 ===== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.button.primary {
+  background: var(--accent-green);
+  color: #fff;
+}
+
+.button.primary:hover {
+  background: var(--accent-green-dark);
+}
+
+.button.ghost {
+  border-color: var(--border-glass);
+  background: var(--bg-white);
+  color: var(--text-secondary);
+}
+
+.button.ghost:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green-dark);
+}
+
+.button.danger {
+  border-color: var(--accent-red);
+  background: none;
+  color: var(--accent-red);
+}
+
+.button.danger:hover {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.button.small {
+  padding: 6px 12px;
+  font-size: var(--fs-xs);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.message {
+  min-height: 1.5em;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--accent-red);
+}
+
+.message.ok {
+  color: var(--accent-green-dark);
+}
+
+/* ===== 입력 칸 ===== */
+.field {
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.required,
+.optional {
+  margin-left: var(--space-xs);
+  font-size: var(--fs-xs);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.required { color: var(--accent-orange); }
+.optional { color: var(--text-muted); }
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  background: var(--bg-white);
+  font: inherit;
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+/* 예시 글씨 — 연하게 */
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+/* 채워야 하는데 비어 있는 칸 */
+.field.invalid input,
+.field.invalid textarea {
+  border-color: var(--accent-red);
+  background: #fff7f7;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-md);
+}
+
+.status-field {
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  background: var(--bg-tint);
+}
+
+.radio {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  padding: var(--space-xs) 0;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.radio input {
+  /* 위 .field input 의 width:100% 가 동그라미까지 늘려버리므로 여기서 되돌린다 */
+  width: auto;
+  flex: none;
+  margin-top: 6px;
+  accent-color: var(--accent-green);
+}
+
+/* ===== 로그인 ===== */
+.login-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-md);
+}
+
+.login-box {
+  width: min(420px, 100%);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  background: var(--bg-white);
+  box-shadow: var(--shadow-card);
+}
+
+.login-label {
+  font-family: var(--font-accent);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent-green);
+}
+
+.login-title {
+  margin-top: var(--space-xs);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.login-desc {
+  margin: var(--space-xs) 0 var(--space-md);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.login-box .button {
+  width: 100%;
+  margin-bottom: var(--space-xs);
+}
+
+/* ===== 관리 화면 ===== */
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-glass);
+  background: var(--bg-white);
+}
+
+.admin-label {
+  font-family: var(--font-accent);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent-green);
+}
+
+.admin-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.admin-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.admin-body {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-md);
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+.panel {
+  padding: var(--space-md);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  background: var(--bg-white);
+  box-shadow: var(--shadow-card);
+}
+
+.panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.panel-title {
+  font-size: var(--fs-lg);
+  font-weight: 800;
+}
+
+.form-state {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* ===== 프로젝트 목록 ===== */
+.project-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.project-item {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  background: var(--bg-white);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project-item:hover {
+  border-color: var(--accent-green);
+}
+
+.project-item.selected {
+  border-color: var(--accent-green);
+  background: var(--bg-tint);
+}
+
+.project-item-title {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.project-item-meta {
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
+  margin-top: 4px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.badge {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
+.badge.published {
+  background: var(--accent-green);
+  color: #fff;
+}
+
+.badge.draft {
+  background: var(--bg-tint);
+  color: var(--accent-orange);
+}
+
+.hint {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-glass);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.notice {
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 3px solid var(--accent-orange);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tint);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+/* ===== 중복 안내 ===== */
+.duplicate-panel {
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--accent-orange);
+  border-radius: var(--radius-md);
+  background: var(--bg-tint);
+}
+
+.duplicate-title {
+  font-size: var(--fs-md);
+  font-weight: 800;
+  color: var(--accent-orange);
+}
+
+.duplicate-text {
+  margin: var(--space-xs) 0 var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.duplicate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.duplicate-hint {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.form-actions .danger {
+  margin-left: auto;
+}
+
+/* ===== 좁은 화면 ===== */
+@media (max-width: 860px) {
+  .admin-body {
+    grid-template-columns: 1fr;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}

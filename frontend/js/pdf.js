@@ -3,10 +3,11 @@
    인쇄(css/print.css)는 이 문서만 출력한다.
 
    문서 구성: 표지 → 프로필 → 프로젝트 1건당 1장
+   (관리자 화면에서 새로 넣은 프로젝트도 공개 상태면 자동으로 함께 들어간다)
 */
 
 import { el, append, tagList, table } from './dom.js';
-import { createProjectDetail, metaValue } from './render/detail.js';
+import { normalizeProject, createProjectDetail, metaValue } from './render/detail.js';
 
 /** 표지·프로필에 들어갈 기본 정보 표. profile.contact 가 있으면 연락처도 함께 넣는다. */
 function profileRows(profile) {
@@ -57,8 +58,13 @@ function pageHead(profile, label) {
   return head;
 }
 
+/** 프로젝트를 한 줄로 요약하는 말 (분야 · 형태/인원) */
+function projectCaption(view) {
+  return [view.field, metaValue(view, ['형태', '참여인원'])].filter(Boolean).join(' · ');
+}
+
 /** 1장: 표지 */
-function coverPage(profile, projects) {
+function coverPage(profile, views) {
   const page = el('section', 'pdf-page pdf-cover');
 
   append(
@@ -73,13 +79,9 @@ function coverPage(profile, projects) {
   index.appendChild(el('h2', 'pdf-cover-index-title', '수록 프로젝트'));
 
   const list = el('ol', 'pdf-cover-list');
-  projects.items.forEach(project => {
+  views.forEach(view => {
     const item = el('li');
-    append(
-      item,
-      el('strong', null, project.title),
-      el('span', null, [project.field, metaValue(project, ['형태'])].filter(Boolean).join(' · '))
-    );
+    append(item, el('strong', null, view.title), el('span', null, projectCaption(view)));
     list.appendChild(item);
   });
   index.appendChild(list);
@@ -96,7 +98,7 @@ function coverPage(profile, projects) {
 }
 
 /** 2장: 프로필 + 프로젝트 한눈에 보기 */
-function profilePage(profile, projects) {
+function profilePage(profile, views) {
   const page = el('section', 'pdf-page');
 
   append(
@@ -107,18 +109,29 @@ function profilePage(profile, projects) {
     el('h3', 'pdf-section-title', '프로젝트 개요'),
     table(
       'pdf-table',
-      ['프로젝트', '분야', '형태', '과목 · 구분'],
-      projects.items.map(project => [
-        project.title,
-        project.field,
-        metaValue(project, ['형태']),
-        metaValue(project, ['과목', '구분'])
+      ['프로젝트', '분야', '형태 · 인원', '과목 · 구분 · 날짜'],
+      views.map(view => [
+        view.title,
+        view.field,
+        metaValue(view, ['형태', '참여인원']),
+        metaValue(view, ['과목', '구분', '날짜'])
       ])
     )
   );
 
-  const tools = projects.items
-    .map(project => [project.number, metaValue(project, ['사용 도구'])])
+  // 역할을 적어둔 프로젝트가 있으면 따로 모아 보여준다
+  const roles = views
+    .map(view => [view.title, metaValue(view, ['내가 한 역할'])])
+    .filter(pair => pair[1]);
+
+  if (roles.length) {
+    const list = el('ul', 'pdf-list');
+    roles.forEach(pair => list.appendChild(el('li', null, pair[0] + ' — ' + pair[1])));
+    append(page, el('h3', 'pdf-section-title', '맡은 역할'), list);
+  }
+
+  const tools = views
+    .map(view => [view.number, metaValue(view, ['사용 도구'])])
     .filter(pair => pair[1]);
 
   if (tools.length) {
@@ -128,8 +141,8 @@ function profilePage(profile, projects) {
   }
 
   const keywords = [];
-  projects.items.forEach(project => {
-    (project.blocks || []).forEach(block => {
+  views.forEach(view => {
+    (view.blocks || []).forEach(block => {
       if (block.heading !== '키워드' || !block.tags) return;
       block.tags.forEach(keyword => {
         if (keywords.indexOf(keyword) === -1) keywords.push(keyword);
@@ -145,17 +158,17 @@ function profilePage(profile, projects) {
 }
 
 /** 3장 이후: 프로젝트 1건 = 1장 (내용이 길면 다음 장으로 이어진다) */
-function projectPage(profile, project) {
+function projectPage(profile, view) {
   const page = el('section', 'pdf-page');
 
   append(
     page,
-    pageHead(profile, [project.number, project.field].filter(Boolean).join(' · ')),
-    el('h2', 'pdf-title', project.title),
-    el('p', 'pdf-lead', project.summary)
+    pageHead(profile, [view.number, view.field].filter(Boolean).join(' · ')),
+    el('h2', 'pdf-title', view.title),
+    el('p', 'pdf-lead', view.summary)
   );
 
-  page.appendChild(createProjectDetail(project));
+  page.appendChild(createProjectDetail(view));
   return page;
 }
 
@@ -165,10 +178,13 @@ function projectPage(profile, project) {
  */
 export function buildPdfDocument(data) {
   const doc = document.getElementById('pdf-doc');
+  const views = data.projects.items.map((project, index) => normalizeProject(project, index));
+
   const pages = [
-    coverPage(data.profile, data.projects),
-    profilePage(data.profile, data.projects),
-    ...data.projects.items.map(project => projectPage(data.profile, project))
+    coverPage(data.profile, views),
+    profilePage(data.profile, views),
+    ...views.map(view => projectPage(data.profile, view))
   ];
+
   doc.replaceChildren(...pages);
 }
