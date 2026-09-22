@@ -1,0 +1,55 @@
+{
+  "logo": "DK.Lee",
+  "name": "이동규",
+  "nameEn": "Lee Dong-Kyu",
+  "school": "상명대학교",
+  "department": "그린스마트시티학과",
+  "studentYear": "24학번",
+  "hero": {
+    "badge": "상명대학교 그린스마트시티학과 24학번",
+    "tagline": "축구와 야구를 사랑하는 대학생 🏟️",
+    "cta": {
+      "text": "더 알아보기",
+      "href": "#about"
+    }
+  },
+  "about": {
+    "label": "About Me",
+    "title": "기본 정보",
+    "cards": [
+      {
+        "tone": "blue",
+        "icon": "👤",
+        "title": "이름",
+        "value": "이동규",
+        "desc": "2005년 7월 31일생"
+      },
+      {
+        "tone": "purple",
+        "icon": "🎓",
+        "title": "소속",
+        "value": "상명대학교",
+        "desc": "그린스마트시티학과 24학번"
+      },
+      {
+        "tone": "orange",
+        "icon": "📍",
+        "title": "거주지",
+        "value": "자취 생활 중",
+        "desc": "2026년 9월부터 독립 시작!"
+      },
+      {
+        "tone": "green",
+        "icon": "⚽",
+        "title": "취미",
+        "value": "축구 · 야구",
+        "desc": "스포츠를 사랑하는 대학생"
+      }
+    ]
+  },
+  "footer": {
+    "prefix": "© 2026",
+    "name": "이동규",
+    "suffix": "상명대학교 그린스마트시티학과"
+  }
+}

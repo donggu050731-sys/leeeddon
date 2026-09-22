@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="이동규 - 상명대학교 그린스마트시티학과 24학번 포트폴리오">
+  <title>이동규 | 포트폴리오</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- 스타일은 역할별로 나눠져 있다. 읽는 순서(= 덮어쓰는 순서)가 중요하므로 바꾸지 않는다. -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+
+  <!-- 배경 애니메이션 -->
+  <div class="bg-animation">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <!-- 네비게이션 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo" id="nav-logo"></div>
+    <ul class="nav-links">
+      <li><a href="#about">소개</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#suwon">수원</a></li>
+      <li><a href="#journey">여정</a></li>
+    </ul>
+
+    <!-- ===== [SHARE] 공유하기 (링크 공유 · PDF 공유) ===== -->
+    <div class="share-wrap">
+      <button type="button" class="share-btn" id="share-btn"
+              aria-haspopup="menu" aria-expanded="false" aria-controls="share-menu">
+        공유하기 <span class="share-caret" aria-hidden="true">▾</span>
+      </button>
+      <div class="share-menu" id="share-menu" role="menu" hidden>
+        <button type="button" class="share-item" role="menuitem" data-share="link">
+          <strong>🔗 링크 공유</strong>
+          <span>이 페이지 주소를 복사합니다</span>
+        </button>
+        <button type="button" class="share-item" role="menuitem" data-share="pdf">
+          <strong>📄 PDF 공유</strong>
+          <span>핵심 내용만 담은 문서로 저장합니다</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!--
+    아래 섹션들은 비어 있는 '자리'다. 내용은 js/main.js 가 데이터(API 또는 JSON)를 받아 채운다.
+    내용을 고칠 때는 이 파일이 아니라 backend/data/*.json 을 고친다.
+  -->
+  <main>
+    <section class="hero" id="hero"></section>            <!-- [P01] 표지 -->
+    <section class="section" id="about"></section>        <!-- [P02] 기본 정보 -->
+    <section class="section" id="projects"></section>     <!-- [P03~P06] 프로젝트 -->
+    <section class="suwon-banner-section" id="suwon"></section>
+    <section class="section" id="journey"></section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <!-- 프로젝트 상세 모달: 카드를 누르면 JS가 해당 카드의 상세 내용을 채워 넣는다 -->
+  <dialog class="project-modal" id="project-modal" aria-labelledby="project-modal-title">
+    <div class="modal-header">
+      <h3 class="modal-title" id="project-modal-title"></h3>
+      <button type="button" class="modal-close" aria-label="닫기">×</button>
+    </div>
+    <div class="modal-body"></div>
+  </dialog>
+
+  <!-- ===== [PDF] 인쇄용 구조화 문서 — JS가 내용을 채운다 (화면에는 보이지 않음) ===== -->
+  <div class="pdf-doc" id="pdf-doc" aria-hidden="true"></div>
+
+  <!-- [SHARE] 링크 복사 등 짧은 안내 문구 -->
+  <p class="share-toast" id="share-toast" role="status" aria-live="polite"></p>
+
+  <!-- 연결 설정 (서버 주소 등) — 개발자가 아니어도 고칠 수 있게 따로 뒀다 -->
+  <script src="js/config.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

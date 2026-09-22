@@ -1,0 +1,112 @@
+/* ===== 기본 스타일 =====
+   초기화 · 본문 · 배경 애니메이션 · 페이드인 · 푸터 */
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Outfit', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.bg-orb:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  background: #a5d6a7;
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.bg-orb:nth-child(2) {
+  width: 450px;
+  height: 450px;
+  background: #80cbc4;
+  top: 50%;
+  right: -10%;
+  animation-delay: -7s;
+}
+
+.bg-orb:nth-child(3) {
+  width: 400px;
+  height: 400px;
+  background: #c5e1a5;
+  bottom: -10%;
+  left: 30%;
+  animation-delay: -14s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-40px, 60px) scale(0.9); }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 40px;
+  border-top: 1px solid var(--border-glass);
+  margin-top: 60px;
+  background: rgba(255,255,255,0.4);
+}
+
+.footer-text {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.footer-name {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,357 @@
+/* ===== 인쇄(PDF) 전용 =====
+   JS가 조립한 구조화 문서(.pdf-doc)만 출력한다. 화면 요소는 인쇄되지 않는다. */
+
+/* ===== PRINT (PDF 추출용) ===== */
+/* 기본 동작: JS가 조립한 구조화 문서(.pdf-doc)만 인쇄한다.
+   JS를 쓸 수 없는 환경에서는 아래 '기본 인쇄' 규칙이 대신 적용된다 (CLAUDE.md 6장). */
+@page {
+  size: A4 portrait;
+  margin: 16mm 15mm;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  /* --- 기본 인쇄 (구조화 문서를 못 만들었을 때의 대비) --- */
+  .bg-animation,
+  .navbar,
+  .share-wrap,
+  .share-toast,
+  .scroll-indicator,
+  .project-modal,
+  .project-open {
+    display: none !important;
+  }
+
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .project-grid {
+    display: block;
+  }
+
+  .project-card {
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  #projects {
+    break-before: page;
+  }
+
+  .project-card + .project-card {
+    break-before: page;
+  }
+
+  .project-detail[hidden] {
+    display: block !important;
+    margin-top: var(--space-md);
+  }
+
+  /* --- 구조화 문서가 준비된 경우: 문서만 남기고 화면 요소는 모두 제외 --- */
+  body:has(.pdf-doc:not(:empty)) > *:not(.pdf-doc) {
+    display: none !important;
+  }
+
+  .pdf-doc:not(:empty) {
+    display: block;
+  }
+
+  .pdf-doc {
+    color: var(--pdf-ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: var(--pdf-fs-body);
+    line-height: 1.55;
+  }
+
+  /* --- 문서 1장 = .pdf-page 하나 --- */
+  .pdf-page {
+    break-after: page;
+  }
+
+  .pdf-page:last-child {
+    break-after: auto;
+  }
+
+  /* --- 표지 --- */
+  .pdf-cover {
+    display: flex;
+    flex-direction: column;
+    min-height: 245mm;
+    padding-top: 38mm;
+  }
+
+  .pdf-cover-label {
+    font-family: var(--font-accent);
+    font-size: var(--pdf-fs-small);
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--pdf-accent);
+  }
+
+  .pdf-cover-name {
+    margin-top: var(--pdf-space-sm);
+    font-size: var(--pdf-fs-h1);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  .pdf-cover-name-en {
+    font-family: var(--font-accent);
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--pdf-ink-muted);
+  }
+
+  .pdf-cover-affil {
+    margin-top: var(--pdf-space-sm);
+    padding-top: var(--pdf-space-sm);
+    border-top: 1pt solid var(--pdf-accent);
+    font-size: 11pt;
+    font-weight: 700;
+  }
+
+  .pdf-cover-index {
+    margin-top: var(--pdf-space-lg);
+  }
+
+  .pdf-cover-index-title {
+    font-size: var(--pdf-fs-small);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--pdf-accent);
+  }
+
+  .pdf-cover-list {
+    margin-top: var(--pdf-space-sm);
+    padding-left: 6mm;
+  }
+
+  .pdf-cover-list li {
+    margin-bottom: var(--pdf-space-sm);
+  }
+
+  .pdf-cover-list strong {
+    display: block;
+    font-size: 11pt;
+    font-weight: 700;
+  }
+
+  .pdf-cover-list span {
+    font-size: var(--pdf-fs-small);
+    color: var(--pdf-ink-muted);
+  }
+
+  .pdf-cover-foot {
+    margin-top: auto;
+    padding-top: var(--pdf-space-sm);
+    border-top: 0.5pt solid var(--pdf-rule);
+    font-size: var(--pdf-fs-tiny);
+    color: var(--pdf-ink-muted);
+  }
+
+  /* --- 본문 페이지 머리말 --- */
+  .pdf-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--pdf-space-sm);
+    margin-bottom: var(--pdf-space-md);
+    padding-bottom: 1.5mm;
+    border-bottom: 1.2pt solid var(--pdf-accent);
+  }
+
+  .pdf-head-label {
+    font-family: var(--font-accent);
+    font-size: var(--pdf-fs-small);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--pdf-accent);
+  }
+
+  .pdf-head-owner {
+    font-size: var(--pdf-fs-tiny);
+    color: var(--pdf-ink-muted);
+    white-space: nowrap;
+  }
+
+  /* --- 본문 제목 --- */
+  .pdf-title {
+    font-size: var(--pdf-fs-h2);
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .pdf-lead {
+    margin: var(--pdf-space-xs) 0 var(--pdf-space-md);
+    font-size: var(--pdf-fs-body);
+    color: var(--pdf-ink-soft);
+  }
+
+  .pdf-section-title {
+    margin: var(--pdf-space-md) 0 var(--pdf-space-sm);
+    font-size: var(--pdf-fs-h3);
+    font-weight: 700;
+    color: var(--pdf-accent);
+  }
+
+  .pdf-list {
+    padding-left: 5mm;
+  }
+
+  .pdf-list li {
+    margin-bottom: 1mm;
+    color: var(--pdf-ink-soft);
+  }
+
+  /* --- 문서용 표 --- */
+  .pdf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--pdf-fs-small);
+  }
+
+  .pdf-table th,
+  .pdf-table td {
+    padding: 1.6mm 2mm;
+    border-bottom: 0.5pt solid var(--pdf-rule);
+    text-align: left;
+    vertical-align: top;
+    color: var(--pdf-ink-soft);
+  }
+
+  .pdf-table thead th {
+    border-bottom: 1pt solid var(--pdf-accent);
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--pdf-accent);
+  }
+
+  .pdf-table th[scope="row"] {
+    width: 24mm;
+    white-space: nowrap;
+    font-weight: 700;
+    color: var(--pdf-accent);
+  }
+
+  /* --- 카드에서 그대로 가져온 상세 내용의 인쇄용 모양 --- */
+  /* 화면용 배경·모서리·연한 색을 걷어내고 선과 글자만 남긴다 (배경 그래픽 없이도 읽히도록) */
+  .pdf-doc .detail-meta {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    margin: 0 0 var(--pdf-space-md);
+    padding: var(--pdf-space-sm) 0;
+    border-top: 0.5pt solid var(--pdf-rule);
+    border-bottom: 0.5pt solid var(--pdf-rule);
+    border-radius: 0;
+    background: none;
+    gap: 1.2mm var(--pdf-space-sm);
+    font-size: var(--pdf-fs-small);
+  }
+
+  .pdf-doc .detail-meta dt {
+    color: var(--pdf-accent);
+  }
+
+  .pdf-doc .detail-meta dd {
+    color: var(--pdf-ink-soft);
+  }
+
+  .pdf-doc .detail-block {
+    margin-bottom: var(--pdf-space-md);
+  }
+
+  /* 소제목만 남고 내용이 다음 장으로 넘어가는 일을 막는다 */
+  .pdf-doc .detail-block h4 {
+    break-after: avoid;
+    margin-bottom: var(--pdf-space-xs);
+    padding: 0 0 1mm;
+    border-left: none;
+    border-bottom: 0.5pt solid var(--pdf-rule);
+    font-size: var(--pdf-fs-h3);
+    color: var(--pdf-accent);
+  }
+
+  .pdf-doc .detail-block p,
+  .pdf-doc .detail-block li {
+    font-size: var(--pdf-fs-body);
+    line-height: 1.55;
+    color: var(--pdf-ink-soft);
+  }
+
+  .pdf-doc .detail-block strong {
+    color: var(--pdf-ink);
+  }
+
+  .pdf-doc .detail-block ul {
+    padding-left: 4.5mm;
+  }
+
+  .pdf-doc .detail-block li {
+    margin-bottom: 0.8mm;
+  }
+
+  .pdf-doc .table-wrap {
+    overflow: visible;
+  }
+
+  .pdf-doc .detail-table {
+    font-size: var(--pdf-fs-small);
+  }
+
+  .pdf-doc .detail-table th,
+  .pdf-doc .detail-table td {
+    padding: 1.4mm 2mm;
+    border-bottom: 0.5pt solid var(--pdf-rule);
+    color: var(--pdf-ink-soft);
+  }
+
+  .pdf-doc .detail-table th {
+    border-bottom: 1pt solid var(--pdf-accent);
+    background: none;
+    color: var(--pdf-accent);
+  }
+
+  /* 표가 두 장에 걸치더라도 행이 잘리지 않도록 */
+  .pdf-doc .detail-table tr,
+  .pdf-table tr {
+    break-inside: avoid;
+  }
+
+  .pdf-doc .detail-table thead,
+  .pdf-table thead {
+    display: table-header-group;
+  }
+
+  .pdf-doc .tag-list {
+    gap: 1mm 2mm;
+  }
+
+  .pdf-doc .tag-list li {
+    padding: 0.4mm 2mm;
+    border: 0.5pt solid var(--pdf-rule);
+    background: none;
+    font-size: var(--pdf-fs-tiny);
+    color: var(--pdf-ink-soft);
+  }
+
+  .pdf-doc .detail-note {
+    margin-top: var(--pdf-space-xs);
+    font-size: var(--pdf-fs-tiny);
+    color: var(--pdf-ink-muted);
+  }
+
+  .pdf-doc .detail-source {
+    margin-top: var(--pdf-space-sm);
+    padding-top: 1.5mm;
+    border-top: 0.5pt solid var(--pdf-rule);
+    font-size: var(--pdf-fs-tiny);
+    color: var(--pdf-ink-muted);
+  }
+}

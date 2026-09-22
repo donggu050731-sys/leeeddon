@@ -1,0 +1,89 @@
+/* ===== 반응형 (화면 폭 768px 이하) =====
+   좁은 화면에서만 적용되는 규칙을 한곳에 모아둔다. */
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* [P03~P06] 프로젝트 — 모바일 */
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-header {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .modal-body {
+    padding: var(--space-md);
+  }
+
+  .detail-meta {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .detail-meta dd {
+    margin-bottom: var(--space-xs);
+  }
+
+  .navbar {
+    padding: 12px 20px;
+    gap: var(--space-sm);
+  }
+
+  /* [SHARE] 모바일 — 버튼을 작게 */
+  .share-btn {
+    padding: 6px 12px;
+    font-size: var(--fs-xs);
+  }
+
+  .share-menu {
+    min-width: 210px;
+  }
+
+  .nav-links {
+    gap: var(--space-sm);
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    padding: 100px 20px 60px;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .suwon-banner-section {
+    padding: 40px 20px;
+  }
+
+  .suwon-banner-body {
+    grid-template-columns: 1fr;
+  }
+
+  .suwon-info-card:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--border-glass);
+  }
+
+  .suwon-frog-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .suwon-frog-img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .suwon-banner-hero {
+    height: 240px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

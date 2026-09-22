@@ -1,0 +1,60 @@
+/* ===== 디자인 토큰 (색·글꼴·간격) =====
+   색상·글꼴·간격은 모두 여기서만 바꾼다. 다른 파일에 값을 직접 쓰지 않는다 (CLAUDE.md 1장 4번). */
+
+:root {
+  --bg-primary: #f0f7f0;
+  --bg-secondary: #e8f5e9;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-glass: rgba(255, 255, 255, 0.6);
+  --border-glass: rgba(46, 125, 50, 0.15);
+  --text-primary: #1b3a1b;
+  --text-secondary: #4a6b4a;
+  --text-muted: #7a9a7a;
+  --accent-green: #2e7d32;
+  --accent-green-light: #43a047;
+  --accent-green-dark: #1b5e20;
+  --accent-emerald: #00897b;
+  --accent-lime: #7cb342;
+  --accent-teal: #00796b;
+  --accent-orange: #e65100;
+  --accent-gold: #f9a825;
+  --accent-red: #c62828;
+  --gradient-hero: linear-gradient(135deg, #2e7d32 0%, #00897b 50%, #43a047 100%);
+  --gradient-card: linear-gradient(135deg, rgba(46,125,50,0.08), rgba(0,137,123,0.08));
+  --shadow-glow: 0 8px 40px rgba(46, 125, 50, 0.12);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+
+  /* --- 프로젝트 섹션용 (글꼴·크기·간격·색상) --- */
+  --font-accent: 'Outfit', sans-serif;
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.9rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --bg-white: #ffffff;
+  --bg-tint: rgba(46, 125, 50, 0.06);
+  --overlay-backdrop: rgba(27, 58, 27, 0.45);
+
+  /* --- [PDF] 인쇄용 구조화 문서 (화면 색보다 진하게, 흑백 인쇄에도 대비가 남도록) --- */
+  --pdf-ink: #111111;
+  --pdf-ink-soft: #3c463c;
+  --pdf-ink-muted: #6b7a6b;
+  --pdf-rule: #c8d8c8;
+  --pdf-accent: #1b5e20;
+  --pdf-fs-tiny: 7.2pt;
+  --pdf-fs-small: 8pt;
+  --pdf-fs-body: 9.5pt;
+  --pdf-fs-h3: 10.5pt;
+  --pdf-fs-h2: 15pt;
+  --pdf-fs-h1: 26pt;
+  --pdf-space-xs: 2mm;
+  --pdf-space-sm: 4mm;
+  --pdf-space-md: 7mm;
+  --pdf-space-lg: 12mm;
+}
