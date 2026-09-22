@@ -3,7 +3,7 @@
 상명대학교 그린스마트시티학과 프로젝트 포트폴리오.
 화면(프론트엔드)과 데이터를 주는 서버(백엔드)를 나눠서 관리한다.
 
-- 웹: https://donggu050731-sys.github.io/desktop-tutorial/
+- 웹: https://donggu050731-sys.github.io/leeeddon/
 - 오른쪽 위 **공유하기 → PDF 공유** 를 누르면 핵심 내용만 담은 A4 문서로 저장된다.
 
 ---

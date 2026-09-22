@@ -177,8 +177,9 @@ npm run build    # dist/ 만들기 (배포용)
 
 ### 배포
 
-- 저장소: https://github.com/donggu050731-sys/desktop-tutorial (`main` 브랜치)
-- 주소: https://donggu050731-sys.github.io/desktop-tutorial/
+- 저장소: https://github.com/donggu050731-sys/leeeddon (`main` 브랜치)
+  - 예전 이름 `desktop-tutorial` 에서 바뀌었다. 옛 주소는 GitHub가 자동 연결해 주지만 새 이름을 쓴다.
+- 주소: https://donggu050731-sys.github.io/leeeddon/
 - `main` 에 push → GitHub Actions가 `frontend/` + `backend/data` 를 묶어 배포
 - **한 번만 필요한 설정:** GitHub → Settings → Pages → Source 를 **GitHub Actions** 로 변경
 - 저장소는 **공개** 상태 → 개인정보가 담긴 파일은 올리지 않는다 (1장 7번 원칙)
