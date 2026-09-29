@@ -211,8 +211,13 @@ npm run build    # dist/ 만들기 (배포용)
 
 - 저장소: https://github.com/donggu050731-sys/leeeddon (`main` 브랜치)
   - 예전 이름 `desktop-tutorial` 에서 바뀌었다. 옛 주소는 GitHub가 자동 연결해 주지만 새 이름을 쓴다.
-- 주소: https://donggu050731-sys.github.io/leeeddon/
-- `main` 에 push → GitHub Actions가 `frontend/` + `backend/data` 를 묶어 배포
+- 주소 (두 곳에 함께 배포된다. 내용은 같다)
+  - Vercel: https://desktop-tutorial-mu-gray.vercel.app/  ← 기존에 쓰던 주소
+  - GitHub Pages: https://donggu050731-sys.github.io/leeeddon/
+- `main` 에 push → 두 곳이 각각 자동 배포된다
+  - GitHub Actions: `.github/workflows/deploy-pages.yml`
+  - Vercel: `vercel.json` (`npm run build` → `dist`)
+  - 둘 다 같은 `scripts/build-site.js` 를 쓰므로 결과물이 어긋나지 않는다
 - **한 번만 필요한 설정:** GitHub → Settings → Pages → Source 를 **GitHub Actions** 로 변경
 - 저장소는 **공개** 상태 → 개인정보가 담긴 파일은 올리지 않는다 (1장 7번 원칙)
 
@@ -230,6 +235,7 @@ npm run build    # dist/ 만들기 (배포용)
 - 오른쪽 상단에 '공유하기' 버튼 추가 — 링크 공유 / PDF 공유 (2026-09-22)
 - PDF 추출 기능 추가 — 화면 복제가 아니라 카드 내용만 뽑아 A4 구조화 문서(표지·프로필·프로젝트 4장)로 생성 (2026-09-22)
 - PDF 반영 범위 확정 — 생년월일·취미·수원·여정은 PDF에서 제외, 연락처 미표기 (2026-09-22)
+- Vercel 배포 복구 — 폴더 구조 변경으로 끊겼던 빌드를 `vercel.json` 으로 다시 연결 (2026-09-29)
 - 보안 점검 — 서버를 내 컴퓨터에만 열도록 변경, 서버 쪽 입력 길이 제한 추가 (2026-09-22)
 - 관리자 로그인 유지 방식 변경 — 브라우저에 저장하지 않고, 창을 닫으면 즉시 풀리도록 (2026-09-22)
 - 프로젝트 중복 확인 추가 — 같은 제목이면 합치기·기존 삭제·따로 저장 중에서 고르게 함 (2026-09-22)
