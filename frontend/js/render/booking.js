@@ -3,6 +3,9 @@
    고를 수 있는 날짜·시간의 규칙은 booking-rules.js 에 있다.
 
    흐름: 칸을 모두 채우고 동의에 체크 → [예약하기] 활성화 → 확인 팝업 → 팝업의 [예약하기] → 저장
+
+   이미 예약된 시간은 드롭박스에 '14:30 (완료)' 처럼 표시되고 고를 수 없다.
+   (화면에서 막는 것은 안내용이고, 실제로 겹치지 않게 지키는 일은 서버가 한다)
 */
 
 import { el, append, sectionHeader } from '../dom.js';
@@ -38,13 +41,15 @@ function textInput(type, config) {
  * @param {{source: object, items: {date: string, name: string}[]}} holidays
  * @param {object} options
  * @param {HTMLDialogElement} options.modal 확인 팝업
+ * @param {() => Promise<{date: string, time: string}[]>} options.loadTaken 이미 예약된 날짜·시간을 받아오는 함수
  * @param {(payload: object) => Promise<void>} options.onSubmit 팝업에서 최종 [예약하기]를 눌렀을 때
  */
-export function renderBooking(section, booking, holidays, { modal, onSubmit }) {
+export function renderBooking(section, booking, holidays, { modal, loadTaken, onSubmit }) {
   const { fields, rules, calendar: labels } = booking;
   const today = todayString();
   const limits = { today, maxDaysAhead: rules.maxDaysAhead, holidays: holidays.items };
   const state = { date: '', time: '', name: '', email: '', purpose: '', consent: false };
+  let taken = [];   // 이미 예약된 날짜·시간 [{ date, time }]
 
   /* --- 왼쪽: 캘린더 · 선택한 날짜 · 희망 시간 --- */
   const dateBox = el('output', 'form-input booking-date-box is-empty', fields.date.empty);
@@ -61,6 +66,7 @@ export function renderBooking(section, booking, holidays, { modal, onSubmit }) {
       state.date = date;
       dateBox.textContent = formatDate(date, labels.weekdays);
       dateBox.classList.remove('is-empty');
+      renderTimes();
       refresh();
     }
   });
@@ -74,10 +80,36 @@ export function renderBooking(section, booking, holidays, { modal, onSubmit }) {
 
   const timeSelect = el('select', 'form-input');
   timeSelect.required = true;
-  const emptyOption = el('option', null, fields.time.empty);
-  emptyOption.value = '';
-  timeSelect.appendChild(emptyOption);
-  timeSlots(rules).forEach(slot => timeSelect.appendChild(el('option', null, slot)));
+
+  // 시간 목록을 다시 만든다. 고른 날짜에 이미 예약된 시간은 '(완료)'를 붙이고 고를 수 없게 한다.
+  function renderTimes() {
+    const chosen = timeSelect.value;
+    const emptyOption = el('option', null, fields.time.empty);
+    emptyOption.value = '';
+
+    const options = timeSlots(rules).map(slot => {
+      const isTaken = taken.some(item => item.date === state.date && item.time === slot);
+      const option = el('option', null, isTaken ? slot + ' ' + fields.time.takenSuffix : slot);
+      option.value = slot;
+      option.disabled = isTaken;
+      return option;
+    });
+
+    timeSelect.replaceChildren(emptyOption, ...options);
+
+    // 골라 둔 시간이 아직 비어 있으면 그대로 두고, 그 사이 예약됐으면 선택을 푼다
+    const stillFree = options.some(option => option.value === chosen && !option.disabled);
+    timeSelect.value = stillFree ? chosen : '';
+  }
+
+  // 예약된 시간을 서버에서 다시 받아 목록에 반영한다
+  async function refreshTaken() {
+    taken = await loadTaken();
+    renderTimes();
+    refresh();
+  }
+
+  renderTimes();
 
   const left = el('div', 'visit-card booking-card fade-in');
   append(
@@ -141,7 +173,9 @@ export function renderBooking(section, booking, holidays, { modal, onSubmit }) {
 
   /* --- 입력이 바뀔 때마다: 이메일 안내와 버튼 활성화를 다시 정한다 --- */
   function refresh() {
-    state.time = timeSelect.value;
+    // 막힌(완료) 시간은 화면에서 고를 수 없지만, 혹시 값이 들어와도 고르지 않은 것으로 본다
+    const picked = timeSelect.selectedOptions[0];
+    state.time = picked && !picked.disabled ? timeSelect.value : '';
     state.name = nameInput.value.trim();
     state.email = emailInput.value.trim();
     state.purpose = purposeInput.value.trim();
@@ -198,7 +232,11 @@ export function renderBooking(section, booking, holidays, { modal, onSubmit }) {
         console.warn('[booking] 예약을 저장하지 못했습니다.', error);
         status.classList.add('is-error');
         status.textContent = error.userMessage || booking.fail;
-        confirm.disabled = cancel.disabled = false;
+        cancel.disabled = false;
+        // 그 사이 다른 사람이 같은 시간을 예약한 경우(409): 목록을 새로 받아 그 시간을 막는다.
+        // 이 팝업의 [예약하기]는 다시 누를 수 없고, [수정하기]로 돌아가 다른 시간을 골라야 한다.
+        if (error.status === 409) refreshTaken();
+        else confirm.disabled = false;
       }
     });
 
@@ -228,7 +266,7 @@ export function renderBooking(section, booking, holidays, { modal, onSubmit }) {
     state.date = '';
     dateBox.textContent = fields.date.empty;
     dateBox.classList.add('is-empty');
-    refresh();
+    refreshTaken();   // 방금 예약한 시간도 '(완료)'로 바뀌도록 목록을 새로 받는다
   }
 
   form.addEventListener('submit', (event) => {
@@ -237,5 +275,7 @@ export function renderBooking(section, booking, holidays, { modal, onSubmit }) {
   });
 
   modal.querySelector('.modal-close').addEventListener('click', () => modal.close());
+
+  refreshTaken();   // 처음 열 때 예약된 시간을 받아온다
   modal.addEventListener('close', () => document.body.classList.remove('modal-open'));
 }

@@ -4,7 +4,7 @@
    문구는 backend/data/visit.json 의 booking 에 있다. 이 파일에는 문장을 적지 않는다.
 */
 
-import { loadPortfolio, loadVisit, loadHolidays, submitBooking } from './api.js';
+import { loadPortfolio, loadVisit, loadHolidays, loadTakenSlots, submitBooking } from './api.js';
 import { renderLogo, renderFooter } from './render/sections.js';
 import { renderBooking } from './render/booking.js';
 import { initNav } from './ui/nav.js';
@@ -17,6 +17,7 @@ async function start() {
   renderFooter(document.getElementById('footer'), portfolio.profile);
   renderBooking(document.getElementById('booking'), visit.booking, holidays, {
     modal: document.getElementById('booking-modal'),
+    loadTaken: loadTakenSlots,
     onSubmit: state => submitBooking(state, visit.booking)
   });
 

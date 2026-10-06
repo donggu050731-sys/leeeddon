@@ -1,5 +1,6 @@
 /* ===== 주소(라우트): 방문 예약 =====
    GET  /api/holidays    공휴일 목록 (캘린더에서 막을 날짜)
+   GET  /api/bookings/taken  이미 예약된 날짜·시간 (예약 페이지에서 고르지 못하게 막을 시간)
    POST /api/bookings    예약 1건 접수 → backend/storage/bookings.json 에 저장
 
    예약은 로그인 없이 누구나 보낼 수 있으므로, 같은 곳에서 너무 자주 보내면 잠시 막는다.
@@ -32,6 +33,14 @@ export function createBookingRouter(repository) {
   router.get('/holidays', async (req, res, next) => {
     try {
       res.json({ data: await service.getHolidays() });
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.get('/bookings/taken', async (req, res, next) => {
+    try {
+      res.json({ data: await service.getTakenSlots() });
     } catch (error) {
       next(error);
     }
