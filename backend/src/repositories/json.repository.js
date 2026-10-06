@@ -18,17 +18,17 @@ export function createJsonRepository({ dataDir, storageDir }) {
   const bookingsFile = path.join(storageDir, 'bookings.json');
   let bookingQueue = Promise.resolve(); // 동시에 들어온 예약이 서로 덮어쓰지 않게 한 줄로 세운다
 
-  async function appendBooking(booking) {
-    await mkdir(storageDir, { recursive: true });
-
-    let list = [];
+  async function readBookings() {
     try {
-      list = JSON.parse(await readFile(bookingsFile, 'utf8'));
+      return JSON.parse(await readFile(bookingsFile, 'utf8'));
     } catch (error) {
       if (error.code !== 'ENOENT') throw error; // 파일이 아직 없는 것만 괜찮다
+      return [];
     }
+  }
 
-    list.push(booking);
+  async function writeBookings(list) {
+    await mkdir(storageDir, { recursive: true });
     const temp = bookingsFile + '.tmp';
     await writeFile(temp, JSON.stringify(list, null, 2) + '\n', 'utf8');
     await rename(temp, bookingsFile);
@@ -66,9 +66,21 @@ export function createJsonRepository({ dataDir, storageDir }) {
     getVisit: () => read('visit'),
     getHolidays: () => read('holidays'),
 
-    /** 방문 예약 1건을 storage/bookings.json 끝에 덧붙인다 */
-    addBooking(booking) {
-      const done = bookingQueue.then(() => appendBooking(booking));
+    /** 방문 예약 전체 (storage/bookings.json) */
+    getBookings: () => readBookings(),
+
+    /**
+     * 방문 예약 목록을 읽고 → 고치고 → 저장하는 일을 한 번에 한다.
+     * change(list) 가 목록을 직접 고치고, 돌려준 값이 그대로 결과가 된다.
+     * (번호 붙이기·상태 바꾸기가 동시에 들어와도 서로 덮어쓰지 않는다)
+     */
+    updateBookings(change) {
+      const done = bookingQueue.then(async () => {
+        const list = await readBookings();
+        const result = await change(list);
+        await writeBookings(list);
+        return result;
+      });
       bookingQueue = done.catch(() => {});
       return done;
     },

@@ -129,6 +129,8 @@ npm run build      # dist/ 폴더 생성 (화면 + 데이터 복사본)
 |---|---|
 | `POST /api/admin/login` | 비밀번호 → 토큰 발급 (5번 틀리면 15분 잠김, 토큰은 30분 뒤 만료) |
 | `GET /api/admin/projects` | 초안까지 전부 |
+| `GET /api/admin/bookings` | 방문 예약 전체 |
+| `PATCH /api/admin/bookings/:id/status` | 예약 처리 상태 바꾸기 (접수 · 확정 · 변경 요청 · 취소) |
 | `POST /api/admin/projects` | 새 프로젝트 |
 | `PUT /api/admin/projects/:id` | 수정 |
 | `PATCH /api/admin/projects/:id/status` | 공개 ↔ 초안 |

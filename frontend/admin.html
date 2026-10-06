@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>프로젝트 관리 | 이동규 포트폴리오</title>
+  <title>관리자 | 이동규 포트폴리오</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,15 +43,23 @@
     <header class="admin-header">
       <div>
         <p class="admin-label">ADMIN</p>
-        <h1 class="admin-title">프로젝트 관리</h1>
+        <h1 class="admin-title" id="admin-title">프로젝트 관리</h1>
       </div>
       <div class="admin-actions">
+        <!-- 탭: 누르면 아래 화면이 바뀐다. 같은 페이지 안에서 바꾸므로 로그인이 풀리지 않는다 -->
+        <div class="admin-tabs" role="tablist" aria-label="관리 화면 고르기">
+          <button type="button" class="admin-tab" role="tab" id="tab-projects"
+                  data-tab="projects" aria-controls="projects-view" aria-selected="true">프로젝트 관리</button>
+          <button type="button" class="admin-tab" role="tab" id="tab-bookings"
+                  data-tab="bookings" aria-controls="bookings-view" aria-selected="false">예약하기 관리</button>
+        </div>
         <a class="button ghost" href="index.html" target="_blank" rel="noopener">웹사이트 보기 ↗</a>
         <button type="button" class="button ghost" id="logout-button">로그아웃</button>
       </div>
     </header>
 
-    <main class="admin-body">
+    <!-- ===== [탭 1] 프로젝트 관리 ===== -->
+    <main class="admin-body" id="projects-view" role="tabpanel" aria-labelledby="tab-projects">
 
       <!-- 목록 -->
       <aside class="panel list-panel">
@@ -152,6 +160,50 @@
       </section>
 
     </main>
+    <!-- ===== [탭 1] 끝 ===== -->
+
+    <!-- ===== [탭 2] 예약하기 관리 — 방문 예약 목록과 처리 상태 ===== -->
+    <main class="bookings-body" id="bookings-view" role="tabpanel" aria-labelledby="tab-bookings" hidden>
+      <section class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">방문 예약 목록</h2>
+          <button type="button" class="button small ghost" id="booking-refresh">새로고침</button>
+        </div>
+
+        <!-- 요약: 전체 N건 / 접수 N건 / 확정 N건 / 변경 요청 N건 / 취소 N건 (JS가 채운다) -->
+        <p class="booking-summary" id="booking-summary" aria-live="polite"></p>
+
+        <!-- 필터: 고른 처리 상태의 예약만 표에 보인다 (버튼은 JS가 만든다) -->
+        <div class="booking-filters" id="booking-filters" role="group" aria-label="처리 상태로 골라 보기"></div>
+
+        <div class="booking-table-wrap">
+          <table class="booking-table">
+            <thead>
+              <tr>
+                <th scope="col">예약 번호</th>
+                <th scope="col">신청자/이메일</th>
+                <th scope="col">방문 희망 시간</th>
+                <th scope="col">방문 목적</th>
+                <th scope="col">처리 상태</th>
+                <th scope="col">관리</th>
+              </tr>
+            </thead>
+            <tbody id="booking-rows"></tbody>
+          </table>
+        </div>
+
+        <p class="booking-empty" id="booking-empty" hidden></p>
+        <p class="message" id="booking-message" role="status"></p>
+
+        <p class="hint">
+          <strong>접수</strong>는 신청이 들어온 그대로, <strong>확정</strong>은 그 날짜·시간을 승인한 상태,
+          <strong>변경 요청</strong>은 다른 시간을 제안하려는 상태, <strong>취소</strong>는 방문을 받지 않기로 한 상태입니다.<br>
+          예약 번호는 ‘신청자(이름·이메일) + 방문 희망 시간’마다 하나씩 붙습니다.
+          이 서버가 켜져 있을 때 들어온 예약만 여기에 쌓입니다.
+        </p>
+      </section>
+    </main>
+    <!-- ===== [탭 2] 끝 ===== -->
   </div>
 
   <script src="js/config.js"></script>

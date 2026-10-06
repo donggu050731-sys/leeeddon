@@ -9,6 +9,13 @@
      - 이름 · 이메일 · 방문 목적 · 동의 : 모두 필수
 
    ※ 화면의 frontend/js/booking-rules.js 와 같은 규칙이다. 한쪽을 고치면 다른 쪽도 고친다.
+
+   예약 번호(no)
+     - '신청자(이름·이메일) + 방문 희망 시간(날짜·시간)' 한 묶음마다 번호 하나를 붙인다 (1, 2, 3 …).
+     - 같은 사람이 다른 시간에 신청하면 새 번호, 같은 사람이 같은 시간에 또 보내면 기존 번호 그대로다.
+
+   처리 상태(status) — 관리자 화면의 '예약하기 관리'에서 바꾼다
+     requested 접수 · confirmed 확정 · change-requested 변경 요청 · cancelled 취소
 */
 
 import { randomUUID } from 'node:crypto';
@@ -16,6 +23,13 @@ import { HttpError } from '../errors.js';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
+const STATUSES = ['requested', 'confirmed', 'change-requested', 'cancelled'];
+
+/** 같은 예약인지 가리는 기준: 이름 + 이메일 + 날짜 + 시간 (띄어쓰기·대소문자는 무시) */
+function bookingKey(booking) {
+  const person = (booking.name + '|' + booking.email).toLowerCase().replace(/\s+/g, '');
+  return person + '|' + booking.date + '|' + booking.time;
+}
 
 /** 한국 기준 오늘 날짜 (YYYY-MM-DD) */
 function todayInSeoul() {
@@ -44,6 +58,14 @@ function timeSlots(rules) {
     slots.push(String(Math.floor(at / 60)).padStart(2, '0') + ':' + String(at % 60).padStart(2, '0'));
   }
   return slots;
+}
+
+/** 번호가 없는 예약(번호를 붙이기 전에 들어온 것)에 접수된 순서대로 번호를 붙인다. 붙였으면 true */
+function numberMissing(list) {
+  const missing = list.filter(item => !item.no).sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+  let next = list.reduce((max, item) => Math.max(max, item.no || 0), 0);
+  missing.forEach(item => { item.no = next += 1; });
+  return missing.length > 0;
 }
 
 function text(value, label, max) {
@@ -101,10 +123,47 @@ export function createBookingService(repository) {
         consent: true
       };
 
-      await repository.addBooking(booking);
+      const saved = await repository.updateBookings(list => {
+        numberMissing(list);
 
-      // 저장한 내용을 그대로 돌려주지 않는다 (접수 번호와 시각만)
-      return { id: booking.id, createdAt: booking.createdAt };
+        const same = list.find(item => bookingKey(item) === bookingKey(booking));
+        if (same) return same; // 같은 사람이 같은 시간으로 또 보낸 것 → 새로 만들지 않는다
+
+        list.push(booking);
+        numberMissing(list);
+        return booking;
+      });
+
+      // 저장한 내용을 그대로 돌려주지 않는다 (예약 번호와 접수 시각만)
+      return { id: saved.id, no: saved.no, createdAt: saved.createdAt };
+    },
+
+    /** [관리자] 예약 전체 — 최근에 들어온 것이 위로 */
+    async list() {
+      let list = await repository.getBookings();
+      if (list.some(item => !item.no)) {
+        list = await repository.updateBookings(stored => {
+          numberMissing(stored);
+          return stored;
+        });
+      }
+      return [...list].sort((a, b) => (b.no || 0) - (a.no || 0));
+    },
+
+    /** [관리자] 처리 상태 바꾸기 */
+    async setStatus(id, status) {
+      if (!STATUSES.includes(status)) {
+        throw new HttpError(400, '처리 상태는 접수 · 확정 · 변경 요청 · 취소 중 하나여야 합니다.');
+      }
+
+      return repository.updateBookings(list => {
+        const booking = list.find(item => item.id === id);
+        if (!booking) throw new HttpError(404, '그런 예약이 없습니다: ' + id);
+
+        booking.status = status;
+        booking.updatedAt = new Date().toISOString();
+        return booking;
+      });
     }
   };
 }

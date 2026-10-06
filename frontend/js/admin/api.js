@@ -116,3 +116,13 @@ export function setStatus(id, status) {
 export function deleteProject(id) {
   return request('DELETE', '/api/admin/projects/' + encodeURIComponent(id));
 }
+
+/** 방문 예약 전체 (최근 것이 위) */
+export function listBookings() {
+  return request('GET', '/api/admin/bookings');
+}
+
+/** 예약의 처리 상태를 바꾼다: requested · confirmed · change-requested · cancelled */
+export function setBookingStatus(id, status) {
+  return request('PATCH', '/api/admin/bookings/' + encodeURIComponent(id) + '/status', { status });
+}

@@ -6,7 +6,7 @@
 import { HttpError } from '../errors.js';
 import { verifyPassword } from '../auth/password.js';
 
-export function createAdminController({ service, sessions, limiter, passwordHash }) {
+export function createAdminController({ service, bookings, sessions, limiter, passwordHash }) {
   function ensureConfigured() {
     if (!passwordHash) {
       throw new HttpError(
@@ -96,6 +96,22 @@ export function createAdminController({ service, sessions, limiter, passwordHash
       try {
         await service.deleteProject(req.params.id);
         res.json({ data: { ok: true } });
+      } catch (error) {
+        next(error);
+      }
+    },
+
+    async listBookings(req, res, next) {
+      try {
+        res.json({ data: await bookings.list() });
+      } catch (error) {
+        next(error);
+      }
+    },
+
+    async setBookingStatus(req, res, next) {
+      try {
+        res.json({ data: await bookings.setStatus(req.params.id, req.body?.status) });
       } catch (error) {
         next(error);
       }
