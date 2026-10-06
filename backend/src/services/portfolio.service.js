@@ -30,6 +30,11 @@ export function createPortfolioService(repository) {
       return { profile, projects: publicProjects(projects), hometown, journey };
     },
 
+    /** '찾아오는 길' 페이지 내용 */
+    getVisit() {
+      return repository.getVisit();
+    },
+
     async getProjects() {
       return publicProjects(await repository.getProjects());
     },

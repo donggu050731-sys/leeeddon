@@ -1,0 +1,50 @@
+{
+  "label": "Visit",
+  "title": "찾아오는 길",
+  "desc": "포트폴리오를 보고 연락이나 방문을 원하시는 분을 위한 안내입니다.",
+  "place": {
+    "name": "상명대학교 천안캠퍼스",
+    "address": "충청남도 천안시 동남구 상명대길 31",
+    "lat": 36.833,
+    "lon": 127.179
+  },
+  "map": {
+    "title": "지도",
+    "span": { "lat": 0.004, "lon": 0.007 },
+    "linkText": "큰 지도에서 보기"
+  },
+  "address": {
+    "title": "주소"
+  },
+  "weather": {
+    "title": "현재 날씨",
+    "temperatureLabel": "기온",
+    "humidityLabel": "습도",
+    "loading": "날씨를 불러오는 중입니다…",
+    "error": "지금은 날씨 정보를 불러올 수 없습니다.",
+    "timePrefix": "기준 시각"
+  },
+  "booking": {
+    "buttonText": "방문 예약하기",
+    "href": "booking.html",
+    "label": "Booking",
+    "title": "방문 예약",
+    "backText": "찾아오는 길로 돌아가기",
+    "backHref": "visit.html"
+  },
+  "sources": {
+    "prefix": "출처",
+    "items": [
+      {
+        "label": "지도",
+        "name": "© OpenStreetMap contributors",
+        "href": "https://www.openstreetmap.org/copyright"
+      },
+      {
+        "label": "날씨",
+        "name": "Open-Meteo.com",
+        "href": "https://open-meteo.com/"
+      }
+    ]
+  }
+}

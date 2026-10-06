@@ -22,6 +22,7 @@ export function createDataRouter(repository) {
   router.get('/projects.json', send(() => service.getProjects()));   // 공개된 것만
   router.get('/hometown.json', send(() => repository.getHometown()));
   router.get('/journey.json', send(() => repository.getJourney()));
+  router.get('/visit.json', send(() => repository.getVisit()));
 
   return router;
 }

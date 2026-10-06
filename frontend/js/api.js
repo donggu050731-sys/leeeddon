@@ -9,6 +9,7 @@ const config = window.PORTFOLIO_CONFIG || {};
 const API_BASE = String(config.apiBase || '').replace(/\/$/, '');
 const STATIC_PATH = String(config.staticDataPath || 'data').replace(/\/$/, '');
 const USE_API = config.useApi !== false;
+const WEATHER_API = String(config.weatherApi || '');
 
 // 화면이 필요로 하는 데이터 묶음 (JSON 파일 이름과 같다)
 const SECTIONS = ['profile', 'projects', 'hometown', 'journey'];
@@ -65,4 +66,45 @@ export async function loadPortfolio() {
     }
   }
   return loadFromStaticFiles();
+}
+
+/**
+ * '찾아오는 길' 페이지 데이터를 가져온다 (visit.json).
+ * @returns {Promise<object>}
+ */
+export async function loadVisit() {
+  if (USE_API) {
+    try {
+      return unwrap(await readJson(API_BASE + '/api/visit'));
+    } catch (error) {
+      console.warn('[api] 백엔드에 연결하지 못해 JSON 파일로 대체합니다.', error);
+    }
+  }
+  return readJson(STATIC_PATH + '/visit.json');
+}
+
+/**
+ * 좌표의 현재 날씨를 외부 서비스(Open-Meteo)에서 가져온다.
+ * 화면 코드가 외부 서비스의 응답 모양을 몰라도 되도록 여기서 단순한 모양으로 바꿔 돌려준다.
+ * @param {{lat: number, lon: number}} place
+ * @returns {Promise<{temperature: number, temperatureUnit: string, humidity: number, humidityUnit: string, time: string}>}
+ */
+export async function loadWeather(place) {
+  const params = new URLSearchParams({
+    latitude: place.lat,
+    longitude: place.lon,
+    current: 'temperature_2m,relative_humidity_2m',
+    timezone: 'Asia/Seoul'
+  });
+  const body = await readJson(WEATHER_API + '?' + params);
+  const current = body.current;
+  const units = body.current_units;
+
+  return {
+    temperature: current.temperature_2m,
+    temperatureUnit: units.temperature_2m,
+    humidity: current.relative_humidity_2m,
+    humidityUnit: units.relative_humidity_2m,
+    time: current.time.replace('T', ' ')
+  };
 }

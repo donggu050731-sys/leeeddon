@@ -21,6 +21,14 @@ export function createPortfolioController(service) {
       }
     },
 
+    async getVisit(req, res, next) {
+      try {
+        res.json({ data: await service.getVisit() });
+      } catch (error) {
+        next(error);
+      }
+    },
+
     async getProject(req, res, next) {
       try {
         res.json({ data: await service.getProject(req.params.id) });

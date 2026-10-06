@@ -7,9 +7,11 @@
    staticDataPath : API에 연결하지 못했을 때 대신 읽는 JSON 폴더.
                     GitHub Pages처럼 서버가 없는 곳에서는 이 경로의 파일을 읽는다.
    useApi         : false 로 두면 API를 아예 시도하지 않고 JSON 파일만 읽는다.
+   weatherApi     : '찾아오는 길' 페이지의 날씨를 받아오는 외부 서비스 주소 (Open-Meteo, 열쇠 없이 쓸 수 있다).
 */
 window.PORTFOLIO_CONFIG = {
   apiBase: '',
   staticDataPath: 'data',
-  useApi: true
+  useApi: true,
+  weatherApi: 'https://api.open-meteo.com/v1/forecast'
 };

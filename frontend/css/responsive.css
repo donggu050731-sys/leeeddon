@@ -86,4 +86,17 @@
   .profile-grid {
     grid-template-columns: 1fr;
   }
+
+  /* [VISIT] 찾아오는 길 — 모바일 */
+  .visit-section {
+    padding-top: 100px;
+  }
+
+  .visit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-map-frame {
+    height: 300px;
+  }
 }

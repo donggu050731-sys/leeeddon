@@ -125,11 +125,12 @@ PDF 한 장 = 하나의 섹션으로 관리한다. 페이지 번호 코드(`P01`
 ```
 frontend/        화면. 이 폴더만 GitHub Pages에 올라간다
   index.html     빈 틀 (내용 없음). 섹션 자리만 있고 JS가 채운다
+  visit.html     찾아오는 길 페이지의 빈 틀 (지도 · 주소 · 날씨). js/visit.js 가 채운다
   css/           tokens → base → layout → components → responsive → print 순서
   js/            config(설정) · api(통신) · dom(도구) · render/ · ui/ · pdf
   assets/        이미지 (영문 소문자 + 하이픈)
 backend/         Node + Express API 서버
-  data/*.json    ★ 내용의 원본 (profile · projects · hometown · journey)
+  data/*.json    ★ 내용의 원본 (profile · projects · hometown · journey · visit)
   src/           routes → controllers → services → repositories
 scripts/         build-site.js (배포용 dist/ 만들기)
 .github/workflows/deploy-pages.yml   main push → Pages 자동 배포
@@ -145,6 +146,8 @@ scripts/         build-site.js (배포용 dist/ 만들기)
 | 화면 그리는 방식 | `frontend/js/render/*.js` |
 | PDF 문서 구성 | `frontend/js/pdf.js` + `frontend/css/print.css` |
 | 서버 주소 | `frontend/js/config.js` 의 `apiBase` |
+| 찾아오는 길의 주소·좌표·문구·출처 | `backend/data/visit.json` |
+| 날씨 서비스 주소 | `frontend/js/config.js` 의 `weatherApi` |
 | 관리자 비밀번호 | `npm run set-password` (파일을 직접 고치지 않는다) |
 | 공개 여부 규칙 | `backend/src/services/admin.service.js` |
 | 데이터를 어디서 읽을지 | `backend/src/repositories/index.js` |
@@ -159,7 +162,7 @@ npm run build    # dist/ 만들기 (배포용)
 
 ### API
 
-`GET /api/health` · `GET /api/portfolio` · `GET /api/projects` · `GET /api/projects/:id`
+`GET /api/health` · `GET /api/portfolio` · `GET /api/projects` · `GET /api/projects/:id` · `GET /api/visit`
 응답은 `{ "data": ... }`, 오류는 `{ "error": { "status", "message" } }` 모양.
 
 ### 데이터 흐름
@@ -207,6 +210,17 @@ npm run build    # dist/ 만들기 (배포용)
 - 오른쪽 상단 **공유하기** → 링크 공유(주소 복사) / PDF 공유(구조화 문서 인쇄)
 - Ctrl+P로 인쇄해도 같은 구조화 문서가 나온다
 
+### 찾아오는 길 페이지 (`frontend/visit.html`)
+
+- 작업 브랜치: `feature/visit-booking` (기능별로 브랜치를 나눠 작업한다)
+- 장소: 상명대학교 천안캠퍼스 — 충청남도 천안시 동남구 상명대길 31 (좌표는 OpenStreetMap 주소 검색으로 확인)
+- 지도: OpenStreetMap 끼워 넣기(embed) 화면 / 날씨(기온·습도): Open-Meteo. 둘 다 열쇠(API 키) 없이 쓴다.
+- 두 서비스의 출처를 페이지 아래에 작게 표기한다 (`visit.json` 의 `sources`).
+- 날씨는 외부 서비스라 실패할 수 있다 → 실패해도 지도·주소는 그대로 보이게 따로 받는다.
+- 정보 아래 **[방문 예약하기]** 버튼 → `frontend/booking.html` (지금은 제목만 있는 빈 페이지. 문구는 `visit.json` 의 `booking`)
+- 웹 전용 페이지다. PDF에는 넣지 않는다.
+- 【확인 필요: 예약 기능의 내용 — 무엇을 예약하는지, 받을 입력 칸, 저장·알림 방식】 (아직 만들지 않음)
+
 ### 배포
 
 - 저장소: https://github.com/donggu050731-sys/leeeddon (`main` 브랜치)
@@ -239,6 +253,7 @@ npm run build    # dist/ 만들기 (배포용)
 - 보안 점검 — 서버를 내 컴퓨터에만 열도록 변경, 서버 쪽 입력 길이 제한 추가 (2026-09-22)
 - 관리자 로그인 유지 방식 변경 — 브라우저에 저장하지 않고, 창을 닫으면 즉시 풀리도록 (2026-09-22)
 - 프로젝트 중복 확인 추가 — 같은 제목이면 합치기·기존 삭제·따로 저장 중에서 고르게 함 (2026-09-22)
+- 찾아오는 길 페이지 추가 — 지도·주소·날씨(기온·습도)·출처 표기, `feature/visit-booking` 브랜치 (2026-10-06)
 - 관리자 화면 추가 (2026-09-22)
   - 비밀번호 로그인(해시 저장, 서버에서만 확인) · 프로젝트 추가/수정/삭제 · 초안/공개 전환
   - 프로젝트에 `status` 필드 추가, 기존 4건은 모두 `published` 로 지정

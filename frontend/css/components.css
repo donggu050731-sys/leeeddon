@@ -714,3 +714,131 @@ body.modal-open {
   color: var(--text-muted) !important;
   word-break: break-all;
 }
+
+/* ===== [VISIT] 찾아오는 길 — 지도 · 주소 · 날씨 · 출처 ===== */
+.visit-section {
+  padding-top: 140px;
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-md);
+}
+
+.visit-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.visit-card {
+  padding: var(--space-md);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+.visit-card-title {
+  margin-bottom: var(--space-xs);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.visit-map {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+}
+
+.visit-map-frame {
+  width: 100%;
+  height: 420px;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+}
+
+.visit-map-link {
+  align-self: flex-end;
+  font-size: var(--fs-xs);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+.visit-map-link:hover {
+  text-decoration: underline;
+}
+
+.visit-place-name {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.visit-address {
+  font-style: normal;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.visit-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.visit-stat-label {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.visit-stat-value {
+  font-family: var(--font-accent);
+  font-size: var(--fs-stat);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--accent-green-dark);
+}
+
+.visit-stat-unit {
+  margin-left: 2px;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.visit-weather-note {
+  margin-top: var(--space-xs);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* '방문 예약하기' 버튼 — 정보 아래 가운데 */
+.visit-booking {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+/* 외부 서비스 출처 — 작게 */
+.visit-sources {
+  margin-top: var(--space-sm);
+  text-align: right;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.visit-sources a {
+  color: inherit;
+}
+
+a.nav-logo {
+  text-decoration: none;
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--accent-green-dark);
+}
+/* ===== [VISIT] 끝 ===== */

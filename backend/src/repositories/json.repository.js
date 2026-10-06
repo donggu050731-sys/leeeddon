@@ -42,6 +42,7 @@ export function createJsonRepository({ dataDir }) {
     getProfile: () => read('profile'),
     getHometown: () => read('hometown'),
     getJourney: () => read('journey'),
+    getVisit: () => read('visit'),
 
     /** 프로젝트 묶음 전체 ({ label, title, desc, items }) — 초안 포함 */
     getProjects: () => read('projects'),
