@@ -162,6 +162,26 @@
   box-shadow: 0 8px 30px rgba(46, 125, 50, 0.45);
 }
 
+/* 첫 화면 버튼 묶음 (더 알아보기 · 찾아오는 길) */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+/* 두 번째 버튼 — 채우지 않고 테두리만 */
+.hero-cta-outline {
+  background: var(--bg-glass);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green-dark);
+  box-shadow: none;
+}
+
+.hero-cta-outline:hover {
+  box-shadow: var(--shadow-glow);
+}
+
 .hero-cta .arrow {
   transition: transform 0.3s ease;
 }
