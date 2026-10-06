@@ -7,11 +7,32 @@
    서비스·컨트롤러·화면 코드는 하나도 고치지 않아도 된다.
 */
 
-import { readFile, writeFile, rename, stat } from 'node:fs/promises';
+import { readFile, writeFile, rename, stat, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
-export function createJsonRepository({ dataDir }) {
+export function createJsonRepository({ dataDir, storageDir }) {
   const cache = new Map(); // 파일이름 → { mtimeMs, value }
+
+  // 방문 예약은 data/ 가 아니라 storage/ 에 둔다.
+  // data/ 는 공개 사이트로 그대로 복사되는 폴더라, 방문자의 이름·이메일을 두면 안 된다.
+  const bookingsFile = path.join(storageDir, 'bookings.json');
+  let bookingQueue = Promise.resolve(); // 동시에 들어온 예약이 서로 덮어쓰지 않게 한 줄로 세운다
+
+  async function appendBooking(booking) {
+    await mkdir(storageDir, { recursive: true });
+
+    let list = [];
+    try {
+      list = JSON.parse(await readFile(bookingsFile, 'utf8'));
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error; // 파일이 아직 없는 것만 괜찮다
+    }
+
+    list.push(booking);
+    const temp = bookingsFile + '.tmp';
+    await writeFile(temp, JSON.stringify(list, null, 2) + '\n', 'utf8');
+    await rename(temp, bookingsFile);
+  }
 
   async function read(name) {
     const file = path.join(dataDir, name + '.json');
@@ -43,6 +64,14 @@ export function createJsonRepository({ dataDir }) {
     getHometown: () => read('hometown'),
     getJourney: () => read('journey'),
     getVisit: () => read('visit'),
+    getHolidays: () => read('holidays'),
+
+    /** 방문 예약 1건을 storage/bookings.json 끝에 덧붙인다 */
+    addBooking(booking) {
+      const done = bookingQueue.then(() => appendBooking(booking));
+      bookingQueue = done.catch(() => {});
+      return done;
+    },
 
     /** 프로젝트 묶음 전체 ({ label, title, desc, items }) — 초안 포함 */
     getProjects: () => read('projects'),

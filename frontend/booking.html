@@ -41,12 +41,21 @@
     내용을 고칠 때는 이 파일이 아니라 backend/data/visit.json 을 고친다.
   -->
   <main>
-    <!-- ===== [BOOKING] 방문 예약 (지금은 제목만 있다. 예약 내용은 다음 작업에서 채운다) ===== -->
+    <!-- ===== [BOOKING] 방문 예약 (캘린더 · 희망 시간 · 이름 · 이메일 · 방문 목적 · 동의) ===== -->
     <section class="section visit-section" id="booking"></section>
     <!-- ===== [BOOKING] 끝 ===== -->
   </main>
 
   <footer class="footer" id="footer"></footer>
+
+  <!-- ===== [BOOKING] 확인 팝업: [예약하기]를 누르면 JS가 입력한 내용을 채워 보여준다 ===== -->
+  <dialog class="project-modal booking-modal" id="booking-modal" aria-labelledby="booking-modal-title">
+    <div class="modal-header">
+      <h3 class="modal-title" id="booking-modal-title"></h3>
+      <button type="button" class="modal-close" aria-label="닫기">×</button>
+    </div>
+    <div class="modal-body"></div>
+  </dialog>
 
   <!-- 연결 설정 (서버 주소 등) -->
   <script src="js/config.js"></script>

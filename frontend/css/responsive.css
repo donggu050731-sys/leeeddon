@@ -108,4 +108,9 @@
   .visit-map-frame {
     height: 300px;
   }
+
+  /* [BOOKING] 방문 예약 — 모바일: 캘린더 아래에 입력 칸 */
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
 }

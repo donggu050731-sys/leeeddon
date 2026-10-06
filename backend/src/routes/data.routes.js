@@ -23,6 +23,7 @@ export function createDataRouter(repository) {
   router.get('/hometown.json', send(() => repository.getHometown()));
   router.get('/journey.json', send(() => repository.getJourney()));
   router.get('/visit.json', send(() => repository.getVisit()));
+  router.get('/holidays.json', send(() => repository.getHolidays()));
 
   return router;
 }

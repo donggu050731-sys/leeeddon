@@ -42,6 +42,12 @@
   --bg-tint: rgba(46, 125, 50, 0.06);
   --overlay-backdrop: rgba(27, 58, 27, 0.45);
 
+  /* --- [BOOKING] 방문 예약 (입력 칸 · 캘린더) --- */
+  --border-input: rgba(46, 125, 50, 0.3);
+  --bg-error: rgba(198, 40, 40, 0.06);
+  --calendar-cell: 40px;
+  --purpose-height: 180px;
+
   /* --- [PDF] 인쇄용 구조화 문서 (화면 색보다 진하게, 흑백 인쇄에도 대비가 남도록) --- */
   --pdf-ink: #111111;
   --pdf-ink-soft: #3c463c;

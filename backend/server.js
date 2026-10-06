@@ -19,6 +19,8 @@ import { createSessionStore } from './src/auth/sessions.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(here, 'data');
+// 방문 예약처럼 방문자가 남긴 정보를 두는 곳 (git 에도, 공개 사이트에도 올라가지 않는다)
+const STORAGE_DIR = path.join(here, 'storage');
 const FRONTEND_DIR = path.join(here, '..', 'frontend');
 const ENV_FILE = path.join(here, '.env');
 
@@ -37,6 +39,7 @@ const HOST = process.env.HOST || '127.0.0.1';
 const repository = await createRepository({
   driver: DRIVER,
   dataDir: DATA_DIR,
+  storageDir: STORAGE_DIR,
   databaseUrl: process.env.DATABASE_URL
 });
 

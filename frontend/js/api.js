@@ -108,3 +108,40 @@ export async function loadWeather(place) {
     time: current.time.replace('T', ' ')
   };
 }
+
+/**
+ * 공휴일 목록을 가져온다 (holidays.json). 예약 캘린더에서 막을 날짜다.
+ * @returns {Promise<{source: object, items: {date: string, name: string}[]}>}
+ */
+export async function loadHolidays() {
+  if (USE_API) {
+    try {
+      return unwrap(await readJson(API_BASE + '/api/holidays'));
+    } catch (error) {
+      console.warn('[api] 백엔드에 연결하지 못해 JSON 파일로 대체합니다.', error);
+    }
+  }
+  return readJson(STATIC_PATH + '/holidays.json');
+}
+
+/**
+ * 방문 예약 1건을 서버에 보내 저장한다.
+ * 서버가 없는 곳(GitHub Pages 등)에서는 저장할 곳이 없으므로 실패한다.
+ * 서버가 이유를 알려준 경우(입력 오류 등)에는 error.userMessage 에 그 문장을 담아 던진다.
+ * @param {{date: string, time: string, name: string, email: string, purpose: string, consent: boolean}} booking
+ */
+export async function submitBooking(booking) {
+  const response = await fetch(API_BASE + '/api/bookings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(booking)
+  });
+
+  const body = await response.json().catch(() => null);
+  if (!response.ok || !body || !body.data) {
+    const error = new Error('예약 저장 실패 (' + response.status + ')');
+    if (body && body.error && response.status < 500) error.userMessage = body.error.message;
+    throw error;
+  }
+  return body.data;
+}

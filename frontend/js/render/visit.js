@@ -99,16 +99,6 @@ export function renderVisit(section, visit) {
   );
 }
 
-/** 예약 페이지 (booking.html) — 지금은 제목과 돌아가기 링크만 있다. 예약 내용은 다음 작업에서 채운다. */
-export function renderBooking(section, booking) {
-  const back = el('p', 'visit-booking fade-in');
-  const link = el('a', 'visit-map-link', '← ' + booking.backText);
-  link.href = booking.backHref;
-  back.appendChild(link);
-
-  section.replaceChildren(sectionHeader(booking.label, booking.title), back);
-}
-
 function weatherStat(label, value, unit) {
   const stat = el('div', 'visit-stat');
   const number = el('p', 'visit-stat-value', String(value));
