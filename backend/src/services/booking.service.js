@@ -14,6 +14,12 @@
      - '신청자(이름·이메일) + 방문 희망 시간(날짜·시간)' 한 묶음마다 번호 하나를 붙인다 (1, 2, 3 …).
      - 같은 사람이 다른 시간에 신청하면 새 번호, 같은 사람이 같은 시간에 또 보내면 기존 번호 그대로다.
 
+   시간 겹침 막기
+     - 한 날짜·시간에는 예약이 하나만 들어간다. 이미 예약이 있는 시간으로는 새 예약을 받지 않는다 (409).
+     - '취소'된 예약은 자리를 차지하지 않는다. 접수 · 확정 · 변경 요청은 모두 자리를 차지한다.
+     - 검사와 저장은 updateBookings() 안에서 한 번에 한다. 그래서 두 사람이 같은 시간을
+       동시에 보내도 먼저 도착한 한 건만 저장되고, 나머지는 거절된다.
+
    처리 상태(status) — 관리자 화면의 '예약하기 관리'에서 바꾼다
      requested 접수 · confirmed 확정 · change-requested 변경 요청 · cancelled 취소
 */
@@ -60,6 +66,20 @@ function timeSlots(rules) {
   return slots;
 }
 
+/** 자리를 차지하는 예약인가 (취소된 예약은 자리를 내준다) */
+function isActive(booking) {
+  return booking.status !== 'cancelled';
+}
+
+/** 그 날짜·시간을 이미 차지한 다른 예약 (없으면 undefined) */
+function findTaker(list, booking) {
+  return list.find(item =>
+    item.id !== booking.id && isActive(item) && item.date === booking.date && item.time === booking.time
+  );
+}
+
+const SLOT_TAKEN = '이미 예약된 시간입니다. 다른 시간을 골라 주세요.';
+
 /** 번호가 없는 예약(번호를 붙이기 전에 들어온 것)에 접수된 순서대로 번호를 붙인다. 붙였으면 true */
 function numberMissing(list) {
   const missing = list.filter(item => !item.no).sort((a, b) => a.createdAt.localeCompare(b.createdAt));
@@ -80,6 +100,12 @@ export function createBookingService(repository) {
     /** 공휴일 목록 (캘린더가 쓴다) */
     getHolidays() {
       return repository.getHolidays();
+    },
+
+    /** 이미 예약된 날짜·시간 목록. 누가 예약했는지는 담지 않는다 (예약 페이지가 쓴다) */
+    async getTakenSlots() {
+      const list = await repository.getBookings();
+      return list.filter(isActive).map(({ date, time }) => ({ date, time }));
     },
 
     /** 예약 1건을 검사하고 저장한다 */
@@ -126,8 +152,12 @@ export function createBookingService(repository) {
       const saved = await repository.updateBookings(list => {
         numberMissing(list);
 
-        const same = list.find(item => bookingKey(item) === bookingKey(booking));
-        if (same) return same; // 같은 사람이 같은 시간으로 또 보낸 것 → 새로 만들지 않는다
+        // 같은 사람이 같은 시간으로 또 보낸 것 → 새로 만들지 않고 기존 예약을 돌려준다
+        const same = list.find(item => isActive(item) && bookingKey(item) === bookingKey(booking));
+        if (same) return same;
+
+        // 다른 사람이 이미 차지한 시간 → 받지 않는다
+        if (findTaker(list, booking)) throw new HttpError(409, SLOT_TAKEN);
 
         list.push(booking);
         numberMissing(list);
@@ -159,6 +189,14 @@ export function createBookingService(repository) {
       return repository.updateBookings(list => {
         const booking = list.find(item => item.id === id);
         if (!booking) throw new HttpError(404, '그런 예약이 없습니다: ' + id);
+
+        // 취소했던 예약을 되살릴 때, 그 사이 다른 예약이 같은 시간을 차지했으면 막는다
+        if (status !== 'cancelled') {
+          const taker = findTaker(list, booking);
+          if (taker) {
+            throw new HttpError(409, '같은 날짜·시간에 다른 예약(예약 번호 ' + taker.no + ')이 있어 되살릴 수 없습니다.');
+          }
+        }
 
         booking.status = status;
         booking.updatedAt = new Date().toISOString();

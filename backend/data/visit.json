@@ -54,7 +54,8 @@
       },
       "time": {
         "label": "희망 시간",
-        "empty": "시간 선택"
+        "empty": "시간 선택",
+        "takenSuffix": "(완료)"
       },
       "name": {
         "label": "이름",

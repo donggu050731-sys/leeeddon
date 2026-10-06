@@ -148,27 +148,48 @@ async function sendToFormspree(booking, labels) {
 }
 
 /**
+ * 이미 예약된 날짜·시간 목록을 가져온다. 예약 페이지에서 그 시간을 고르지 못하게 막는 데 쓴다.
+ * 서버가 없는 곳(GitHub Pages 등)에서는 알 방법이 없으므로 빈 목록을 돌려준다 (막지 않는다).
+ * @returns {Promise<{date: string, time: string}[]>}
+ */
+export async function loadTakenSlots() {
+  if (!USE_API) return [];
+  try {
+    const slots = unwrap(await readJson(API_BASE + '/api/bookings/taken'));
+    return Array.isArray(slots) ? slots : [];
+  } catch (error) {
+    console.warn('[api] 예약된 시간을 불러오지 못했습니다. 시간을 막지 않고 진행합니다.', error);
+    return [];
+  }
+}
+
+/**
  * 방문 예약 1건을 보낸다. 두 곳으로 간다.
- *   ① Formspree (config.js 의 bookingEndpoint) → 내 이메일로 전달된다
- *   ② 백엔드 (/api/bookings) → 관리자 화면의 '예약하기 관리' 목록에 쌓인다
- * 서버가 없는 곳(GitHub Pages 등)에서는 ②가 안 되므로 ①만 된다. 그때는 ②의 실패를 조용히 넘긴다.
- * bookingEndpoint 를 비워두면 ②만 하고, 그때는 ②가 실패하면 예약도 실패다.
- * 서버가 이유를 알려준 경우(입력 오류 등)에는 error.userMessage 에 그 문장을 담아 던진다.
+ *   ① 백엔드 (/api/bookings) → 관리자 화면의 '예약하기 관리' 목록에 쌓인다. 겹치는 시간은 여기서 거절된다
+ *   ② Formspree (config.js 의 bookingEndpoint) → 내 이메일로 전달된다
+ * ①을 먼저 한다. 서버가 "이미 예약된 시간" 같은 이유로 거절하면 메일도 보내지 않고 그 이유를 알린다.
+ * 서버가 없는 곳(GitHub Pages 등)에서는 ①을 건너뛰고 ②만 한다.
+ * bookingEndpoint 를 비워두면 ①만 하고, 그때는 ①이 실패하면 예약도 실패다.
+ * 서버가 이유를 알려준 경우에는 error.userMessage 에 그 문장을, error.status 에 상태 코드를 담아 던진다.
  * @param {{date: string, time: string, name: string, email: string, purpose: string, consent: boolean}} booking
  * @param {object} labels visit.json 의 booking (메일에 붙일 항목 이름)
  */
 export async function submitBooking(booking, labels) {
-  if (BOOKING_ENDPOINT) {
-    await sendToFormspree(booking, labels);
-    if (USE_API) {
-      await saveToBackend(booking).catch(error => {
-        console.warn('[api] 예약을 메일로는 보냈지만 관리자 목록에는 남기지 못했습니다.', error);
-      });
-    }
+  if (!BOOKING_ENDPOINT) {
+    await saveToBackend(booking);
     return;
   }
 
-  await saveToBackend(booking);
+  if (USE_API) {
+    try {
+      await saveToBackend(booking);
+    } catch (error) {
+      if (error.userMessage) throw error;   // 서버가 거절한 것 (겹치는 시간 · 입력 오류 등)
+      console.warn('[api] 서버에 연결하지 못해 관리자 목록에는 남기지 못했습니다. 메일로만 보냅니다.', error);
+    }
+  }
+
+  await sendToFormspree(booking, labels);
 }
 
 async function saveToBackend(booking) {
@@ -181,6 +202,9 @@ async function saveToBackend(booking) {
   const body = await response.json().catch(() => null);
   if (!response.ok || !body || !body.data) {
     const error = new Error('예약 저장 실패 (' + response.status + ')');
+    error.status = response.status;
+    // 서버가 JSON 으로 이유를 알려준 경우만 '거절'로 본다.
+    // (서버가 없는 곳의 404·405 는 JSON 이 아니므로 여기에 걸리지 않는다)
     if (body && body.error && response.status < 500) error.userMessage = body.error.message;
     throw error;
   }
