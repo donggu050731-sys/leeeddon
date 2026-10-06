@@ -54,9 +54,14 @@ export function createDbRepository({ databaseUrl }) {
       throw new Error('아직 구현하지 않았습니다 (getHolidays)');
     },
 
-    async addBooking(booking) {
-      // TODO: INSERT INTO bookings (id, created_at, status, date, time, name, email, purpose, consent)
-      throw new Error('아직 구현하지 않았습니다 (addBooking)');
+    async getBookings() {
+      // TODO: SELECT * FROM bookings ORDER BY no
+      throw new Error('아직 구현하지 않았습니다 (getBookings)');
+    },
+
+    async updateBookings(change) {
+      // TODO: 트랜잭션 안에서 목록을 읽어 change(list) 를 부르고, 바뀐 줄을 INSERT / UPDATE 한다
+      throw new Error('아직 구현하지 않았습니다 (updateBookings)');
     },
 
     async saveProjects(projects) {

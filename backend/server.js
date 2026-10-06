@@ -8,6 +8,7 @@
      ADMIN_PASSWORD_HASH  : 관리자 비밀번호의 해시. npm run set-password 로 만든다.
                             비밀번호 원문은 어디에도 저장되지 않는다.
      ALLOWED_ORIGIN       : API 사용을 허용할 주소 (기본 전체 허용)
+     STORAGE_DIR          : 방문 예약을 저장할 폴더 (기본 backend/storage). 시험할 때 다른 폴더를 줄 수 있다.
 */
 
 import path from 'node:path';
@@ -20,7 +21,7 @@ import { createSessionStore } from './src/auth/sessions.js';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(here, 'data');
 // 방문 예약처럼 방문자가 남긴 정보를 두는 곳 (git 에도, 공개 사이트에도 올라가지 않는다)
-const STORAGE_DIR = path.join(here, 'storage');
+const STORAGE_DIR = process.env.STORAGE_DIR || path.join(here, 'storage');
 const FRONTEND_DIR = path.join(here, '..', 'frontend');
 const ENV_FILE = path.join(here, '.env');
 

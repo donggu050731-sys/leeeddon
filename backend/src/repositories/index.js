@@ -11,7 +11,8 @@
      saveProjects(projects) → 프로젝트 묶음 전체 저장 (관리자 화면이 쓴다)
      getVisit()            → 찾아오는 길 · 방문 예약의 문구와 규칙
      getHolidays()         → { source, items: [{ date, name }] }
-     addBooking(booking)   → 방문 예약 1건 저장
+     getBookings()         → 방문 예약 전체 (배열)
+     updateBookings(change) → 방문 예약 목록을 읽고·고치고·저장 (change 가 목록을 고친다)
 */
 
 import { createJsonRepository } from './json.repository.js';

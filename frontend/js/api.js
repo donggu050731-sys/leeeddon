@@ -148,9 +148,11 @@ async function sendToFormspree(booking, labels) {
 }
 
 /**
- * 방문 예약 1건을 보낸다.
- * config.js 에 bookingEndpoint(Formspree)가 있으면 그곳으로 보내 이메일로 전달받고,
- * 없으면 백엔드(/api/bookings)에 저장한다. 백엔드는 서버가 없는 곳(GitHub Pages 등)에서는 쓸 수 없다.
+ * 방문 예약 1건을 보낸다. 두 곳으로 간다.
+ *   ① Formspree (config.js 의 bookingEndpoint) → 내 이메일로 전달된다
+ *   ② 백엔드 (/api/bookings) → 관리자 화면의 '예약하기 관리' 목록에 쌓인다
+ * 서버가 없는 곳(GitHub Pages 등)에서는 ②가 안 되므로 ①만 된다. 그때는 ②의 실패를 조용히 넘긴다.
+ * bookingEndpoint 를 비워두면 ②만 하고, 그때는 ②가 실패하면 예약도 실패다.
  * 서버가 이유를 알려준 경우(입력 오류 등)에는 error.userMessage 에 그 문장을 담아 던진다.
  * @param {{date: string, time: string, name: string, email: string, purpose: string, consent: boolean}} booking
  * @param {object} labels visit.json 의 booking (메일에 붙일 항목 이름)
@@ -158,9 +160,18 @@ async function sendToFormspree(booking, labels) {
 export async function submitBooking(booking, labels) {
   if (BOOKING_ENDPOINT) {
     await sendToFormspree(booking, labels);
+    if (USE_API) {
+      await saveToBackend(booking).catch(error => {
+        console.warn('[api] 예약을 메일로는 보냈지만 관리자 목록에는 남기지 못했습니다.', error);
+      });
+    }
     return;
   }
 
+  await saveToBackend(booking);
+}
+
+async function saveToBackend(booking) {
   const response = await fetch(API_BASE + '/api/bookings', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },

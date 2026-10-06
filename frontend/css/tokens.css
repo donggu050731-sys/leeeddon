@@ -48,6 +48,12 @@
   --calendar-cell: 40px;
   --purpose-height: 180px;
 
+  /* --- [ADMIN] 예약 처리 상태 색 (접수 · 확정 · 변경 요청 · 취소) --- */
+  --status-requested: #1565c0;
+  --status-confirmed: var(--accent-green);
+  --status-change: var(--accent-orange);
+  --status-cancelled: var(--accent-red);
+
   /* --- [PDF] 인쇄용 구조화 문서 (화면 색보다 진하게, 흑백 인쇄에도 대비가 남도록) --- */
   --pdf-ink: #111111;
   --pdf-ink-soft: #3c463c;

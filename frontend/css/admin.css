@@ -414,6 +414,219 @@ body.admin {
   margin-left: auto;
 }
 
+/* ===== 탭 (프로젝트 관리 · 예약하기 관리) ===== */
+.admin-actions {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.admin-tabs {
+  display: flex;
+  padding: 3px;
+  border: 1px solid var(--border-glass);
+  border-radius: 999px;
+  background: var(--bg-tint);
+}
+
+.admin-tab {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.admin-tab:hover {
+  color: var(--accent-green-dark);
+}
+
+.admin-tab[aria-selected="true"] {
+  background: var(--accent-green);
+  color: var(--bg-white);
+}
+
+.admin-tab:focus-visible,
+.status-button:focus-visible {
+  outline: 2px solid var(--accent-green-dark);
+  outline-offset: 2px;
+}
+
+/* ===== 예약하기 관리 — 예약 목록 표 ===== */
+.bookings-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+/* 요약 문장: 전체 N건 / 접수 N건 / … */
+.booking-summary {
+  margin-bottom: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.booking-summary strong {
+  font-family: var(--font-accent);
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+}
+
+/* 필터: 처리 상태로 골라 보기 */
+.booking-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.filter-button {
+  padding: 6px 14px;
+  border: 1px solid var(--border-glass);
+  border-radius: 999px;
+  background: var(--bg-white);
+  font: inherit;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green-dark);
+}
+
+.filter-button[aria-pressed="true"] {
+  border-color: var(--accent-green-dark);
+  background: var(--accent-green-dark);
+  color: var(--bg-white);
+}
+
+.filter-button:focus-visible {
+  outline: 2px solid var(--accent-green-dark);
+  outline-offset: 2px;
+}
+
+/* 표가 화면보다 넓으면 표만 옆으로 민다 */
+.booking-table-wrap {
+  overflow-x: auto;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.booking-table th,
+.booking-table td {
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--border-glass);
+  text-align: left;
+  vertical-align: top;
+}
+
+.booking-table th {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.booking-number {
+  font-family: var(--font-accent);
+  font-weight: 700;
+  color: var(--accent-green-dark);
+  white-space: nowrap;
+}
+
+.booking-name,
+.booking-email,
+.booking-when span,
+.booking-when strong {
+  display: block;
+}
+
+.booking-email {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.booking-when {
+  white-space: nowrap;
+}
+
+.booking-purpose {
+  min-width: 200px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.booking-empty {
+  padding: var(--space-lg);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* --- 처리 상태 표시 --- */
+.booking-status {
+  display: inline-block;
+  border: 1px solid currentColor;
+  background: var(--bg-white);
+  white-space: nowrap;
+}
+
+.booking-status.requested { color: var(--status-requested); }
+.booking-status.confirmed { color: var(--status-confirmed); }
+.booking-status.change-requested { color: var(--status-change); }
+.booking-status.cancelled { color: var(--status-cancelled); }
+
+/* --- 관리 칸: 상태 고르는 버튼 4개 --- */
+.status-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.status-button {
+  padding: 5px 10px;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  background: var(--bg-white);
+  font: inherit;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.status-button:hover:not(:disabled) {
+  border-color: currentColor;
+}
+
+.status-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* 지금 상태인 버튼은 그 상태의 색으로 채운다 */
+.status-button.current {
+  color: var(--bg-white);
+  cursor: default;
+}
+
+.status-button.current.requested { border-color: var(--status-requested); background: var(--status-requested); }
+.status-button.current.confirmed { border-color: var(--status-confirmed); background: var(--status-confirmed); }
+.status-button.current.change-requested { border-color: var(--status-change); background: var(--status-change); }
+.status-button.current.cancelled { border-color: var(--status-cancelled); background: var(--status-cancelled); }
+
 /* ===== 좁은 화면 ===== */
 @media (max-width: 860px) {
   .admin-body {

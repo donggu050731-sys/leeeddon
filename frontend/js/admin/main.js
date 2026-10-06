@@ -6,6 +6,7 @@
 */
 
 import * as api from './api.js';
+import { initBookings, loadBookings } from './bookings.js';
 
 // 공개하려면 채워야 하는 칸 (참고사항은 빠진다)
 const REQUIRED = [
@@ -54,7 +55,27 @@ let duplicate = null;    // 중복 안내가 떠 있을 때 { 기존 프로젝�
 function showAdmin() {
   view.login.hidden = true;
   view.admin.hidden = false;
+  showTab('projects');   // 로그인하면 늘 프로젝트 관리부터 보인다
 }
+
+/* ---------------- 탭 (프로젝트 관리 · 예약하기 관리) ---------------- */
+
+const tabs = Array.from(document.querySelectorAll('.admin-tab'));
+const adminTitle = document.getElementById('admin-title');
+
+function showTab(name) {
+  tabs.forEach(tab => {
+    const selected = tab.dataset.tab === name;
+    tab.setAttribute('aria-selected', String(selected));
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+    if (selected) adminTitle.textContent = tab.textContent;
+  });
+
+  // 예약 목록은 탭을 열 때마다 새로 받아온다 (그 사이 들어온 예약이 보이도록)
+  if (name === 'bookings') loadBookings();
+}
+
+tabs.forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
 
 function showLogin(message) {
   view.admin.hidden = true;
@@ -400,6 +421,8 @@ loginForm.addEventListener('submit', async (event) => {
 });
 
 /* ---------------- 시작 / 끝 ---------------- */
+
+initBookings(handleFailure);
 
 // 창을 닫거나 다른 페이지로 떠날 때, 서버에 남은 로그인도 즉시 끊는다.
 // (pagehide 는 탭을 닫을 때·뒤로 갈 때 모두 불린다)

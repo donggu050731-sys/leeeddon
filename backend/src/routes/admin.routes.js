@@ -8,6 +8,8 @@
    POST   /api/admin/projects/:id/merge 중복된 프로젝트에 내용 합치기
    PATCH  /api/admin/projects/:id/status 공개 ↔ 초안 전환
    DELETE /api/admin/projects/:id       프로젝트 삭제
+   GET    /api/admin/bookings           방문 예약 전체
+   PATCH  /api/admin/bookings/:id/status 예약 처리 상태 바꾸기 (접수·확정·변경 요청·취소)
 
    로그인 말고는 전부 requireAdmin 을 지나야 한다.
 */
@@ -15,6 +17,7 @@
 import { Router } from 'express';
 import { createAdminController } from '../controllers/admin.controller.js';
 import { createAdminService } from '../services/admin.service.js';
+import { createBookingService } from '../services/booking.service.js';
 import { createRequireAdmin } from '../middleware/auth.js';
 import { createLoginLimiter } from '../auth/login-limiter.js';
 
@@ -22,6 +25,7 @@ export function createAdminRouter({ repository, sessions, passwordHash }) {
   const router = Router();
   const controller = createAdminController({
     service: createAdminService(repository),
+    bookings: createBookingService(repository),
     sessions,
     limiter: createLoginLimiter(),
     passwordHash
@@ -38,6 +42,9 @@ export function createAdminRouter({ repository, sessions, passwordHash }) {
   router.post('/projects/:id/merge', requireAdmin, controller.merge);
   router.patch('/projects/:id/status', requireAdmin, controller.setStatus);
   router.delete('/projects/:id', requireAdmin, controller.remove);
+
+  router.get('/bookings', requireAdmin, controller.listBookings);
+  router.patch('/bookings/:id/status', requireAdmin, controller.setBookingStatus);
 
   return router;
 }
