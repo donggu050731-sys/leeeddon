@@ -231,10 +231,12 @@ npm run build    # dist/ 만들기 (배포용)
 - [예약하기] → 확인 팝업 → 팝업의 [예약하기]를 눌러야 실제로 저장된다.
 - 공휴일: `backend/data/holidays.json` (출처 Nager.Date, 2026-10-06 조회). **해가 바뀌면 직접 갱신한다.**
   - 【확인 필요: 2027년 공휴일 — 대체공휴일 등 일부가 실제와 다를 수 있음】
-- 저장: `POST /api/bookings` → `backend/storage/bookings.json` (git·공개 사이트에 올라가지 않는다).
+- 전달: **Formspree** 로 보내고, Formspree 가 내 이메일로 전달한다 (2026-10-06).
+  - 폼 주소는 `frontend/js/config.js` 의 `bookingEndpoint` (비밀 값이 아니다. 브라우저에서 바로 보내므로 서버 없는 배포 주소에서도 된다).
+  - 메일 제목·항목 이름은 `visit.json` 의 `booking.mail` 과 각 칸의 `label` 에서 온다.
+  - `bookingEndpoint` 를 비우면 예전 방식으로 돌아간다: `POST /api/bookings` → `backend/storage/bookings.json` (서버가 켜져 있을 때만).
   - 방문자의 이름·이메일은 `backend/data/` 에 두지 않는다 (그 폴더는 공개 사이트로 복사된다).
-  - **서버가 없는 배포 주소(Vercel·GitHub Pages)에서는 저장되지 않고 실패 안내가 나온다.**
-  - 【확인 필요: 배포 주소에서도 예약을 받을 저장 방식 (외부 DB 등) · 예약이 들어왔을 때 알림 방식】
+  - Formspree 로 보낼 때는 서버 검사를 거치지 않는다 → 날짜·시간 규칙은 화면 검사만 적용된다.
 - 규칙은 화면(`frontend/js/booking-rules.js`)과 서버(`backend/src/services/booking.service.js`) 두 곳에 같은 내용으로 있다. 한쪽을 고치면 다른 쪽도 고친다.
 
 ### 배포
@@ -271,6 +273,7 @@ npm run build    # dist/ 만들기 (배포용)
 - 프로젝트 중복 확인 추가 — 같은 제목이면 합치기·기존 삭제·따로 저장 중에서 고르게 함 (2026-09-22)
 - 찾아오는 길 페이지 추가 — 지도·주소·날씨(기온·습도)·출처 표기, `feature/visit-booking` 브랜치 (2026-10-06)
 - 방문 예약 페이지 구성 — 캘린더·시간·입력 칸·동의·확인 팝업, 예약은 서버 파일에 저장 (2026-10-06)
+- 방문 예약을 Formspree 에 연결 — 예약 내용을 이메일로 전달받음 (2026-10-06)
 - 관리자 화면 추가 (2026-09-22)
   - 비밀번호 로그인(해시 저장, 서버에서만 확인) · 프로젝트 추가/수정/삭제 · 초안/공개 전환
   - 프로젝트에 `status` 필드 추가, 기존 4건은 모두 `published` 로 지정

@@ -50,6 +50,13 @@ const app = createApp({
   frontendDir: FRONTEND_DIR
 });
 
+// 브라우저에 따라 'localhost' 를 IPv6 주소(::1)로 먼저 찾는 경우가 있다.
+// 127.0.0.1 만 열어두면 그때 "연결할 수 없음"이 뜨므로, 내 컴퓨터 전용 주소인 ::1 도 함께 연다.
+// (둘 다 내 컴퓨터 안에서만 통하는 주소라 다른 기기에서는 여전히 접속할 수 없다)
+if (HOST === '127.0.0.1') {
+  app.listen(PORT, '::1').on('error', () => {}); // IPv6 를 못 쓰는 컴퓨터에서는 그냥 넘어간다
+}
+
 app.listen(PORT, HOST, () => {
   console.log('포트폴리오 서버 실행 중 (' + (HOST === '127.0.0.1' ? '내 컴퓨터에서만 접속 가능' : HOST) + ')');
   console.log('  화면    : http://localhost:' + PORT);

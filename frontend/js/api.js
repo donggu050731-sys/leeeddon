@@ -10,6 +10,7 @@ const API_BASE = String(config.apiBase || '').replace(/\/$/, '');
 const STATIC_PATH = String(config.staticDataPath || 'data').replace(/\/$/, '');
 const USE_API = config.useApi !== false;
 const WEATHER_API = String(config.weatherApi || '');
+const BOOKING_ENDPOINT = String(config.bookingEndpoint || '');
 
 // 화면이 필요로 하는 데이터 묶음 (JSON 파일 이름과 같다)
 const SECTIONS = ['profile', 'projects', 'hometown', 'journey'];
@@ -124,13 +125,42 @@ export async function loadHolidays() {
   return readJson(STATIC_PATH + '/holidays.json');
 }
 
+// 예약을 Formspree 로 보낸다. Formspree 가 그 내용을 내 이메일로 전달해 준다.
+// 메일에서 읽기 쉽도록 항목 이름을 화면의 라벨(선택한 날짜 · 희망 시간 …)로 붙인다.
+// 'email' 과 '_subject' 는 Formspree 가 정해둔 이름이다 (답장 주소 · 메일 제목으로 쓰인다).
+async function sendToFormspree(booking, labels) {
+  const fields = labels.fields;
+  const response = await fetch(BOOKING_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      _subject: labels.mail.subject + ' ' + booking.date + ' ' + booking.time + ' · ' + booking.name,
+      [fields.date.label]: booking.date,
+      [fields.time.label]: booking.time,
+      [fields.name.label]: booking.name,
+      email: booking.email,
+      [fields.purpose.label]: booking.purpose,
+      [labels.mail.consentLabel]: labels.consent
+    })
+  });
+
+  if (!response.ok) throw new Error('예약 전송 실패 (' + response.status + ')');
+}
+
 /**
- * 방문 예약 1건을 서버에 보내 저장한다.
- * 서버가 없는 곳(GitHub Pages 등)에서는 저장할 곳이 없으므로 실패한다.
+ * 방문 예약 1건을 보낸다.
+ * config.js 에 bookingEndpoint(Formspree)가 있으면 그곳으로 보내 이메일로 전달받고,
+ * 없으면 백엔드(/api/bookings)에 저장한다. 백엔드는 서버가 없는 곳(GitHub Pages 등)에서는 쓸 수 없다.
  * 서버가 이유를 알려준 경우(입력 오류 등)에는 error.userMessage 에 그 문장을 담아 던진다.
  * @param {{date: string, time: string, name: string, email: string, purpose: string, consent: boolean}} booking
+ * @param {object} labels visit.json 의 booking (메일에 붙일 항목 이름)
  */
-export async function submitBooking(booking) {
+export async function submitBooking(booking, labels) {
+  if (BOOKING_ENDPOINT) {
+    await sendToFormspree(booking, labels);
+    return;
+  }
+
   const response = await fetch(API_BASE + '/api/bookings', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },

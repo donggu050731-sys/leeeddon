@@ -74,6 +74,10 @@
       }
     },
     "consent": "입력 정보를 예약 상담 목적으로 운영자에게 전달하는 것에 동의합니다.",
+    "mail": {
+      "subject": "[포트폴리오 방문 예약]",
+      "consentLabel": "정보 전달 동의"
+    },
     "submitText": "예약하기",
     "confirm": {
       "title": "예약 내용 확인",
