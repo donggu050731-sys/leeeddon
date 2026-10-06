@@ -714,3 +714,425 @@ body.modal-open {
   color: var(--text-muted) !important;
   word-break: break-all;
 }
+
+/* ===== [VISIT] 찾아오는 길 — 지도 · 주소 · 날씨 · 출처 ===== */
+.visit-section {
+  padding-top: 140px;
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-md);
+}
+
+.visit-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.visit-card {
+  padding: var(--space-md);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+}
+
+.visit-card-title {
+  margin-bottom: var(--space-xs);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.visit-map {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+}
+
+.visit-map-frame {
+  width: 100%;
+  height: 420px;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+}
+
+.visit-map-link {
+  align-self: flex-end;
+  font-size: var(--fs-xs);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+.visit-map-link:hover {
+  text-decoration: underline;
+}
+
+.visit-place-name {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.visit-address {
+  font-style: normal;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.visit-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.visit-stat-label {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.visit-stat-value {
+  font-family: var(--font-accent);
+  font-size: var(--fs-stat);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--accent-green-dark);
+}
+
+.visit-stat-unit {
+  margin-left: 2px;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.visit-weather-note {
+  margin-top: var(--space-xs);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* '방문 예약하기' 버튼 — 정보 아래 가운데 */
+.visit-booking {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+/* 외부 서비스 출처 — 작게 */
+.visit-sources {
+  margin-top: var(--space-sm);
+  text-align: right;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.visit-sources a {
+  color: inherit;
+}
+
+a.nav-logo {
+  text-decoration: none;
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--accent-green-dark);
+}
+/* ===== [VISIT] 끝 ===== */
+
+/* ===== [BOOKING] 방문 예약 — 캘린더 · 입력 칸 · 동의 · 확인 팝업 ===== */
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.booking-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.booking-note {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.booking-note a {
+  color: inherit;
+}
+
+/* --- 캘린더 --- */
+.calendar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.calendar-title {
+  font-family: var(--font-accent);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.calendar-nav {
+  width: var(--calendar-cell);
+  height: var(--calendar-cell);
+  border: 1px solid var(--border-glass);
+  border-radius: 50%;
+  background: var(--bg-white);
+  font-size: var(--fs-lg);
+  line-height: 1;
+  color: var(--accent-green-dark);
+  cursor: pointer;
+}
+
+.calendar-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-xs);
+  justify-items: center;
+}
+
+.calendar-weekday {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.calendar-day {
+  width: var(--calendar-cell);
+  height: var(--calendar-cell);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: var(--bg-tint);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.calendar-day:hover:not(:disabled) {
+  border-color: var(--accent-green);
+}
+
+.calendar-day:focus-visible,
+.calendar-nav:focus-visible {
+  outline: 2px solid var(--accent-green-dark);
+  outline-offset: 2px;
+}
+
+/* 고를 수 없는 날 (지난 날 · 주말 · 공휴일 · 예약 가능 기간 밖) */
+.calendar-day:disabled {
+  background: none;
+  font-weight: 400;
+  color: var(--text-muted);
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.calendar-day.is-holiday {
+  color: var(--accent-red);
+  opacity: 0.75;
+}
+
+.calendar-day.is-today {
+  border-color: var(--border-input);
+}
+
+.calendar-day.is-selected {
+  background: var(--accent-green);
+  color: var(--bg-white);
+}
+
+/* --- 입력 칸 --- */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-required {
+  margin-left: 2px;
+  color: var(--accent-red);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  background: var(--bg-white);
+  font: inherit;
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 1px;
+}
+
+/* 잘못 입력한 칸 — 빨간 테두리 + 칸 아래 안내 */
+.form-input.is-invalid {
+  border-color: var(--accent-red);
+  background: var(--bg-error);
+}
+
+.form-input.is-invalid:focus-visible {
+  outline-color: var(--accent-red);
+}
+
+.form-error {
+  font-size: var(--fs-xs);
+  color: var(--accent-red);
+}
+
+.form-error[hidden] {
+  display: none;
+}
+
+.booking-date-box {
+  display: block;
+  font-weight: 600;
+}
+
+.booking-date-box.is-empty {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* 방문 목적 — 긴 글을 쓸 수 있게 다른 칸보다 크게 */
+.booking-purpose {
+  min-height: var(--purpose-height);
+  line-height: 1.6;
+  resize: vertical;
+}
+
+/* --- 동의 + 예약하기 --- */
+.booking-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.booking-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.booking-consent input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--accent-green);
+}
+
+.booking-submit {
+  font-family: inherit;
+}
+
+/* 필수 칸과 동의가 모두 채워지기 전에는 눌리지 않는다 */
+.booking-submit:disabled {
+  opacity: 0.4;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- 확인 팝업 --- */
+.booking-modal {
+  width: min(520px, calc(100% - 2 * var(--space-md)));
+}
+
+.booking-modal-desc {
+  margin-bottom: var(--space-md);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.booking-summary {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs) var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+}
+
+.booking-summary dt {
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.booking-summary dd {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.booking-modal-status {
+  min-height: 1.7em;
+  margin-top: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.booking-modal-status.is-error {
+  color: var(--accent-red);
+}
+
+.booking-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.booking-button-plain {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border-input);
+  border-radius: 999px;
+  background: var(--bg-white);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.booking-button-plain:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+/* ===== [BOOKING] 끝 ===== */

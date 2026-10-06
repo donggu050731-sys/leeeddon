@@ -1,6 +1,6 @@
 /* ===== 서버 조립 =====
    - /api/admin/... → 관리자 전용 (로그인 필요)
-   - /api/...       → 공개 데이터 API
+   - /api/...       → 공개 데이터 API (+ 방문 예약 접수: POST /api/bookings)
    - /data/...      → 공개 데이터 JSON (프론트엔드의 예비 경로, 초안은 빠진다)
    - 그 밖           → frontend 폴더의 화면 파일 (개발 중 한 서버에서 같이 보기 위함)
 
@@ -11,6 +11,7 @@ import express from 'express';
 import { createPortfolioRouter } from './routes/portfolio.routes.js';
 import { createAdminRouter } from './routes/admin.routes.js';
 import { createDataRouter } from './routes/data.routes.js';
+import { createBookingRouter } from './routes/booking.routes.js';
 import { cors } from './middleware/cors.js';
 import { notFound, errorHandler } from './middleware/errors.js';
 
@@ -23,6 +24,7 @@ export function createApp({ repository, sessions, passwordHash, frontendDir }) {
   app.use(cors);
 
   app.use('/api/admin', createAdminRouter({ repository, sessions, passwordHash }));
+  app.use('/api', createBookingRouter(repository));
   app.use('/api', createPortfolioRouter(repository));
 
   app.use('/data', createDataRouter(repository));

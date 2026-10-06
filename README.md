@@ -119,6 +119,9 @@ npm run build      # dist/ 폴더 생성 (화면 + 데이터 복사본)
 | `GET /api/portfolio` | 전체 내용 (화면이 쓰는 주소) |
 | `GET /api/projects` | 프로젝트 목록 — **공개된 것만** |
 | `GET /api/projects/:id` | 프로젝트 1건 |
+| `GET /api/visit` | 찾아오는 길 (장소 · 좌표 · 문구) |
+| `GET /api/holidays` | 공휴일 목록 (예약 캘린더에서 막을 날짜) |
+| `POST /api/bookings` | 방문 예약 접수 → `backend/storage/bookings.json` 에 저장 |
 
 관리자 API (로그인 필요 · 헤더에 `Authorization: Bearer <토큰>`)
 

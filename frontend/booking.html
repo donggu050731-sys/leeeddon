@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="이동규 포트폴리오 - 방문 예약">
+  <title>방문 예약 | 이동규 포트폴리오</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- 스타일은 index.html 과 같은 파일을 같은 순서로 쓴다 (print.css 는 PDF 문서 전용이라 뺀다). -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- 배경 애니메이션 -->
+  <div class="bg-animation">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+
+  <!-- 네비게이션 -->
+  <nav class="navbar" id="navbar">
+    <a class="nav-logo" id="nav-logo" href="index.html"></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">소개</a></li>
+      <li><a href="index.html#projects">프로젝트</a></li>
+      <li><a href="visit.html">찾아오는 길</a></li>
+    </ul>
+  </nav>
+
+  <!--
+    아래 섹션은 비어 있는 '자리'다. 내용은 js/booking.js 가 데이터(API 또는 JSON)를 받아 채운다.
+    내용을 고칠 때는 이 파일이 아니라 backend/data/visit.json 을 고친다.
+  -->
+  <main>
+    <!-- ===== [BOOKING] 방문 예약 (캘린더 · 희망 시간 · 이름 · 이메일 · 방문 목적 · 동의) ===== -->
+    <section class="section visit-section" id="booking"></section>
+    <!-- ===== [BOOKING] 끝 ===== -->
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <!-- ===== [BOOKING] 확인 팝업: [예약하기]를 누르면 JS가 입력한 내용을 채워 보여준다 ===== -->
+  <dialog class="project-modal booking-modal" id="booking-modal" aria-labelledby="booking-modal-title">
+    <div class="modal-header">
+      <h3 class="modal-title" id="booking-modal-title"></h3>
+      <button type="button" class="modal-close" aria-label="닫기">×</button>
+    </div>
+    <div class="modal-body"></div>
+  </dialog>
+
+  <!-- 연결 설정 (서버 주소 등) -->
+  <script src="js/config.js"></script>
+  <script type="module" src="js/booking.js"></script>
+</body>
+</html>

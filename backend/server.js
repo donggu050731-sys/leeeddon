@@ -19,6 +19,8 @@ import { createSessionStore } from './src/auth/sessions.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(here, 'data');
+// 방문 예약처럼 방문자가 남긴 정보를 두는 곳 (git 에도, 공개 사이트에도 올라가지 않는다)
+const STORAGE_DIR = path.join(here, 'storage');
 const FRONTEND_DIR = path.join(here, '..', 'frontend');
 const ENV_FILE = path.join(here, '.env');
 
@@ -37,6 +39,7 @@ const HOST = process.env.HOST || '127.0.0.1';
 const repository = await createRepository({
   driver: DRIVER,
   dataDir: DATA_DIR,
+  storageDir: STORAGE_DIR,
   databaseUrl: process.env.DATABASE_URL
 });
 
@@ -46,6 +49,13 @@ const app = createApp({
   passwordHash: PASSWORD_HASH,
   frontendDir: FRONTEND_DIR
 });
+
+// 브라우저에 따라 'localhost' 를 IPv6 주소(::1)로 먼저 찾는 경우가 있다.
+// 127.0.0.1 만 열어두면 그때 "연결할 수 없음"이 뜨므로, 내 컴퓨터 전용 주소인 ::1 도 함께 연다.
+// (둘 다 내 컴퓨터 안에서만 통하는 주소라 다른 기기에서는 여전히 접속할 수 없다)
+if (HOST === '127.0.0.1') {
+  app.listen(PORT, '::1').on('error', () => {}); // IPv6 를 못 쓰는 컴퓨터에서는 그냥 넘어간다
+}
 
 app.listen(PORT, HOST, () => {
   console.log('포트폴리오 서버 실행 중 (' + (HOST === '127.0.0.1' ? '내 컴퓨터에서만 접속 가능' : HOST) + ')');

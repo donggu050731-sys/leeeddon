@@ -44,6 +44,21 @@ export function createDbRepository({ databaseUrl }) {
       throw new Error('아직 구현하지 않았습니다 (getJourney)');
     },
 
+    async getVisit() {
+      // TODO: visit.json 과 같은 모양 (찾아오는 길: 장소·좌표·문구·출처)
+      throw new Error('아직 구현하지 않았습니다 (getVisit)');
+    },
+
+    async getHolidays() {
+      // TODO: { source, items: [{ date, name }] } 모양 (holidays.json 과 같다)
+      throw new Error('아직 구현하지 않았습니다 (getHolidays)');
+    },
+
+    async addBooking(booking) {
+      // TODO: INSERT INTO bookings (id, created_at, status, date, time, name, email, purpose, consent)
+      throw new Error('아직 구현하지 않았습니다 (addBooking)');
+    },
+
     async saveProjects(projects) {
       // TODO: 관리자 화면에서 저장할 때 쓰인다.
       //       DB라면 통째로 덮어쓰기보다 INSERT / UPDATE / DELETE 로 나눠 구현하는 편이 낫다.

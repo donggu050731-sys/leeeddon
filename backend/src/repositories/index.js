@@ -9,14 +9,17 @@
      getHometown()         → 고향(수원) 객체
      getJourney()          → { label, title, items: [...] }
      saveProjects(projects) → 프로젝트 묶음 전체 저장 (관리자 화면이 쓴다)
+     getVisit()            → 찾아오는 길 · 방문 예약의 문구와 규칙
+     getHolidays()         → { source, items: [{ date, name }] }
+     addBooking(booking)   → 방문 예약 1건 저장
 */
 
 import { createJsonRepository } from './json.repository.js';
 
-export async function createRepository({ driver, dataDir, databaseUrl }) {
+export async function createRepository({ driver, dataDir, storageDir, databaseUrl }) {
   switch (driver) {
     case 'json':
-      return createJsonRepository({ dataDir });
+      return createJsonRepository({ dataDir, storageDir });
 
     // DB를 붙일 때: db.repository.example.js 를 db.repository.js 로 복사해 채운 뒤
     // 아래 두 줄의 주석을 풀면 DATA_DRIVER=db 로 전환된다.

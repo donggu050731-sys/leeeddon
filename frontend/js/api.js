@@ -9,6 +9,8 @@ const config = window.PORTFOLIO_CONFIG || {};
 const API_BASE = String(config.apiBase || '').replace(/\/$/, '');
 const STATIC_PATH = String(config.staticDataPath || 'data').replace(/\/$/, '');
 const USE_API = config.useApi !== false;
+const WEATHER_API = String(config.weatherApi || '');
+const BOOKING_ENDPOINT = String(config.bookingEndpoint || '');
 
 // 화면이 필요로 하는 데이터 묶음 (JSON 파일 이름과 같다)
 const SECTIONS = ['profile', 'projects', 'hometown', 'journey'];
@@ -65,4 +67,111 @@ export async function loadPortfolio() {
     }
   }
   return loadFromStaticFiles();
+}
+
+/**
+ * '찾아오는 길' 페이지 데이터를 가져온다 (visit.json).
+ * @returns {Promise<object>}
+ */
+export async function loadVisit() {
+  if (USE_API) {
+    try {
+      return unwrap(await readJson(API_BASE + '/api/visit'));
+    } catch (error) {
+      console.warn('[api] 백엔드에 연결하지 못해 JSON 파일로 대체합니다.', error);
+    }
+  }
+  return readJson(STATIC_PATH + '/visit.json');
+}
+
+/**
+ * 좌표의 현재 날씨를 외부 서비스(Open-Meteo)에서 가져온다.
+ * 화면 코드가 외부 서비스의 응답 모양을 몰라도 되도록 여기서 단순한 모양으로 바꿔 돌려준다.
+ * @param {{lat: number, lon: number}} place
+ * @returns {Promise<{temperature: number, temperatureUnit: string, humidity: number, humidityUnit: string, time: string}>}
+ */
+export async function loadWeather(place) {
+  const params = new URLSearchParams({
+    latitude: place.lat,
+    longitude: place.lon,
+    current: 'temperature_2m,relative_humidity_2m',
+    timezone: 'Asia/Seoul'
+  });
+  const body = await readJson(WEATHER_API + '?' + params);
+  const current = body.current;
+  const units = body.current_units;
+
+  return {
+    temperature: current.temperature_2m,
+    temperatureUnit: units.temperature_2m,
+    humidity: current.relative_humidity_2m,
+    humidityUnit: units.relative_humidity_2m,
+    time: current.time.replace('T', ' ')
+  };
+}
+
+/**
+ * 공휴일 목록을 가져온다 (holidays.json). 예약 캘린더에서 막을 날짜다.
+ * @returns {Promise<{source: object, items: {date: string, name: string}[]}>}
+ */
+export async function loadHolidays() {
+  if (USE_API) {
+    try {
+      return unwrap(await readJson(API_BASE + '/api/holidays'));
+    } catch (error) {
+      console.warn('[api] 백엔드에 연결하지 못해 JSON 파일로 대체합니다.', error);
+    }
+  }
+  return readJson(STATIC_PATH + '/holidays.json');
+}
+
+// 예약을 Formspree 로 보낸다. Formspree 가 그 내용을 내 이메일로 전달해 준다.
+// 메일에서 읽기 쉽도록 항목 이름을 화면의 라벨(선택한 날짜 · 희망 시간 …)로 붙인다.
+// 'email' 과 '_subject' 는 Formspree 가 정해둔 이름이다 (답장 주소 · 메일 제목으로 쓰인다).
+async function sendToFormspree(booking, labels) {
+  const fields = labels.fields;
+  const response = await fetch(BOOKING_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      _subject: labels.mail.subject + ' ' + booking.date + ' ' + booking.time + ' · ' + booking.name,
+      [fields.date.label]: booking.date,
+      [fields.time.label]: booking.time,
+      [fields.name.label]: booking.name,
+      email: booking.email,
+      [fields.purpose.label]: booking.purpose,
+      [labels.mail.consentLabel]: labels.consent
+    })
+  });
+
+  if (!response.ok) throw new Error('예약 전송 실패 (' + response.status + ')');
+}
+
+/**
+ * 방문 예약 1건을 보낸다.
+ * config.js 에 bookingEndpoint(Formspree)가 있으면 그곳으로 보내 이메일로 전달받고,
+ * 없으면 백엔드(/api/bookings)에 저장한다. 백엔드는 서버가 없는 곳(GitHub Pages 등)에서는 쓸 수 없다.
+ * 서버가 이유를 알려준 경우(입력 오류 등)에는 error.userMessage 에 그 문장을 담아 던진다.
+ * @param {{date: string, time: string, name: string, email: string, purpose: string, consent: boolean}} booking
+ * @param {object} labels visit.json 의 booking (메일에 붙일 항목 이름)
+ */
+export async function submitBooking(booking, labels) {
+  if (BOOKING_ENDPOINT) {
+    await sendToFormspree(booking, labels);
+    return;
+  }
+
+  const response = await fetch(API_BASE + '/api/bookings', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(booking)
+  });
+
+  const body = await response.json().catch(() => null);
+  if (!response.ok || !body || !body.data) {
+    const error = new Error('예약 저장 실패 (' + response.status + ')');
+    if (body && body.error && response.status < 500) error.userMessage = body.error.message;
+    throw error;
+  }
+  return body.data;
 }

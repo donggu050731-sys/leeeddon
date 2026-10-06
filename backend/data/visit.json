@@ -1,0 +1,111 @@
+{
+  "label": "Visit",
+  "title": "찾아오는 길",
+  "desc": "포트폴리오를 보고 연락이나 방문을 원하시는 분을 위한 안내입니다.",
+  "place": {
+    "name": "상명대학교 천안캠퍼스",
+    "address": "충청남도 천안시 동남구 상명대길 31",
+    "lat": 36.833,
+    "lon": 127.179
+  },
+  "map": {
+    "title": "지도",
+    "span": { "lat": 0.004, "lon": 0.007 },
+    "linkText": "큰 지도에서 보기"
+  },
+  "address": {
+    "title": "주소"
+  },
+  "weather": {
+    "title": "현재 날씨",
+    "temperatureLabel": "기온",
+    "humidityLabel": "습도",
+    "loading": "날씨를 불러오는 중입니다…",
+    "error": "지금은 날씨 정보를 불러올 수 없습니다.",
+    "timePrefix": "기준 시각"
+  },
+  "booking": {
+    "buttonText": "방문 예약하기",
+    "href": "booking.html",
+    "label": "Booking",
+    "title": "방문 예약",
+    "desc": "평일 13:00~18:00 사이에서 원하는 날짜와 시간을 골라 주세요.",
+    "backText": "찾아오는 길로 돌아가기",
+    "backHref": "visit.html",
+    "rules": {
+      "start": "13:00",
+      "end": "18:00",
+      "stepMinutes": 30,
+      "maxDaysAhead": 60
+    },
+    "calendar": {
+      "title": "방문 날짜",
+      "weekdays": ["일", "월", "화", "수", "목", "금", "토"],
+      "prev": "이전 달",
+      "next": "다음 달",
+      "hint": "주말과 공휴일은 선택할 수 없습니다.",
+      "holidaySourcePrefix": "공휴일 출처"
+    },
+    "requiredMark": "필수 입력",
+    "fields": {
+      "date": {
+        "label": "선택한 날짜",
+        "empty": "캘린더에서 날짜를 선택해 주세요"
+      },
+      "time": {
+        "label": "희망 시간",
+        "empty": "시간 선택"
+      },
+      "name": {
+        "label": "이름",
+        "placeholder": "홍길동",
+        "max": 40
+      },
+      "email": {
+        "label": "답장받을 이메일",
+        "placeholder": "name@example.com",
+        "error": "이메일 형식이 올바르지 않습니다. 예: name@example.com",
+        "max": 120
+      },
+      "purpose": {
+        "label": "방문 목적",
+        "placeholder": "예: 포트폴리오를 보고 상담을 하고 싶습니다.",
+        "max": 1000
+      }
+    },
+    "consent": "입력 정보를 예약 상담 목적으로 운영자에게 전달하는 것에 동의합니다.",
+    "mail": {
+      "subject": "[포트폴리오 방문 예약]",
+      "consentLabel": "정보 전달 동의"
+    },
+    "submitText": "예약하기",
+    "confirm": {
+      "title": "예약 내용 확인",
+      "desc": "아래 내용이 맞는지 마지막으로 확인해 주세요.",
+      "cancelText": "수정하기",
+      "submitText": "예약하기",
+      "sending": "예약을 접수하는 중입니다…"
+    },
+    "done": {
+      "title": "예약이 접수되었습니다",
+      "desc": "확인 후 입력하신 이메일로 연락드리겠습니다.",
+      "closeText": "닫기"
+    },
+    "fail": "예약을 접수하지 못했습니다. 잠시 후 다시 시도해 주세요."
+  },
+  "sources": {
+    "prefix": "출처",
+    "items": [
+      {
+        "label": "지도",
+        "name": "© OpenStreetMap contributors",
+        "href": "https://www.openstreetmap.org/copyright"
+      },
+      {
+        "label": "날씨",
+        "name": "Open-Meteo.com",
+        "href": "https://open-meteo.com/"
+      }
+    ]
+  }
+}

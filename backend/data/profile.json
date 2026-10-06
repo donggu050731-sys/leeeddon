@@ -11,6 +11,10 @@
     "cta": {
       "text": "더 알아보기",
       "href": "#about"
+    },
+    "visitCta": {
+      "text": "찾아오는 길",
+      "href": "visit.html"
     }
   },
   "about": {

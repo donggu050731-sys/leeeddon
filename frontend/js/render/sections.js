@@ -21,13 +21,23 @@ export function renderHero(section, profile) {
   cta.href = profile.hero.cta.href;
   cta.appendChild(el('span', 'arrow', '→'));
 
+  // 버튼 묶음: 더 알아보기 + 찾아오는 길 페이지(visit.html)로 가는 버튼
+  const actions = el('div', 'hero-actions');
+  actions.appendChild(cta);
+  if (profile.hero.visitCta) {
+    const visitCta = el('a', 'hero-cta hero-cta-outline', profile.hero.visitCta.text);
+    visitCta.href = profile.hero.visitCta.href;
+    visitCta.appendChild(el('span', 'arrow', '→'));
+    actions.appendChild(visitCta);
+  }
+
   append(
     content,
     badge,
     el('h1', 'hero-name', profile.name),
     el('p', 'hero-subtitle', profile.nameEn),
     el('p', 'hero-tagline', profile.hero.tagline),
-    cta
+    actions
   );
 
   const indicator = el('div', 'scroll-indicator');
